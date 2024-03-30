@@ -1,4 +1,5 @@
 #include "map.h"
+#include "subjects.h"
 
 const Rectangle subjects[9] =
 {
@@ -82,7 +83,7 @@ void initMap()
 		}
 		if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), subjects[7]))
 		{
-			;
+			maths();
 		}
 		if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), subjects[8]))
 		{
