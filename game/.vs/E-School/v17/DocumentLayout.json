@@ -1,0 +1,153 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CF2C651B-CB3D-4051-99C2-ED7B3432BFE5}|E-School\\E-School.vcxproj|C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\biology.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF2C651B-CB3D-4051-99C2-ED7B3432BFE5}|E-School\\E-School.vcxproj|solutionrelative:E-School\\biology.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF2C651B-CB3D-4051-99C2-ED7B3432BFE5}|E-School\\E-School.vcxproj|C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\textbooks.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF2C651B-CB3D-4051-99C2-ED7B3432BFE5}|E-School\\E-School.vcxproj|solutionrelative:E-School\\textbooks.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF2C651B-CB3D-4051-99C2-ED7B3432BFE5}|E-School\\E-School.vcxproj|C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\map.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF2C651B-CB3D-4051-99C2-ED7B3432BFE5}|E-School\\E-School.vcxproj|solutionrelative:E-School\\map.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF2C651B-CB3D-4051-99C2-ED7B3432BFE5}|E-School\\E-School.vcxproj|C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF2C651B-CB3D-4051-99C2-ED7B3432BFE5}|E-School\\E-School.vcxproj|solutionrelative:E-School\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF2C651B-CB3D-4051-99C2-ED7B3432BFE5}|E-School\\E-School.vcxproj|C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\menu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF2C651B-CB3D-4051-99C2-ED7B3432BFE5}|E-School\\E-School.vcxproj|solutionrelative:E-School\\menu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF2C651B-CB3D-4051-99C2-ED7B3432BFE5}|E-School\\E-School.vcxproj|C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF2C651B-CB3D-4051-99C2-ED7B3432BFE5}|E-School\\E-School.vcxproj|solutionrelative:E-School\\map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF2C651B-CB3D-4051-99C2-ED7B3432BFE5}|E-School\\E-School.vcxproj|C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\maths.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF2C651B-CB3D-4051-99C2-ED7B3432BFE5}|E-School\\E-School.vcxproj|solutionrelative:E-School\\maths.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF2C651B-CB3D-4051-99C2-ED7B3432BFE5}|E-School\\E-School.vcxproj|C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\subjects.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF2C651B-CB3D-4051-99C2-ED7B3432BFE5}|E-School\\E-School.vcxproj|solutionrelative:E-School\\subjects.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "pch.h",
+              "DocumentMoniker": "C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\pch.h",
+              "RelativeDocumentMoniker": "E-School\\pch.h",
+              "ToolTip": "C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\pch.h",
+              "RelativeToolTip": "E-School\\pch.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-03-30T18:35:08.822Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "textbooks.h",
+              "DocumentMoniker": "C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\textbooks.h",
+              "RelativeDocumentMoniker": "E-School\\textbooks.h",
+              "ToolTip": "C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\textbooks.h",
+              "RelativeToolTip": "E-School\\textbooks.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-03-30T17:05:18.787Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "biology.cpp",
+              "DocumentMoniker": "C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\biology.cpp",
+              "RelativeDocumentMoniker": "E-School\\biology.cpp",
+              "ToolTip": "C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\biology.cpp",
+              "RelativeToolTip": "E-School\\biology.cpp",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAuwG0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-03-30T16:53:06.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "subjects.h",
+              "DocumentMoniker": "C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\subjects.h",
+              "RelativeDocumentMoniker": "E-School\\subjects.h",
+              "ToolTip": "C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\subjects.h",
+              "RelativeToolTip": "E-School\\subjects.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-03-30T16:52:23.919Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "maths.cpp",
+              "DocumentMoniker": "C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\maths.cpp",
+              "RelativeDocumentMoniker": "E-School\\maths.cpp",
+              "ToolTip": "C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\maths.cpp",
+              "RelativeToolTip": "E-School\\maths.cpp",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAC4AAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-03-30T16:52:24.016Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "map.cpp",
+              "DocumentMoniker": "C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\map.cpp",
+              "RelativeDocumentMoniker": "E-School\\map.cpp",
+              "ToolTip": "C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\map.cpp",
+              "RelativeToolTip": "E-School\\map.cpp",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAAD8AAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-03-30T16:52:24.048Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "menu.cpp",
+              "DocumentMoniker": "C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\menu.cpp",
+              "RelativeDocumentMoniker": "E-School\\menu.cpp",
+              "ToolTip": "C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\menu.cpp",
+              "RelativeToolTip": "E-School\\menu.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-03-30T16:52:24.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "map.h",
+              "DocumentMoniker": "C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\map.h",
+              "RelativeDocumentMoniker": "E-School\\map.h",
+              "ToolTip": "C:\\Users\\Kaloyan\\Desktop\\fh\\school-project-assignment-mission-possible\\game\\E-School\\map.h",
+              "RelativeToolTip": "E-School\\map.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-03-30T16:52:24.131Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

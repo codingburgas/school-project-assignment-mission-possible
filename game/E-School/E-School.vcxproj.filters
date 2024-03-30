@@ -27,6 +27,9 @@
     <ClCompile Include="maths.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="biology.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -39,6 +42,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="subjects.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="textbooks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
