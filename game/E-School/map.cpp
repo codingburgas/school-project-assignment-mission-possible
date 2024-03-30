@@ -2,15 +2,15 @@
 
 const Rectangle subjects[9] =
 {
-	{23, 325, 200, 180}, //prg
-	{260, 60, 185, 265}, //bio
-	{452, 60, 195, 265}, //physics
-	{655, 60, 185, 265}, //chemistry
-	{846, 60, 185, 265}, //History
-	{345, 430, 185, 155}, //literature
-	{535, 430, 190, 155}, //english
-	{735, 430, 190, 155}, //math
-	{935, 430, 195, 155}, //Geography
+	{321, 428, 203, 173}, //prg
+	{559, 160, 188, 266}, //bio
+	{750, 160, 199, 266}, //physics
+	{952, 160, 189, 265}, //chemistry
+	{1144, 159, 186, 266}, //History
+	{644, 528, 187, 159}, //literature
+	{834, 528, 194, 159}, //english
+	{1031, 528, 198, 160}, //math
+	{1232, 528, 202, 159}, //Geography
 };
 
 
@@ -22,34 +22,35 @@ void initMap()
 	{
 		BeginDrawing();
 
-		DrawTexture(map, 0, 0, WHITE);
+		DrawTexture(map, 300, 100, WHITE);
 
-		DrawRectangleRec(subjects[0], BLACK);
-		DrawText("Programming", 33, 425, 20, WHITE);
+		DrawRectangleRec(subjects[0], BLUE);
+		DrawText("Programming", 330, 500, 30, BLACK);
 
-		DrawRectangleRec(subjects[1], BLACK);
-		DrawText("Biology", 260, 100, 20, WHITE);
+		DrawRectangleRec(subjects[1], GREEN);
+		DrawText("Biology", 595, 250, 30, BLACK);
 
-		DrawRectangleRec(subjects[2], BLACK);
-		DrawText("Physics", 455, 100, 20, WHITE);
+		DrawRectangleRec(subjects[2], DARKBLUE);
+		DrawText("Physics", 795, 250, 30, BLACK);
 
-		DrawRectangleRec(subjects[3], BLACK);
-		DrawText("Chemistry", 660, 100, 20, WHITE);
+		DrawRectangleRec(subjects[3], PURPLE);
+		DrawText("Chemistry", 975, 250, 30, BLACK);
 
-		DrawRectangleRec(subjects[4], BLACK);
-		DrawText("Chemistry", 850, 100, 20, WHITE);
+		DrawRectangleRec(subjects[4], YELLOW);
+		DrawText("History", 1175, 250, 30, BLACK);
 
-		DrawRectangleRec(subjects[5], BLACK);
-		DrawText("Literature", 350, 460, 20, WHITE);
+		DrawRectangleRec(subjects[5], ORANGE);
+		DrawText("Literature", 657, 585, 30, BLACK);
 
-		DrawRectangleRec(subjects[6], BLACK);
-		DrawText("English", 550, 460, 20, WHITE);
+		DrawRectangleRec(subjects[6], RED);
+		DrawText("English", 880, 587, 30, BLACK);
 
-		DrawRectangleRec(subjects[7], BLACK);
-		DrawText("Math", 750, 460, 20, WHITE);
+		DrawRectangleRec(subjects[7], BROWN);
+		DrawText("Math", 1094, 592, 30, BLACK);
 
-		DrawRectangleRec(subjects[8], BLACK);
-		DrawText("Geography", 950, 460, 20, WHITE);
+		DrawRectangleRec(subjects[8], DARKGREEN);
+		DrawText("Geography", 1255, 592, 30, BLACK);
+		
 
 		if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), subjects[0]))
 		{
