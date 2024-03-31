@@ -2,4 +2,4 @@
 
 #include "pch.h"
 
-void bioTextBook();
+void bioTextBook(Camera camera);

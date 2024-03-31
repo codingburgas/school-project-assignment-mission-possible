@@ -1,6 +1,5 @@
 #include "textbooks.h"
 
-Camera camera = { 0 };
 
 float distanceCalc(Vector3 a, Vector3 b) {
     float dx = b.x - a.x;
@@ -8,7 +7,7 @@ float distanceCalc(Vector3 a, Vector3 b) {
     float dz = b.z - a.z;
     return sqrt(dx * dx + dy * dy + dz * dz);
 }
-void bioTextBook()
+void bioTextBook(Camera camera)
 {
     unsigned int pageNumber = 1;
     Vector3 cubePosition = { 0.0f, 1.5f, -7.5f };
@@ -21,7 +20,7 @@ void bioTextBook()
     {
         EnableCursor();
         EndMode3D();
-        while (true)
+        while (!WindowShouldClose())
         {
             BeginDrawing();
             ClearBackground(WHITE);
@@ -67,6 +66,7 @@ void bioTextBook()
                 pageNumber--;
             }
             EndDrawing();
+            SetExitKey(KEY_ESCAPE);
         }
     }
 }
