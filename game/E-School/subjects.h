@@ -18,5 +18,4 @@ void chemistry();
 
 void english();
 
-
-
+void drawFurnitures();

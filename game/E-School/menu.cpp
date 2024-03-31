@@ -1,3 +1,4 @@
+
 #include "menu.h"
 #include "map.h"
 
@@ -9,8 +10,8 @@ void menu()
 
 	bool exitGame = WindowShouldClose();
 
-	const Rectangle startButton = { (screenWidth / 2) + 340, (screenHeight / 2) - 30, 270, 90  };
-	const Rectangle rulesButton = { (screenWidth / 2) + 340, (screenHeight / 2) + 125, 270, 90};
+	const Rectangle startButton = { (screenWidth / 2) + 340, (screenHeight / 2) - 30, 270, 90 };
+	const Rectangle rulesButton = { (screenWidth / 2) + 340, (screenHeight / 2) + 125, 270, 90 };
 	const Rectangle exitButton = { (screenWidth / 2) + 340, (screenHeight / 2) + 280, 270, 90 };
 
 	while (!exitGame)
@@ -22,7 +23,7 @@ void menu()
 		bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, startButton);
 		// Set new colors for hovering the button and draw text
 		DrawRectangleRec(startButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
-		DrawText("Start", screenWidth / 2 + 400, screenHeight / 2 - 10, 50, WHITE);	
+		DrawText("Start", screenWidth / 2 + 400, screenHeight / 2 - 10, 50, WHITE);
 		if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
 			initMap();
 		}

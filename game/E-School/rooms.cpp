@@ -1,8 +1,26 @@
 #include "subjects.h"
 #include "textbooks.h"
-
+void drawFurnitures(Model chair, Model desk, Model deskChair, Model chin)
+{
+    for(int i=0; i<=16;i+=4)
+    {
+        for (int j = 0; j <= 8; j += 4) {
+          DrawModel(chair, { -7.8f+i,0.1f,7.0f-j }, 0.03, GOLD);
+          DrawModel(chin, { -7.8f+i,-0.1f,6.5f-j }, 0.015, GOLD);
+        }
+        
+    }
+    DrawModel(desk, { 0.0f,0.2f,-7.0f }, 0.015, GRAY);
+    DrawModel(deskChair, { 0.0f,0.2f,-8.0f }, 0.6, BLACK);
+    
+}
 void maths()
 {
+    Model chair = LoadModel("objects/chair.obj");
+    Model desk = LoadModel("objects/desk.obj");
+    Model deskChair = LoadModel("objects/deskChair.obj");
+    Model chin = LoadModel("objects/chin.obj");
+
     const int screenWidth = 1920;
     const int screenHeight = 975;
 
@@ -38,6 +56,8 @@ void maths()
         DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
+
+        drawFurnitures(chair, desk, deskChair, chin);
 
         EndMode3D();
         EndDrawing();
@@ -49,10 +69,13 @@ void maths()
 
 }
 
-
-
 void history()
 {
+    Model chair = LoadModel("objects/chair.obj");
+    Model desk = LoadModel("objects/desk.obj");
+    Model deskChair = LoadModel("objects/deskChair.obj");
+    Model chin = LoadModel("objects/chin.obj");
+
     const int screenWidth = 1920;
     const int screenHeight = 975;
 
@@ -88,6 +111,8 @@ void history()
         DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
+
+        drawFurnitures(chair, desk, deskChair, chin);
 
         EndMode3D();
         EndDrawing();
@@ -100,6 +125,11 @@ void history()
 }
 void physics()
 {
+    Model chair = LoadModel("objects/chair.obj");
+    Model desk = LoadModel("objects/desk.obj");
+    Model deskChair = LoadModel("objects/deskChair.obj");
+    Model chin = LoadModel("objects/chin.obj");
+
     const int screenWidth = 1920;
     const int screenHeight = 975;
 
@@ -135,6 +165,8 @@ void physics()
         DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
+
+        drawFurnitures(chair, desk, deskChair, chin);
 
         EndMode3D();
         EndDrawing();
@@ -147,6 +179,11 @@ void physics()
 }
 void literature()
 {
+    Model chair = LoadModel("objects/chair.obj");
+    Model desk = LoadModel("objects/desk.obj");
+    Model deskChair = LoadModel("objects/deskChair.obj");
+    Model chin = LoadModel("objects/chin.obj");
+
     const int screenWidth = 1920;
     const int screenHeight = 975;
 
@@ -182,6 +219,8 @@ void literature()
         DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
+
+        drawFurnitures(chair, desk, deskChair, chin);
 
         EndMode3D();
         EndDrawing();
@@ -194,6 +233,11 @@ void literature()
 }
 void chemistry()
 {
+    Model chair = LoadModel("objects/chair.obj");
+    Model desk = LoadModel("objects/desk.obj");
+    Model deskChair = LoadModel("objects/deskChair.obj");
+    Model chin = LoadModel("objects/chin.obj");
+
     const int screenWidth = 1920;
     const int screenHeight = 975;
 
@@ -229,6 +273,8 @@ void chemistry()
         DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
+
+        drawFurnitures(chair, desk, deskChair, chin);
 
         EndMode3D();
         EndDrawing();
@@ -241,6 +287,11 @@ void chemistry()
 }
 void english()
 {
+    Model chair = LoadModel("objects/chair.obj");
+    Model desk = LoadModel("objects/desk.obj");
+    Model deskChair = LoadModel("objects/deskChair.obj");
+    Model chin = LoadModel("objects/chin.obj");
+
     const int screenWidth = 1920;
     const int screenHeight = 975;
 
@@ -277,6 +328,8 @@ void english()
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
 
+        drawFurnitures(chair, desk, deskChair, chin);
+
         EndMode3D();
         EndDrawing();
 
@@ -287,12 +340,13 @@ void english()
 
 }
 
-
-
-
-
 void biology()
 {
+    Model chair = LoadModel("objects/chair.obj");
+    Model desk = LoadModel("objects/desk.obj");
+    Model deskChair = LoadModel("objects/deskChair.obj");
+    Model chin = LoadModel("objects/chin.obj");
+
     Camera camera = { 0 };
     camera.position = { 0.0f, 2.0f, 4.0f };    // Camera position
     camera.target = { 0.0f, 2.0f, 0.0f };      // Camera looking at point
@@ -328,7 +382,10 @@ void biology()
 
         DrawCube({ 0.0f, 1.5f, -7.5f }, 1.0f, 1.0f, 1.0f, GOLD);
 
+        drawFurnitures(chair,desk, deskChair,chin);
+
         EndMode3D();
+
         bioTextBook(camera);
         EndDrawing();
 
@@ -340,6 +397,11 @@ void biology()
 
 void geography()
 {
+    Model chair = LoadModel("objects/chair.obj");
+    Model desk = LoadModel("objects/desk.obj");
+    Model deskChair = LoadModel("objects/deskChair.obj");
+    Model chin = LoadModel("objects/chin.obj");
+
     const int screenWidth = 1920;
     const int screenHeight = 975;
 
@@ -375,6 +437,8 @@ void geography()
         DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
+
+        drawFurnitures(chair, desk, deskChair, chin);
 
         EndMode3D();
         EndDrawing();
