@@ -24,10 +24,10 @@
     <ClCompile Include="map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="maths.cpp">
+    <ClCompile Include="rooms.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="biology.cpp">
+    <ClCompile Include="textbooks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

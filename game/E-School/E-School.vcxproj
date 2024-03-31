@@ -130,11 +130,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="biology.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map.cpp" />
-    <ClCompile Include="maths.cpp" />
+    <ClCompile Include="rooms.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="textbooks.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="map.h" />
