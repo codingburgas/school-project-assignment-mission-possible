@@ -2,6 +2,7 @@
 #include "textbooks.h"
 void drawFurnitures(Model chair, Model desk, Model deskChair, Model chin)
 {
+    
     for(int i=0; i<=16;i+=4)
     {
         for (int j = 0; j <= 8; j += 4) {
@@ -25,7 +26,7 @@ void maths()
     const int screenHeight = 975;
 
     Camera camera = { 0 };
-    camera.position = { 0.0f, 2.0f, 4.0f };    // Camera position
+	camera.position = { 9.0f, 2.0f, -7.0f };   // Camera position
     camera.target = { 0.0f, 2.0f, 0.0f };      // Camera looking at point
     camera.up = { 0.0f, 1.0f, 0.0f };          // Camera up vector (rotation towards target)
     camera.fovy = 60.0f;                                // Camera field-of-view Y
@@ -56,7 +57,7 @@ void maths()
         DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
-
+        
         drawFurnitures(chair, desk, deskChair, chin);
 
         EndMode3D();
@@ -80,7 +81,7 @@ void history()
     const int screenHeight = 975;
 
     Camera camera = { 0 };
-    camera.position = { 0.0f, 2.0f, 4.0f };    // Camera position
+	camera.position = { 9.0f, 2.0f, -7.0f };   // Camera position
     camera.target = { 0.0f, 2.0f, 0.0f };      // Camera looking at point
     camera.up = { 0.0f, 1.0f, 0.0f };          // Camera up vector (rotation towards target)
     camera.fovy = 60.0f;                                // Camera field-of-view Y
@@ -134,7 +135,7 @@ void physics()
     const int screenHeight = 975;
 
     Camera camera = { 0 };
-    camera.position = { 0.0f, 2.0f, 4.0f };    // Camera position
+	camera.position = { 9.0f, 2.0f, -7.0f };   // Camera position
     camera.target = { 0.0f, 2.0f, 0.0f };      // Camera looking at point
     camera.up = { 0.0f, 1.0f, 0.0f };          // Camera up vector (rotation towards target)
     camera.fovy = 60.0f;                                // Camera field-of-view Y
@@ -188,7 +189,7 @@ void literature()
     const int screenHeight = 975;
 
     Camera camera = { 0 };
-    camera.position = { 0.0f, 2.0f, 4.0f };    // Camera position
+	camera.position = { 9.0f, 2.0f, -7.0f };   // Camera position
     camera.target = { 0.0f, 2.0f, 0.0f };      // Camera looking at point
     camera.up = { 0.0f, 1.0f, 0.0f };          // Camera up vector (rotation towards target)
     camera.fovy = 60.0f;                                // Camera field-of-view Y
@@ -242,7 +243,7 @@ void chemistry()
     const int screenHeight = 975;
 
     Camera camera = { 0 };
-    camera.position = { 0.0f, 2.0f, 4.0f };    // Camera position
+	camera.position = { 9.0f, 2.0f, -7.0f };   // Camera position
     camera.target = { 0.0f, 2.0f, 0.0f };      // Camera looking at point
     camera.up = { 0.0f, 1.0f, 0.0f };          // Camera up vector (rotation towards target)
     camera.fovy = 60.0f;                                // Camera field-of-view Y
@@ -296,7 +297,7 @@ void english()
     const int screenHeight = 975;
 
     Camera camera = { 0 };
-    camera.position = { 0.0f, 2.0f, 4.0f };    // Camera position
+	camera.position = { 9.0f, 2.0f, -7.0f };   // Camera position
     camera.target = { 0.0f, 2.0f, 0.0f };      // Camera looking at point
     camera.up = { 0.0f, 1.0f, 0.0f };          // Camera up vector (rotation towards target)
     camera.fovy = 60.0f;                                // Camera field-of-view Y
@@ -348,7 +349,7 @@ void biology()
     Model chin = LoadModel("objects/chin.obj");
 
     Camera camera = { 0 };
-    camera.position = { 0.0f, 2.0f, 4.0f };    // Camera position
+	camera.position = { 9.0f, 2.0f, -7.0f };    // Camera position
     camera.target = { 0.0f, 2.0f, 0.0f };      // Camera looking at point
     camera.up = { 0.0f, 1.0f, 0.0f };          // Camera up vector (rotation towards target)
     camera.fovy = 60.0f;                                // Camera field-of-view Y
@@ -406,7 +407,7 @@ void geography()
     const int screenHeight = 975;
 
     Camera camera = { 0 };
-    camera.position = { 0.0f, 2.0f, 4.0f };    // Camera position
+	camera.position = { 9.0f, 2.0f, -7.0f };  // Camera position
     camera.target = { 0.0f, 2.0f, 0.0f };      // Camera looking at point
     camera.up = { 0.0f, 1.0f, 0.0f };          // Camera up vector (rotation towards target)
     camera.fovy = 60.0f;                                // Camera field-of-view Y

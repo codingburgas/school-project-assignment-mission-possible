@@ -1,8 +1,10 @@
 ﻿  rooms.cpp
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(8,53): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(9,53): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(13,42): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(14,47): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(10,53): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(14,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(15,47): warning C4305: 'argument': truncation from 'double' to 'float'
+  textbooks.cpp
+  Generating Code...
   E-School.vcxproj -> C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\x64\Debug\E-School.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.
