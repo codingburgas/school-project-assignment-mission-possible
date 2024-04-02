@@ -19,3 +19,7 @@ void chemistry();
 void english();
 
 void drawFurnitures();
+
+bool checkCollision();
+
+void collisions();
