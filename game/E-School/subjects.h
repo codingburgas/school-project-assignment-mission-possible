@@ -18,8 +18,12 @@ void chemistry();
 
 void english();
 
+void programming();
+
 void drawFurnitures();
 
 bool checkCollision();
 
 void collisions();
+
+void drawFurnituresProgramming();
