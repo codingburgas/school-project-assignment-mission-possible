@@ -1,18 +1,10 @@
-﻿  rooms.cpp
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(27,53): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(28,60): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(32,42): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(33,47): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(39,47): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(40,42): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(42,37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(44,45): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(47,34): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(49,46): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(51,37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(53,56): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(56,37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(58,57): warning C4305: 'argument': truncation from 'double' to 'float'
-  E-School.vcxproj -> C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\x64\Debug\E-School.exe
-  'pwsh.exe' is not recognized as an internal or external command,
-  operable program or batch file.
+﻿  login.cpp
+C:\Users\HP\Desktop\Mission Possible\school-project-assignment-mission-possible\game\E-School\login.cpp(12,58): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\HP\Desktop\Mission Possible\school-project-assignment-mission-possible\game\E-School\login.cpp(12,58): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\Mission Possible\school-project-assignment-mission-possible\game\E-School\login.cpp(12,85): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\HP\Desktop\Mission Possible\school-project-assignment-mission-possible\game\E-School\login.cpp(12,85): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\Mission Possible\school-project-assignment-mission-possible\game\E-School\login.cpp(16,58): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\HP\Desktop\Mission Possible\school-project-assignment-mission-possible\game\E-School\login.cpp(16,58): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\Mission Possible\school-project-assignment-mission-possible\game\E-School\login.cpp(16,87): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\HP\Desktop\Mission Possible\school-project-assignment-mission-possible\game\E-School\login.cpp(16,87): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  E-School.vcxproj -> C:\Users\HP\Desktop\Mission Possible\school-project-assignment-mission-possible\game\x64\Debug\E-School.exe

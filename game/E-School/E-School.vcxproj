@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map.cpp" />
     <ClCompile Include="rooms.cpp" />
@@ -137,8 +138,9 @@
     <ClCompile Include="textbooks.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="login.h" />
     <ClInclude Include="map.h" />
-    <ClInclude Include="subjects.h" />
+    <ClInclude Include="rooms.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="textbooks.h" />

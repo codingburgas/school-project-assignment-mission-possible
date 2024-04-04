@@ -1,4 +1,4 @@
-#include "subjects.h"
+#include "rooms.h"
 #include "textbooks.h"
 
 bool checkCollision(const BoundingBox& box1, const BoundingBox& box2) {
@@ -559,6 +559,7 @@ void biology()
         EndMode3D();
 
         bioTextBook(camera);
+        DisableCursor();
         EndDrawing();
 
     }

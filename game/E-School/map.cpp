@@ -1,5 +1,5 @@
 #include "map.h"
-#include "subjects.h"
+#include "rooms.h"
 
 const Rectangle subjects[9] =
 {

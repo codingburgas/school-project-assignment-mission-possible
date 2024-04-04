@@ -6,15 +6,14 @@ void menu()
 {
 	const int screenWidth = 1920;
 	const int screenHeight = 975;
-	InitWindow(screenWidth, screenHeight, "Mission: Possible");
 
-	bool exitGame = WindowShouldClose();
+
 
 	const Rectangle startButton = { (screenWidth / 2) + 340, (screenHeight / 2) - 30, 270, 90 };
 	const Rectangle rulesButton = { (screenWidth / 2) + 340, (screenHeight / 2) + 125, 270, 90 };
 	const Rectangle exitButton = { (screenWidth / 2) + 340, (screenHeight / 2) + 280, 270, 90 };
 
-	while (!exitGame)
+	while (!WindowShouldClose())
 	{
 		BeginDrawing();
 		ClearBackground(WHITE);
@@ -44,7 +43,7 @@ void menu()
 		DrawText("Exit", screenWidth / 2 + 425, screenHeight / 2 + 300, 50, WHITE);
 		// Handle click with the mouse over button
 		if (isMouseOverButtonExit && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-			exitGame = true;
+			CloseWindow();
 		}
 
 		EndDrawing();

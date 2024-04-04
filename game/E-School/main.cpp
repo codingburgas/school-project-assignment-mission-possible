@@ -1,5 +1,5 @@
-#include "menu.h"
+#include "login.h"
 int main()
 {
-	menu();
+	startingScreen();
 }
