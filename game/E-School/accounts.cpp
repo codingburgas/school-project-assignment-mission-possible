@@ -1,15 +1,14 @@
 #include "accounts.h"
 #include "menu.h"
+#include "accessData.h"
 
 
 void signup()
 {
-    bool isAnswerTrue = false;
-
-    char email[50] = "\0";
-    char username[50] = "\0";
-    char password[50] = "\0";
-    char repeatPassword[50] = "\0";
+    char email[51] = ""; // Increase size by 1 for null terminator
+    char username[51] = "";
+    char password[51] = "";
+    char repeatPassword[51] = "";
     int emailLetterCount = 0;
     int usernameLetterCount = 0;
     int passwordLetterCount = 0;
@@ -24,8 +23,9 @@ void signup()
 
     bool mouseOnInputBox[4] = { false };
 
-    int framesCounter = 0;
     const Rectangle signupButton = { GetScreenWidth() / 2 - 115, GetScreenHeight() / 2 + 350, 270, 90 };
+
+    DataAccess account;
 
     SetTargetFPS(60);
 
@@ -33,9 +33,9 @@ void signup()
     {
         Vector2 mousePosition = GetMousePosition();
 
+        // Input box hover check
         for (int i = 0; i < 4; ++i) {
-            if (CheckCollisionPointRec(mousePosition, inputBoxes[i])) mouseOnInputBox[i] = true;
-            else mouseOnInputBox[i] = false;
+            mouseOnInputBox[i] = CheckCollisionPointRec(mousePosition, inputBoxes[i]);
         }
 
         bool anyInputBoxHovered = false;
@@ -46,17 +46,14 @@ void signup()
             }
         }
 
-        if (anyInputBoxHovered) SetMouseCursor(MOUSE_CURSOR_IBEAM);
-        else SetMouseCursor(MOUSE_CURSOR_DEFAULT);
+        SetMouseCursor(anyInputBoxHovered ? MOUSE_CURSOR_IBEAM : MOUSE_CURSOR_DEFAULT);
 
+        // Input handling
         for (int i = 0; i < 4; ++i) {
-            if (mouseOnInputBox[i])
-            {
+            if (mouseOnInputBox[i]) {
                 int key = GetCharPressed();
-                while (key > 0)
-                {
-                    if ((key >= 32) && (key <= 125))
-                    {
+                while (key > 0) {
+                    if ((key >= 32) && (key <= 125)) {
                         switch (i) {
                         case 0: // email box
                             if (emailLetterCount < 50) {
@@ -120,16 +117,15 @@ void signup()
             }
         }
 
+        // Sign up button click check
         if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && CheckCollisionPointRec(mousePosition, signupButton))
         {
-            // Check if passwords match before proceeding
             if (strcmp(password, repeatPassword) == 0) {
-                // Passwords match, proceed to menu
+                account.addAccount(email, username, password);
                 menu();
             }
             else {
-                // Passwords don't match, handle error
-                // For simplicity, we just clear the password fields here
+                // Clear password fields if passwords don't match
                 password[0] = '\0';
                 repeatPassword[0] = '\0';
                 passwordLetterCount = 0;
@@ -137,15 +133,16 @@ void signup()
             }
         }
 
+        // Drawing
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
 
         DrawText("You don't have an account? Sign up from here!", GetScreenWidth() / 2 - 475, GetScreenHeight() / 2 - 400, 40, BLACK);
 
-        DrawText("Email:", GetScreenWidth() / 2 - 47, GetScreenHeight()/2 -307, 40, BLACK);
+        DrawText("Email:", GetScreenWidth() / 2 - 47, GetScreenHeight() / 2 - 307, 40, BLACK);
         DrawText("Username:", GetScreenWidth() / 2 - 90, GetScreenHeight() / 2 - 175, 40, BLACK);
-        DrawText("Password:", GetScreenWidth() / 2 - 90, GetScreenHeight() / 2 - 42,40, BLACK);
+        DrawText("Password:", GetScreenWidth() / 2 - 90, GetScreenHeight() / 2 - 42, 40, BLACK);
         DrawText("Repeat Password:", GetScreenWidth() / 2 - 165, GetScreenHeight() / 2 + 87, 40, BLACK);
 
         for (int i = 0; i < 4; ++i) {
@@ -154,13 +151,10 @@ void signup()
 
         DrawText(email, emailBox.x + 5, emailBox.y + 8, 40, BLACK);
         DrawText(username, usernameBox.x + 5, usernameBox.y + 8, 40, BLACK);
-        /*DrawText(password, passwordBox.x + 5, passwordBox.y + 8, 40, BLACK);
-        DrawText(repeatPassword, repeatPasswordBox.x + 5,repeatPasswordBox.y + 8, 40, BLACK);*/
         DrawText(TextFormat("%.*s", passwordLetterCount, "*************************************"), passwordBox.x + 5, passwordBox.y + 8, 40, BLACK);
         DrawText(TextFormat("%.*s", repeatPasswordLetterCount, "*************************************"), repeatPasswordBox.x + 5, repeatPasswordBox.y + 8, 40, BLACK);
 
-        bool isMouseOverButtonLogin = CheckCollisionPointRec(mousePosition, signupButton);
-        DrawRectangleRec(signupButton, (isMouseOverButtonLogin ? GREEN : LIME));
+        DrawRectangleRec(signupButton, (CheckCollisionPointRec(mousePosition, signupButton) ? GREEN : LIME));
         DrawText("Sign up", GetScreenWidth() / 2 - 55, GetScreenHeight() / 2 + 370, 50, WHITE);
 
         EndDrawing();
