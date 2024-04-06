@@ -7,27 +7,25 @@ bool checkCollision(const BoundingBox& box1, const BoundingBox& box2) {
         (box1.min.z <= box2.max.z && box1.max.z >= box2.min.z);
 }
 
-void collisions(Camera& camera, Vector3 previousCameraPosition, BoundingBox cameraBox, BoundingBox objectBox)
+void collisions(Camera& camera, Vector3 previousCameraPosition, BoundingBox cameraBox, BoundingBox wallBox)
 {
 
-    if (!checkCollision(cameraBox, objectBox)) {
-        camera.position = previousCameraPosition;
+    if (checkCollision(cameraBox, wallBox)) {
 
     }
     else {
-
+        camera.position = previousCameraPosition;
     }
 }
 
 void drawFurnitures(Model chair, Model desk, Model deskChair, Model studentDesk, Model board, Model laptop)
 {
-   
+
     for (int i = 0; i <= 16; i += 4)
     {
         for (int j = 0; j <= 8; j += 4) {
             DrawModel(chair, { -7.8f + i,0.1f,7.0f - j }, 0.03, WHITE);
             DrawModel(studentDesk, { -7.8f + i,-0.1f,6.5f - j }, 0.015, BLACK);
-            
         }
 
     }
@@ -142,13 +140,7 @@ void maths()
 
     SetExitKey(KEY_ESCAPE);
     EnableCursor();
-    UnloadModel(chair);
-    UnloadModel(desk);
-    UnloadModel(deskChair);
-    UnloadModel(studentDesk);
-    UnloadModel(board);
-    UnloadModel(laptop);
-    
+
 }
 
 void history()
@@ -223,12 +215,6 @@ void history()
 
     SetExitKey(KEY_ESCAPE);
     EnableCursor();
-	UnloadModel(chair);
-	UnloadModel(desk);
-	UnloadModel(deskChair);
-	UnloadModel(studentDesk);
-	UnloadModel(board);
-	UnloadModel(laptop);
 
 }
 void physics()
@@ -302,12 +288,6 @@ void physics()
 
     SetExitKey(KEY_ESCAPE);
     EnableCursor();
-	UnloadModel(chair);
-	UnloadModel(desk);
-	UnloadModel(deskChair);
-	UnloadModel(studentDesk);
-	UnloadModel(board);
-	UnloadModel(laptop);
 
 }
 void literature()
@@ -382,12 +362,6 @@ void literature()
 
     SetExitKey(KEY_ESCAPE);
     EnableCursor();
-	UnloadModel(chair);
-	UnloadModel(desk);
-	UnloadModel(deskChair);
-	UnloadModel(studentDesk);
-	UnloadModel(board);
-	UnloadModel(laptop);
 
 }
 void chemistry()
@@ -464,13 +438,7 @@ void chemistry()
 
     SetExitKey(KEY_ESCAPE);
     EnableCursor();
-    UnloadModel(chair);
-    UnloadModel(desk);
-    UnloadModel(deskChair);
-    UnloadModel(studentDesk);
-    UnloadModel(board);
-    UnloadModel(laptop);
-    UnloadModel(tubes);
+
 }
 void english()
 {
@@ -545,12 +513,6 @@ void english()
 
     SetExitKey(KEY_ESCAPE);
     EnableCursor();
-	UnloadModel(chair);
-	UnloadModel(desk);
-	UnloadModel(deskChair);
-	UnloadModel(studentDesk);
-	UnloadModel(board);
-	UnloadModel(laptop);
 
 }
 
@@ -631,13 +593,6 @@ void biology()
 
     SetExitKey(KEY_ESCAPE);
     EnableCursor();
-	UnloadModel(chair);
-	UnloadModel(desk);
-	UnloadModel(deskChair);
-	UnloadModel(studentDesk);
-	UnloadModel(board);
-	UnloadModel(laptop);
-    UnloadModel(skeleton);
 }
 
 void geography()
@@ -716,13 +671,6 @@ void geography()
 
     SetExitKey(KEY_ESCAPE);
     EnableCursor();
-	UnloadModel(chair);
-	UnloadModel(desk);
-	UnloadModel(deskChair);
-	UnloadModel(studentDesk);
-	UnloadModel(board);
-	UnloadModel(laptop);
-	UnloadModel(globe);
 
 }
 
@@ -787,16 +735,12 @@ void programming()
         DrawCube({ 7.5f, 6.7f, 0.0f }, 28.5f, 0.2f, 21.0f, LIGHTGRAY);
 
         drawFurnituresProgramming(desk, deskChair, chair, chairOther);
+        DrawBoundingBox(wallBox, RED);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
 
         EndMode3D();
         EndDrawing();
     }
     EnableCursor();
-    UnloadModel(chair);
-    UnloadModel(chairOther);
-    UnloadModel(desk);
-    UnloadModel(deskChair);
-    
 
 }

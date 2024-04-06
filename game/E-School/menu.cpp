@@ -7,7 +7,6 @@ void menu()
 	const int screenHeight = 975;
 
 
-
 	const Rectangle startButton = { (screenWidth / 2) + 340, (screenHeight / 2) - 30, 270, 90 };
 	const Rectangle rulesButton = { (screenWidth / 2) + 340, (screenHeight / 2) + 125, 270, 90 };
 	const Rectangle exitButton = { (screenWidth / 2) + 340, (screenHeight / 2) + 280, 270, 90 };
@@ -44,7 +43,6 @@ void menu()
 		if (isMouseOverButtonExit && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
 			CloseWindow();
 		}
-
 		EndDrawing();
 	}
 

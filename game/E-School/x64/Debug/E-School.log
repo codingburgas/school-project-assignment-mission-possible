@@ -1,21 +1,54 @@
-﻿  rooms.cpp
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(28,59): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(29,66): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(36,42): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(38,47): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(46,60): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(53,47): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(54,42): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(56,37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(58,51): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(61,37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(63,52): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(65,37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(67,56): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(70,37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(72,57): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(623,52): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(710,49): warning C4305: 'argument': truncation from 'double' to 'float'
-  E-School.vcxproj -> C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\x64\Debug\E-School.exe
-  'pwsh.exe' is not recognized as an internal or external command,
-  operable program or batch file.
+﻿  accounts.cpp
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(17,58): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(17,58): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(17,87): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(17,87): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(18,58): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(18,58): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(18,83): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(18,83): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(19,64): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(19,64): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(19,93): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(19,93): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(25,59): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(25,59): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(25,88): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(25,88): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(135,100): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(135,79): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(135,62): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(135,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(138,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(138,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(139,133): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(139,114): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(140,151): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(140,126): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(157,58): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(157,58): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(157,87): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(157,87): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(158,58): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(158,58): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(158,87): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(158,87): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(163,58): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(163,58): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(163,87): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(163,87): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(238,88): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(238,69): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(238,54): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(238,39): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(239,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(239,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(241,88): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(241,69): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(241,54): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(241,39): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(242,106): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\E-School\accounts.cpp(242,87): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  validation.cpp
+  Generating Code...
+  E-School.vcxproj -> C:\Users\HP\Desktop\pjpifja\school-project-assignment-mission-possible\game\x64\Debug\E-School.exe
