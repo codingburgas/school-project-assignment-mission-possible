@@ -1,22 +1,24 @@
 #include "map.h"
 #include "rooms.h"
 
-const Rectangle subjects[9] =
-{
-	{321, 428, 203, 173}, //prg
-	{559, 160, 188, 266}, //bio
-	{750, 160, 199, 266}, //physics
-	{952, 160, 189, 265}, //chemistry
-	{1144, 159, 186, 266}, //History
-	{644, 528, 187, 159}, //literature
-	{834, 528, 194, 159}, //english
-	{1031, 528, 198, 160}, //math
-	{1232, 528, 202, 159}, //Geography
-};
-
-
 void initMap()
 {
+	const int screenWidth = 1920;
+	const int screenHeight = 975;
+	
+	const Rectangle subjects[9] =
+	{
+		{321, 428, 203, 173}, //prg
+		{559, 160, 188, 266}, //bio
+		{750, 160, 199, 266}, //physics
+		{952, 160, 189, 265}, //chemistry
+		{1144, 159, 186, 266}, //History
+		{644, 528, 187, 159}, //literature
+		{834, 528, 194, 159}, //english
+		{1031, 528, 198, 160}, //math
+		{1232, 528, 202, 159}, //Geography
+	};
+
 	Texture2D map = LoadTexture("map.png");
 
 	while (!WindowShouldClose())
