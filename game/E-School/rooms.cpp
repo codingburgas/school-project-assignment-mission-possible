@@ -118,7 +118,7 @@ void drawTubes(Model tubes)
 
     }
 }
-void drawFurnituresProgramming(Model desk, Model deskChair, Model chair, Model chairOther, Camera& camera, Vector3 previousCameraPosition)
+void drawFurnituresProgramming(Model desk, Model deskChair, Model chair, Model chairOther,Model workstation,Model computer ,Model computerRotated  , Camera& camera, Vector3 previousCameraPosition)
 {
     BoundingBox cameraBox;
     cameraBox.min = camera.position;
@@ -136,27 +136,33 @@ void drawFurnituresProgramming(Model desk, Model deskChair, Model chair, Model c
     for (int i = 0; i <= 17.5; i += 2.5)
     {
         DrawModel(chair, { 15.0f - i,0.1f,7.0f }, 0.03, WHITE);
+        DrawModel(workstation,  { 15.0f - i,0.1f,7.0f }, 1.5, GRAY);
+        DrawModel(computer,  { 16.3f - i,1.2f,5.7f }, 1.5, BLACK);
     }
 
     for (int i = 0; i <= 17.5; i += 2.5)
     {
         DrawModel(chair, { 15.0f - i,0.1f,-4.5f }, 0.03, WHITE);
+        DrawModel(workstation, { 15.0f - i,0.1f,-4.5f }, 1.5, GRAY);
+        DrawModel(computer, { 16.3f - i,1.2f,-5.8f }, 1.5, BLACK);
     }
     for (int i = 0; i <= 17.5; i += 2.5)
     {
         DrawModel(chairOther, { 15.0f - i,0.1f,4.0f }, 0.03, WHITE);
+        DrawModel(computerRotated, { 16.3f - i,1.2f,4.2f }, 1.5, BLACK);
     }
 
     for (int i = 0; i <= 17.5; i += 2.5)
     {
-        DrawModel(chairOther, { 15.0f - i,0.1f,-7.5f }, 0.03, WHITE);
+        DrawModel(chairOther, { 15.0f - i,0.1f,-7.5f }, 0.03, WHITE);   
+        DrawModel(computerRotated, { 16.3f - i,1.2f,-7.5f }, 1.5, BLACK);
     }
     BoundingBox chairBox[2];
     chairBox[0].min = { -1.8f, 0.0f, -8.3f };
     chairBox[0].max = { 16.0f, 2.0f, -3.6f };
     DrawBoundingBox(chairBox[0], RED);
-    chairBox[1].min = { 1.8f, 0.0f, 3.3f };
-    chairBox[1].max = { 15.7f, 2.0f, 7.7f };
+    chairBox[1].min = { -3.7f, 0.0f, 3.3f };
+    chairBox[1].max = { 16.7f, 2.0f, 7.7f };
     DrawBoundingBox(chairBox[1], RED);
     collisionModels(camera, previousCameraPosition, cameraBox, chairBox[0]);
     collisionModels(camera, previousCameraPosition, cameraBox, chairBox[1]);
@@ -773,10 +779,13 @@ void geography()
 
 void programming()
 {
+    Model computer = LoadModel("objects/computer.obj");
+    Model computerRotated = LoadModel("objects/computerRotated.obj");
     Model chair = LoadModel("objects/chair.obj");
     Model chairOther = LoadModel("objects/chairRotated.obj");
     Model desk = LoadModel("objects/deskRotated.obj");
     Model deskChair = LoadModel("objects/deskChairRotated.obj");
+    Model workstation = LoadModel("objects/workstation.obj");
 
     const int screenWidth = 1920;
     const int screenHeight = 975;
@@ -831,10 +840,11 @@ void programming()
         DrawCube({ 7.5f, 2.5f, -10.0f }, 28.5f, 8.3f, 1.0f, GOLD);
         DrawCube({ 7.5f, 6.7f, 0.0f }, 28.5f, 0.2f, 21.0f, LIGHTGRAY);
 
-        drawFurnituresProgramming(desk, deskChair, chair, chairOther,camera,previousCameraPosition);
+        drawFurnituresProgramming(desk, deskChair, chair, chairOther,workstation,computer, computerRotated ,camera,previousCameraPosition);
         DrawBoundingBox(wallBox, RED);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
-
+        Vector3 cubePosition = { 19.5f,0.2f,7.0f };
+        prgTextBook(camera, cubePosition);
         EndMode3D();
         drawCoordinates(camera);
         EndDrawing();
