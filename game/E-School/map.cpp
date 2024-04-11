@@ -5,8 +5,10 @@ void initMap()
 {
 	const int screenWidth = 1920;
 	const int screenHeight = 975;
-	
-	const Rectangle subjects[9] =
+	float studentX = 435;
+	float studentY = 700;
+
+	Rectangle subjects[9] =
 	{
 		{321, 428, 203, 173}, //prg
 		{559, 160, 188, 266}, //bio
@@ -20,77 +22,216 @@ void initMap()
 	};
 
 	Texture2D map = LoadTexture("map.png");
+	Texture2D studentBack = LoadTexture("studentBack.png");
+	Texture2D studentFront = LoadTexture("studentFront.png");
+	Texture2D studentLeft = LoadTexture("studentLeft.png");
+	Texture2D studentRight = LoadTexture("studentRight.png");
+
+	Rectangle student = { studentX, studentY, studentBack.width, studentBack.height };
 
 	while (!WindowShouldClose())
 	{
+		if (IsKeyDown(KEY_W) || IsKeyDown(KEY_UP))
+		{
+			studentY -= 3.0f;
+			student.y = studentY;
+		}
+
+		if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN))
+		{
+			studentY += 3.0f;
+			student.y = studentY;
+		}
+
+		if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT))
+		{
+			studentX -= 3.0f;
+			student.x = studentX;
+		}
+
+		if (IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT))
+		{
+			studentX += 3.0f;
+			student.x = studentX;
+		}
+
 		BeginDrawing();
 
 		DrawTexture(map, 300, 100, WHITE);
 
-		DrawRectangleRec(subjects[0], CheckCollisionPointRec(GetMousePosition(), subjects[0]) ? SKYBLUE : BLUE);
+		DrawRectangleRec(subjects[0], CheckCollisionRecs(student, subjects[0]) ? SKYBLUE : BLUE);
 		DrawText("Programming", 330, 500, 30, BLACK);
 
-		DrawRectangleRec(subjects[1], CheckCollisionPointRec(GetMousePosition(), subjects[1]) ? GREEN : LIME);
+		DrawRectangleRec(subjects[1], CheckCollisionRecs(student, subjects[1]) ? GREEN : LIME);
 		DrawText("Biology", 595, 250, 30, BLACK);
 
-		DrawRectangleRec(subjects[2], CheckCollisionPointRec(GetMousePosition(), subjects[2]) ? BLUE : DARKBLUE);
+		DrawRectangleRec(subjects[2], CheckCollisionRecs(student, subjects[2]) ? BLUE : DARKBLUE);
 		DrawText("Physics", 795, 250, 30, BLACK);
 
-		DrawRectangleRec(subjects[3], CheckCollisionPointRec(GetMousePosition(), subjects[3]) ? PURPLE : VIOLET);
+		DrawRectangleRec(subjects[3], CheckCollisionRecs(student, subjects[3]) ? PURPLE : VIOLET);
 		DrawText("Chemistry", 975, 250, 30, BLACK);
 
-		DrawRectangleRec(subjects[4], CheckCollisionPointRec(GetMousePosition(), subjects[4]) ? LIGHTGRAY : GRAY);
+		DrawRectangleRec(subjects[4], CheckCollisionRecs(student, subjects[4]) ? LIGHTGRAY : GRAY);
 		DrawText("History", 1175, 250, 30, BLACK);
 
-		DrawRectangleRec(subjects[5], CheckCollisionPointRec(GetMousePosition(), subjects[5]) ? GOLD : ORANGE);
+		DrawRectangleRec(subjects[5], CheckCollisionRecs(student, subjects[5]) ? GOLD : ORANGE);
 		DrawText("Literature", 657, 585, 30, BLACK);
 
-		DrawRectangleRec(subjects[6], CheckCollisionPointRec(GetMousePosition(), subjects[6]) ? PINK : RED);
+		DrawRectangleRec(subjects[6], CheckCollisionRecs(student, subjects[6]) ? PINK : RED);
 		DrawText("English", 880, 587, 30, BLACK);
 
-		DrawRectangleRec(subjects[7], CheckCollisionPointRec(GetMousePosition(), subjects[7]) ? BEIGE : BROWN);
+		DrawRectangleRec(subjects[7], CheckCollisionRecs(student, subjects[7]) ? BEIGE : BROWN);
 		DrawText("Math", 1094, 592, 30, BLACK);
 
-		DrawRectangleRec(subjects[8],CheckCollisionPointRec(GetMousePosition(), subjects[8]) ? GREEN : DARKGREEN);
+		DrawRectangleRec(subjects[8], CheckCollisionRecs(student, subjects[8]) ? GREEN : DARKGREEN);
 		DrawText("Geography", 1255, 592, 30, BLACK);
 		
 
-		if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), subjects[0]))
+
+		if (IsKeyDown(KEY_W) || IsKeyDown(KEY_UP))
 		{
-			programming();
+			DrawTexture(studentBack, studentX, studentY, WHITE);
 		}
-		if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), subjects[1]))
+
+		if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN))
 		{
-			biology();
+			DrawTexture(studentFront, studentX, studentY, WHITE);
 		}
-		if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), subjects[2]))
+
+		if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT))
 		{
-			physics();
+			DrawTexture(studentLeft, studentX, studentY, WHITE);
 		}
-		if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), subjects[3]))
+
+		if (IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT))
 		{
-			chemistry();
+			DrawTexture(studentRight, studentX, studentY, WHITE);
 		}
-		if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), subjects[4]))
+
+		if (IsKeyUp(KEY_W) && IsKeyUp(KEY_S) && IsKeyUp(KEY_A) && IsKeyUp(KEY_D))
 		{
-			history();
+			DrawTexture(studentBack, studentX, studentY, WHITE);
 		}
-		if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), subjects[5]))
+
+
+
+		if (CheckCollisionRecs(student, subjects[0]))
 		{
-			literature();
+			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
+			{
+				programming();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
+			}
 		}
-		if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), subjects[6]))
+
+		if (CheckCollisionRecs(student, subjects[1]))
 		{
-			english();
+			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
+			{
+				biology();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
+			}
 		}
-		if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), subjects[7]))
+
+		if (CheckCollisionRecs(student, subjects[2]))
 		{
-			maths();
+			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
+			{
+				physics();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
+			}
 		}
-		if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), subjects[8]))
+
+		if (CheckCollisionRecs(student, subjects[3]))
 		{
-			geography();
+			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
+			{
+				chemistry();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
+			}
 		}
+			
+		if (CheckCollisionRecs(student, subjects[4]))
+		{
+			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
+			{
+				history();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
+			}
+		}
+		
+		if (CheckCollisionRecs(student, subjects[5]))
+		{
+			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
+			{
+				literature();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
+			}
+		}
+
+		if (CheckCollisionRecs(student, subjects[6]))
+		{
+			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
+			{
+				english();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
+			}
+		}
+			
+		if (CheckCollisionRecs(student, subjects[7]))
+		{
+			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
+			{
+				maths();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
+			}
+		}
+		
+		if (CheckCollisionRecs(student, subjects[8]))
+		{
+			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
+			{
+				geography();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
+			}
+		}	
+
 		EndDrawing();
 	}
 

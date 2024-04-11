@@ -1,5 +1,16 @@
-﻿  textbooks.cpp
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\games.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  E-School.vcxproj -> C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\x64\Debug\E-School.exe
-  'pwsh.exe' is not recognized as an internal or external command,
-  operable program or batch file.
+﻿  map.cpp
+C:\Users\GoGo\mission-possible\school-project-assignment-mission-possible\game\E-School\map.cpp(30,55): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\GoGo\mission-possible\school-project-assignment-mission-possible\game\E-School\map.cpp(30,55): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\GoGo\mission-possible\school-project-assignment-mission-possible\game\E-School\map.cpp(30,74): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\GoGo\mission-possible\school-project-assignment-mission-possible\game\E-School\map.cpp(30,74): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\GoGo\mission-possible\school-project-assignment-mission-possible\game\E-School\map.cpp(93,39): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\GoGo\mission-possible\school-project-assignment-mission-possible\game\E-School\map.cpp(93,29): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\GoGo\mission-possible\school-project-assignment-mission-possible\game\E-School\map.cpp(98,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\GoGo\mission-possible\school-project-assignment-mission-possible\game\E-School\map.cpp(98,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\GoGo\mission-possible\school-project-assignment-mission-possible\game\E-School\map.cpp(103,39): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\GoGo\mission-possible\school-project-assignment-mission-possible\game\E-School\map.cpp(103,29): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\GoGo\mission-possible\school-project-assignment-mission-possible\game\E-School\map.cpp(108,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\GoGo\mission-possible\school-project-assignment-mission-possible\game\E-School\map.cpp(108,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\GoGo\mission-possible\school-project-assignment-mission-possible\game\E-School\map.cpp(113,39): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\GoGo\mission-possible\school-project-assignment-mission-possible\game\E-School\map.cpp(113,29): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  E-School.vcxproj -> C:\Users\GoGo\mission-possible\school-project-assignment-mission-possible\game\x64\Debug\E-School.exe
