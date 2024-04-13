@@ -5,11 +5,11 @@
 
 void signup()
 {
-   
+
     char username[51] = "";
     char password[51] = "";
     char repeatPassword[51] = "";
- 
+
     int usernameLetterCount = 0;
     int passwordLetterCount = 0;
     int repeatPasswordLetterCount = 0;
@@ -18,7 +18,7 @@ void signup()
     const Rectangle passwordBox = { GetScreenWidth() / 2 - 435, GetScreenHeight() / 2, 900, 65 };
     const Rectangle repeatPasswordBox = { GetScreenWidth() / 2 - 435, GetScreenHeight() / 2 + 130, 900, 65 };
 
-    Rectangle inputBoxes[] = {usernameBox, passwordBox, repeatPasswordBox };
+    Rectangle inputBoxes[] = { usernameBox, passwordBox, repeatPasswordBox };
 
     bool mouseOnInputBox[3] = { false };
 
@@ -103,22 +103,38 @@ void signup()
                 }
             }
         }
-
+        Validate validator;
+        bool showMismatchError = false; // Flag for mismatched passwords
+        bool showRequirementError = false; // Flag for requirement errors
         // Sign up button click check
-        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && CheckCollisionPointRec(mousePosition, signupButton))
-        {
-            if (strcmp(password, repeatPassword) == 0) {
-                account.addAccount(username, password);
-                menu();
-            }
-            else {
+        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && CheckCollisionPointRec(mousePosition, signupButton)) {
+            if (strcmp(password, repeatPassword) != 0) {
                 // Clear password fields if passwords don't match
                 password[0] = '\0';
                 repeatPassword[0] = '\0';
                 passwordLetterCount = 0;
                 repeatPasswordLetterCount = 0;
+                showMismatchError = true; // Set mismatch error flag
+                showRequirementError = false; // Ensure requirement error is not shown
+            }
+            else {
+                // Check password requirements if passwords match
+                if (validator.containsUppercase(password) && validator.containsLowercase(password) &&
+                    validator.containsDigit(password) && validator.containsSpecial(password)) {
+                    account.addAccount(username, password);
+                    menu();
+                }
+                else {
+                    // Password does not meet requirements, handle accordingly
+                    password[0] = '\0';
+                    repeatPassword[0] = '\0';
+                    passwordLetterCount = 0;
+                    repeatPasswordLetterCount = 0;
+
+                }
             }
         }
+
 
         // Drawing
         BeginDrawing();
@@ -126,7 +142,7 @@ void signup()
         ClearBackground(RAYWHITE);
 
         DrawText("You don't have an account? Sign up from here!", GetScreenWidth() / 2 - 475, GetScreenHeight() / 2 - 400, 40, BLACK);
-
+        DrawText("!Note: the password must contain at least one uppercase, lowercase, number and symbol", GetScreenWidth() / 2 - 650, GetScreenHeight() / 2 - 250, 30, GREEN);
         DrawText("Username:", GetScreenWidth() / 2 - 90, GetScreenHeight() / 2 - 175, 40, BLACK);
         DrawText("Password:", GetScreenWidth() / 2 - 90, GetScreenHeight() / 2 - 42, 40, BLACK);
         DrawText("Repeat Password:", GetScreenWidth() / 2 - 165, GetScreenHeight() / 2 + 87, 40, BLACK);
@@ -141,6 +157,8 @@ void signup()
 
         DrawRectangleRec(signupButton, (CheckCollisionPointRec(mousePosition, signupButton) ? GREEN : LIME));
         DrawText("Sign up", GetScreenWidth() / 2 - 55, GetScreenHeight() / 2 + 370, 50, WHITE);
+
+
 
         EndDrawing();
     }
@@ -228,7 +246,7 @@ void login() {
             }
 
         }
-        
+
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
@@ -248,9 +266,9 @@ void login() {
         DrawText("Password:", GetScreenWidth() / 2 - 90, GetScreenHeight() / 2 - 78, 40, BLACK);
 
         EndDrawing();
-        
+
     }
-    
+
 }
 
 
@@ -292,3 +310,4 @@ void startingScreen()
         EndDrawing();
     }
 }
+
