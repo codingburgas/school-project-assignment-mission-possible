@@ -65,8 +65,8 @@ void pong()
 {
     int screenHeight = 975;
     int screenWidth = 1920;
-    Paddle paddle1(20, 975 / 2 - 40, 20.0f, 80.0f, BLUE, 10);
-    Paddle paddle2(screenWidth - 40, screenHeight / 2 - 40, 20.0f, 80.0f, RED, 10);
+    Paddle paddle1(20, 975 / 2 - 40, 20.0f, 100.0f, BLUE, 10);
+    Paddle paddle2(screenWidth - 40, screenHeight / 2 - 40, 20.0f, 100.0f, RED, 10);
     Ball ball(screenWidth / 2, screenHeight / 2, 15, { 10, 10 }, GREEN);
         while (true) {
         SetTargetFPS(60);
@@ -87,11 +87,16 @@ void pong()
                 paddle1.MoveDown();
             }
 
-            if (IsKeyDown(KEY_UP) && paddle2.rect.y > 0) {
-                paddle2.MoveUp();
-            }
-            if (IsKeyDown(KEY_DOWN) && (paddle2.rect.y + paddle2.rect.height) < screenHeight) {
-                paddle2.MoveDown();
+            if (paddle2.rect.y != ball.position.y)
+            {
+                if (paddle2.rect.y > ball.position.y)
+                {
+                    paddle2.rect.y -= 6;
+                }
+                if (paddle2.rect.y < ball.position.y)
+                {
+                    paddle2.rect.y += 6;
+                }
             }
 
             ball.Move();
