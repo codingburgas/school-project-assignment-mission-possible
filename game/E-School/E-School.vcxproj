@@ -137,6 +137,7 @@
     <ClCompile Include="map.cpp" />
     <ClCompile Include="rooms.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="rules.cpp" />
     <ClCompile Include="textbooks.cpp" />
     <ClCompile Include="validation.cpp" />
   </ItemGroup>
@@ -148,6 +149,7 @@
     <ClInclude Include="rooms.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="rules.h" />
     <ClInclude Include="textbooks.h" />
     <ClInclude Include="validation.h" />
   </ItemGroup>

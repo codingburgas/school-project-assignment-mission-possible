@@ -1,5 +1,6 @@
 #include "menu.h"
 #include "map.h"
+#include "rules.h"
 
 void menu()
 {
@@ -56,7 +57,7 @@ void menu()
 		DrawText("Rules", screenWidth / 2 + 400, screenHeight / 2 + 142, 50, WHITE);
 		// Handle click with the mouse over button
 		if (isMouseOverButtonRules && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-			;
+			rules();
 		}
 
 		// Check if mouse is hovering the specific button
