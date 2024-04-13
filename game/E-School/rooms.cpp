@@ -36,7 +36,7 @@ void collisionModels(Camera& camera, Vector3 previousCameraPosition, BoundingBox
     }
 }
 
-void drawFurnitures(Model chair, Model desk, Model deskChair, Model studentDesk, Model board, Model laptop, Camera& camera, Vector3 previousCameraPosition)
+void drawFurnitures(Model chair, Model desk, Model deskChair, Model studentDesk, Model board, Model laptop,Model book, Camera& camera, Vector3 previousCameraPosition)
 {
     BoundingBox cameraBox;
     BoundingBox deskBox;
@@ -55,6 +55,7 @@ void drawFurnitures(Model chair, Model desk, Model deskChair, Model studentDesk,
         for (int j = 0; j <= 8; j += 4) {
             DrawModel(chair, { -7.8f + i,0.1f,7.0f - j }, 0.03, WHITE);
             DrawModel(studentDesk, { -7.8f + i,-0.1f,6.5f - j }, 0.015, BLACK);
+            DrawModel(book, { -7.8f + i,1.5f,6.5f - j }, 0.04, WHITE);
         }
 
     }
@@ -104,7 +105,6 @@ void drawFurnitures(Model chair, Model desk, Model deskChair, Model studentDesk,
     }
     deskBox.min = { -1.0f ,0.2f,-8.5f };
     deskBox.max = { 1.0f ,5.0f,-11.0f };
-    DrawBoundingBox(deskBox, RED);
     collisionModels(camera, previousCameraPosition, cameraBox, deskBox);
     
 }
@@ -177,6 +177,7 @@ void maths()
     Model studentDesk = LoadModel("objects/studentDesk.obj");
     Model board = LoadModel("objects/board.obj");
     Model laptop = LoadModel("objects/laptop.obj");
+    Model book = LoadModel("objects/book.obj");
 
     const int screenWidth = 1920;
     const int screenHeight = 975;
@@ -230,7 +231,7 @@ void maths()
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
 
-        drawFurnitures(chair, desk, deskChair, studentDesk, board,laptop,  camera, previousCameraPosition);
+        drawFurnitures(chair, desk, deskChair, studentDesk, board,laptop, book,  camera, previousCameraPosition);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
 
         EndMode3D();
@@ -252,6 +253,8 @@ void history()
     Model studentDesk = LoadModel("objects/studentDesk.obj");
     Model board = LoadModel("objects/board.obj");
     Model laptop = LoadModel("objects/laptop.obj");
+    Model musket = LoadModel("objects/musket.obj");
+    Model book = LoadModel("objects/book.obj");
 
     const int screenWidth = 1920;
     const int screenHeight = 975;
@@ -306,8 +309,9 @@ void history()
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
 
-        drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, camera, previousCameraPosition);
+        drawFurnitures(chair, desk, deskChair, studentDesk, board,laptop, book,  camera, previousCameraPosition);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
+        DrawModel(musket, { 0.0f,3.0f,8.5f }, 0.03f, BROWN);
 
         EndMode3D();
         EndDrawing();
@@ -326,6 +330,7 @@ void physics()
     Model studentDesk = LoadModel("objects/studentDesk.obj");
     Model board = LoadModel("objects/board.obj");
     Model laptop = LoadModel("objects/laptop.obj");
+    Model book = LoadModel("objects/book.obj");
 
     const int screenWidth = 1920;
     const int screenHeight = 975;
@@ -379,7 +384,7 @@ void physics()
         DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
-        drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, camera, previousCameraPosition);
+        drawFurnitures(chair, desk, deskChair, studentDesk, board,laptop, book,  camera, previousCameraPosition);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
 
         EndMode3D();
@@ -399,6 +404,8 @@ void literature()
     Model studentDesk = LoadModel("objects/studentDesk.obj");
     Model board = LoadModel("objects/board.obj");
     Model laptop = LoadModel("objects/laptop.obj");
+    Model bookshelf = LoadModel("objects/bookshelf.obj");
+    Model book = LoadModel("objects/book.obj");
 
     const int screenWidth = 1920;
     const int screenHeight = 975;
@@ -453,7 +460,8 @@ void literature()
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
 
-        drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, camera, previousCameraPosition);
+        drawFurnitures(chair, desk, deskChair, studentDesk, board,laptop, book,  camera, previousCameraPosition);
+        DrawModel(bookshelf, { 0.0f,0.0f,8.5f },2.0f, BROWN);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
 
         EndMode3D();
@@ -474,6 +482,7 @@ void chemistry()
     Model board = LoadModel("objects/board.obj");
     Model tubes = LoadModel("objects/tubes.obj");
     Model laptop = LoadModel("objects/laptop.obj");
+    Model book = LoadModel("objects/book.obj");
 
     const int screenWidth = 1920;
     const int screenHeight = 975;
@@ -528,7 +537,7 @@ void chemistry()
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
         
-        drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, camera, previousCameraPosition);
+        drawFurnitures(chair, desk, deskChair, studentDesk, board,laptop, book,  camera, previousCameraPosition);
         drawTubes(tubes);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
 
@@ -549,6 +558,7 @@ void english()
     Model studentDesk = LoadModel("objects/studentDesk.obj");
     Model board = LoadModel("objects/board.obj");
     Model laptop = LoadModel("objects/laptop.obj");
+    Model book = LoadModel("objects/book.obj");
 
     const int screenWidth = 1920;
     const int screenHeight = 975;
@@ -604,7 +614,7 @@ void english()
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
 
-        drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, camera, previousCameraPosition);
+        drawFurnitures(chair, desk, deskChair, studentDesk, board,laptop, book,  camera, previousCameraPosition);
 
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
         EndMode3D();
@@ -626,6 +636,7 @@ void biology()
     Model board = LoadModel("objects/board.obj");
     Model skeleton = LoadModel("objects/skeleton.obj");
     Model laptop = LoadModel("objects/laptop.obj");
+    Model book = LoadModel("objects/book.obj");
 
     Camera camera = { 0 };
     camera.position = { 8.0f, 2.0f, -7.0f };    // Camera position
@@ -664,7 +675,6 @@ void biology()
         UpdateCamera(&camera, cameraMode);
         BeginDrawing();
         ClearBackground(RAYWHITE);
-
         BeginMode3D(camera);
 
         cameraBox.min = camera.position;
@@ -680,10 +690,9 @@ void biology()
 
         DrawCube({ 0.0f, 1.5f, -7.5f }, 1.0f, 1.0f, 1.0f, GOLD);
 
-        drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, camera, previousCameraPosition);
+        drawFurnitures(chair, desk, deskChair, studentDesk, board,laptop, book,  camera, previousCameraPosition);
         DrawModel(skeleton, { 5.0f, 2.2f, -9.0f }, 0.01, WHITE);
-        collisions(camera, previousCameraPosition, cameraBox, wallBox);;
-
+        collisions(camera, previousCameraPosition, cameraBox, wallBox);
         EndMode3D();
 
         bioTextBook(camera);
@@ -707,6 +716,7 @@ void geography()
     Model board = LoadModel("objects/board.obj");
     Model globe = LoadModel("objects/globe.obj");
     Model laptop = LoadModel("objects/laptop.obj");
+    Model book = LoadModel("objects/book.obj");
 
     const int screenWidth = 1920;
     const int screenHeight = 975;
@@ -761,7 +771,7 @@ void geography()
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
 
-        drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, camera, previousCameraPosition);
+        drawFurnitures(chair, desk, deskChair, studentDesk, board,laptop, book,  camera, previousCameraPosition);
 
         DrawModel(globe, { 0.65f,1.65f,-7.0f }, 0.4, GOLD);
 

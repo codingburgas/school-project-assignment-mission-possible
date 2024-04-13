@@ -1,14 +1,29 @@
-﻿  map.cpp
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\map.cpp(116,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\map.cpp(116,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\map.cpp(121,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\map.cpp(121,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\map.cpp(126,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\map.cpp(126,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\map.cpp(131,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\map.cpp(131,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\map.cpp(136,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\map.cpp(136,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+﻿  rooms.cpp
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\games.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(56,59): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(57,66): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(58,58): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(62,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(64,47): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(116,60): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(133,47): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(134,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(136,37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(138,51): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(143,37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(145,52): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(149,37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(151,56): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(155,37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(157,57): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(694,52): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\rooms.cpp(776,49): warning C4305: 'argument': truncation from 'double' to 'float'
+raylib.lib(input.c.obj) : warning LNK4099: PDB '' was not found with 'raylib.lib(input.c.obj)' or at ''; linking object as if no debug info
+raylib.lib(rcore.c.obj) : warning LNK4099: PDB '' was not found with 'raylib.lib(rcore.c.obj)' or at ''; linking object as if no debug info
+raylib.lib(rmodels.c.obj) : warning LNK4099: PDB '' was not found with 'raylib.lib(rmodels.c.obj)' or at ''; linking object as if no debug info
+raylib.lib(rshapes.c.obj) : warning LNK4099: PDB '' was not found with 'raylib.lib(rshapes.c.obj)' or at ''; linking object as if no debug info
+raylib.lib(rtext.c.obj) : warning LNK4099: PDB '' was not found with 'raylib.lib(rtext.c.obj)' or at ''; linking object as if no debug info
+raylib.lib(rtextures.c.obj) : warning LNK4099: PDB '' was not found with 'raylib.lib(rtextures.c.obj)' or at ''; linking object as if no debug info
   E-School.vcxproj -> C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\x64\Debug\E-School.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

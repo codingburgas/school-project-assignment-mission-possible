@@ -80,7 +80,7 @@ void initMap(int character)
 
 
 		BeginDrawing();
-		ClearBackground(RAYWHITE);
+		ClearBackground(WHITE);
 		DrawTexture(map, 300, 100, WHITE);
 
 		DrawRectangleRec(subjects[0], CheckCollisionRecs(student, subjects[0]) ? SKYBLUE : BLUE);
