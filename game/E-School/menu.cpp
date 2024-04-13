@@ -68,7 +68,12 @@ void menu()
 		if (isMouseOverButtonExit && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
 			CloseWindow();
 		}
+		
 		EndDrawing();
+	}
+	if (IsKeyPressed(KEY_ESCAPE))
+	{
+		CloseWindow();
 	}
 
 }

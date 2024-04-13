@@ -232,7 +232,7 @@ void login() {
             }
         }
 
-        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && CheckCollisionPointRec(mousePosition, loginButton)) {
+        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && CheckCollisionPointRec(mousePosition, loginButton) || IsKeyPressed(KEY_ENTER)) {
             Validate validator;
             if (validator.doesAccountExist(username) && validator.isPasswordCorrect(username, password)) {
                 menu();
