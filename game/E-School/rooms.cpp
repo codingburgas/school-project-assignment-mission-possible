@@ -137,25 +137,25 @@ void drawFurnituresProgramming(Model desk, Model deskChair, Model chair, Model c
     {
         DrawModel(chair, { 15.0f - i,0.1f,7.0f }, 0.03, WHITE);
         DrawModel(workstation,  { 15.0f - i,0.1f,7.0f }, 1.5, GRAY);
-        DrawModel(computer,  { 16.3f - i,1.2f,5.7f }, 1.5, BLACK);
+        DrawModel(computer,  { 15.8f - i,1.2f,6.0f }, 1.5, BLACK);
     }
 
     for (int i = 0; i <= 17.5; i += 2.5)
     {
         DrawModel(chair, { 15.0f - i,0.1f,-4.5f }, 0.03, WHITE);
         DrawModel(workstation, { 15.0f - i,0.1f,-4.5f }, 1.5, GRAY);
-        DrawModel(computer, { 16.3f - i,1.2f,-5.8f }, 1.5, BLACK);
+        DrawModel(computer, { 16.0f - i,1.2f,-5.2f }, 1.5, BLACK);
     }
     for (int i = 0; i <= 17.5; i += 2.5)
     {
         DrawModel(chairOther, { 15.0f - i,0.1f,4.0f }, 0.03, WHITE);
-        DrawModel(computerRotated, { 16.3f - i,1.2f,4.2f }, 1.5, BLACK);
+        DrawModel(computerRotated, { 15.3f - i,1.2f,4.0f }, 1.5, BLACK);
     }
 
     for (int i = 0; i <= 17.5; i += 2.5)
     {
         DrawModel(chairOther, { 15.0f - i,0.1f,-7.5f }, 0.03, WHITE);   
-        DrawModel(computerRotated, { 16.3f - i,1.2f,-7.5f }, 1.5, BLACK);
+        DrawModel(computerRotated, { 15.5f - i,1.2f,-7.8f }, 1.5, BLACK);
     }
     BoundingBox chairBox[2];
     chairBox[0].min = { -1.8f, 0.0f, -8.3f };

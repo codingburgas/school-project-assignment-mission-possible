@@ -271,10 +271,6 @@ void login() {
 
 }
 
-
-
-
-
 void startingScreen()
 {
     const int screenWidth = 1920;
