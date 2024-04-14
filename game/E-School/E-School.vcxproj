@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClCompile Include="accessData.cpp" />
     <ClCompile Include="accounts.cpp" />
+    <ClCompile Include="exams.cpp" />
     <ClCompile Include="games.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map.cpp" />
@@ -144,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="accessData.h" />
     <ClInclude Include="accounts.h" />
+    <ClInclude Include="exams.h" />
     <ClInclude Include="games.h" />
     <ClInclude Include="map.h" />
     <ClInclude Include="rooms.h" />

@@ -86,7 +86,7 @@ void bioTextBook(Camera camera)
 			// Draw timer
 			DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
 
-            if (IsKeyPressed(KEY_B) || timerIsZero == 1)
+            if (timerIsZero == 1)
             {
                 DisableCursor();
                 break;
@@ -100,7 +100,6 @@ void bioTextBook(Camera camera)
                 pageNumber++;
             }
             EndDrawing();
-            SetExitKey(KEY_ESCAPE);
         }
     }
 }
@@ -252,7 +251,7 @@ void prgTextBook(Camera camera,Vector3 cubePosition)
 					pageNumber++;
 				}
 				
-				SetExitKey(KEY_ESCAPE);
+			
 			}
 			EndDrawing();
 			bool menu = 1;

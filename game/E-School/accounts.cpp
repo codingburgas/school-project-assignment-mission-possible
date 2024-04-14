@@ -152,8 +152,8 @@ void signup()
         }
 
         DrawText(username, usernameBox.x + 5, usernameBox.y + 8, 40, BLACK);
-        DrawText(TextFormat("%.*s", passwordLetterCount, "*************************************"), passwordBox.x + 5, passwordBox.y + 8, 40, BLACK);
-        DrawText(TextFormat("%.*s", repeatPasswordLetterCount, "*************************************"), repeatPasswordBox.x + 5, repeatPasswordBox.y + 8, 40, BLACK);
+        DrawText(TextFormat("%.*s", passwordLetterCount, "************************************************************************************"), passwordBox.x + 5, passwordBox.y + 8, 40, BLACK);
+        DrawText(TextFormat("%.*s", repeatPasswordLetterCount, "************************************************************************************"), repeatPasswordBox.x + 5, repeatPasswordBox.y + 8, 40, BLACK);
 
         DrawRectangleRec(signupButton, (CheckCollisionPointRec(mousePosition, signupButton) ? GREEN : LIME));
         DrawText("Sign up", GetScreenWidth() / 2 - 55, GetScreenHeight() / 2 + 370, 50, WHITE);
@@ -257,7 +257,7 @@ void login() {
         DrawText(username, usernameBox.x + 5, usernameBox.y + 8, 40, BLACK);
 
         DrawRectangleLines(passwordBox.x, passwordBox.y, passwordBox.width, passwordBox.height, (mouseOnPassword ? RED : BLACK));
-        DrawText(TextFormat("%.*s", passwordLetterCount, "**********"), passwordBox.x + 5, passwordBox.y + 8, 40, BLACK);
+        DrawText(TextFormat("%.*s", passwordLetterCount, "**********************************"), passwordBox.x + 5, passwordBox.y + 8, 40, BLACK);
 
         bool isMouseOverButtonLogin = CheckCollisionPointRec(mousePosition, loginButton);
         DrawRectangleRec(loginButton, (isMouseOverButtonLogin ? GREEN : LIME));
@@ -287,6 +287,7 @@ void startingScreen()
 
     while (!WindowShouldClose())
     {
+        Vector2 mousePosition = GetMousePosition();
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
@@ -295,19 +296,19 @@ void startingScreen()
         //DrawText("Welcome to our game! Let's get into it", screenWidth / 2 - 365, screenHeight / 2 - 400, 40, BLACK);
         DrawTexture(logo, 100, 100, WHITE);
 
-        //DrawRectangleRec(loginButton, (isMouseOverButtonLogin ? GREEN : LIME));
-        DrawRectangleRounded(loginButton, 5, (int)2, BLACK);
+        bool isMouseOverLoginButton = CheckCollisionPointRec(mousePosition, loginButton);
+        DrawRectangleRounded(loginButton, 5, (int)2, (isMouseOverLoginButton ? DARKGRAY : BLACK));
         DrawText("Login", loginButtonPosition.x + 85, loginButtonPosition.y + 25, 50, WHITE);
-        if (CheckCollisionPointRec(GetMousePosition() , loginButton) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        if (CheckCollisionPointRec(mousePosition , loginButton) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             login();
         }
         
 
 
-        //DrawRectangleRec(registerButton, (isMouseOverButtonSignup ? GREEN : LIME));
-        DrawRectangleRounded(signUpButton, 5, (int)2, BLACK);
+        bool isMouseOverSignUpButton = CheckCollisionPointRec(mousePosition, signUpButton);
+        DrawRectangleRounded(signUpButton, 5, (int)2, isMouseOverSignUpButton ? DARKGRAY : BLACK);
         DrawText("Sign up", signUpButtonPosition.x + 60, signUpButtonPosition.y + 25, 50, WHITE);
-        if (CheckCollisionPointRec(GetMousePosition(), signUpButton) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        if (CheckCollisionPointRec(mousePosition, signUpButton) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             signup();
         }
 

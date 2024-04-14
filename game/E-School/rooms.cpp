@@ -1,6 +1,6 @@
 #include "rooms.h"
 #include "textbooks.h"
-
+#include "exams.h"
 void drawCoordinates(Camera& camera)
 {
     string positionString = "Camera Position: (" +
@@ -244,7 +244,14 @@ void maths()
 
     SetTargetFPS(60);                   // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
+    float elapsedTime = 0.0f;
+    float updateInterval = 1.0f;
 
+    int minutes = 1;
+    int seconds = 0;
+
+    bool timerIsZero = false;
+    
     // Main game loop
     while (!WindowShouldClose())
     {
@@ -268,9 +275,34 @@ void maths()
 
         drawFurnitures(chair, desk, deskChair, studentDesk, board,laptop, book,  camera, previousCameraPosition);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
+        elapsedTime += GetFrameTime();
 
+        if (elapsedTime >= updateInterval) {
+            // Decrement the timer
+            if (seconds == 0) {
+                if (minutes == 0)
+                {
+                     timerIsZero = true;
+                }
+                minutes--;
+                seconds = 59;
+
+            }
+            else {
+                seconds--;
+            }
+
+            elapsedTime = 0.0f; // Reset elapsed time
+        }
         EndMode3D();
         drawCoordinates(camera);
+        DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+        if (timerIsZero)
+        {
+            EnableCursor();
+            mathsExam();
+        }
+        
         EndDrawing();
         
     }
