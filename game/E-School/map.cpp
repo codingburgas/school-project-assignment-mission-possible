@@ -159,7 +159,7 @@ void initMap(int character)
 				DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
 				if (IsKeyDown(KEY_ENTER))
 				{
-					programming();
+					physyicaEducation();
 					studentX = 435;
 					studentY = 700;
 					student.x = studentX;

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "pch.h"
+#include "textbooks.h"
 
 void maths();
 
@@ -19,6 +20,8 @@ void chemistry();
 void english();
 
 void programming();
+
+void physyicaEducation();
 
 void drawFurnitures();
 

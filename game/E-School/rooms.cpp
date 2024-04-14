@@ -1,5 +1,6 @@
 #include "rooms.h"
 #include "textbooks.h"
+
 void drawCoordinates(Camera& camera)
 {
     string positionString = "Camera Position: (" +
@@ -36,6 +37,34 @@ void collisionModels(Camera& camera, Vector3 previousCameraPosition, BoundingBox
     }
 }
 
+void kickBall(Camera camera, Vector3 ballPosition, float& potentialKickX) {
+    float distanceToBall = distanceCalc(camera.position, ballPosition);
+    const float kickThreshold = 3.0f; // Adjust this threshold as needed
+
+    if (IsMouseButtonDown(MOUSE_LEFT_BUTTON) && distanceToBall <= kickThreshold) {
+        // Charge the kick power
+        potentialKickX += GetFrameTime() * 5.0f; // Adjust charging speed as needed
+    }
+
+    if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON) && distanceToBall <= kickThreshold) {
+        // Kick the ball when the left mouse button is released
+        // Calculate kick force based on charging time
+        float kickForce = potentialKickX * 10.0f; // Adjust kick force as needed
+
+        // Get direction vector from camera position to ball position
+        Vector3 direction = Vector3Subtract(ballPosition, camera.position);
+        direction = Vector3Normalize(direction);
+
+        // Apply kick force in the direction of the player's view
+        ballPosition.x += direction.x * kickForce;
+        ballPosition.y += direction.y * kickForce;
+        ballPosition.z += direction.z * kickForce;
+
+        // Reset potential kick X for next kick
+        potentialKickX = 0.0f;
+    }
+}
+
 void drawFurnitures(Model chair, Model desk, Model deskChair, Model studentDesk, Model board, Model laptop,Model book, Camera& camera, Vector3 previousCameraPosition)
 {
     BoundingBox cameraBox;
@@ -54,12 +83,12 @@ void drawFurnitures(Model chair, Model desk, Model deskChair, Model studentDesk,
     {
         for (int j = 0; j <= 8; j += 4) {
             DrawModel(chair, { -7.8f + i,0.1f,7.0f - j }, 0.03, WHITE);
-            DrawModel(studentDesk, { -7.8f + i,-0.1f,6.5f - j }, 0.015, BLACK);
-            DrawModel(book, { -7.8f + i,1.5f,6.5f - j }, 0.04, WHITE);
+            DrawModel(studentDesk, { -7.8f + i,-0.1f,6.5f - j }, 0.015, BROWN);
+            DrawModel(book, { -7.8f + i,1.5f,6.4f - j }, 0.04, WHITE);
         }
 
     }
-    DrawModel(desk, { 0.0f,0.2f,-7.0f }, 0.015, GRAY);
+    DrawModel(desk, { 0.0f,0.2f,-7.0f }, 0.015, DARKGRAY);
     DrawModel(laptop, { -0.5f,1.64f,-6.5f }, 4.0, GRAY);
     DrawModel(deskChair, { 0.0f,0.2f,-8.0f }, 0.6, BLACK);
     DrawModel(board, { 0.0f, 2.5f, -9.4f }, 1.0, WHITE);
@@ -113,7 +142,7 @@ void drawTubes(Model tubes)
     for (int i = 0; i <= 16; i += 4)
     {
         for (int j = 0; j <= 8; j += 4) {
-            DrawModel(tubes, { -8.0f + i,1.47f,6.5f - j }, 0.15, WHITE);
+            DrawModel(tubes, { -8.0f + i,1.47f,6.8f - j }, 0.15, WHITE);
         }
 
     }
@@ -179,6 +208,12 @@ void maths()
     Model laptop = LoadModel("objects/laptop.obj");
     Model book = LoadModel("objects/book.obj");
 
+    Texture2D wood = LoadTexture("sprites/wood.png");
+    SetMaterialTexture(&studentDesk.materials[0], MATERIAL_MAP_DIFFUSE, wood);
+
+    Texture2D mathBook = LoadTexture("sprites/mathBook.png");
+    SetMaterialTexture(&book.materials[0], MATERIAL_MAP_DIFFUSE, mathBook);
+
     const int screenWidth = 1920;
     const int screenHeight = 975;
 
@@ -242,6 +277,7 @@ void maths()
 
     SetExitKey(KEY_ESCAPE);
     EnableCursor();
+    UnloadTexture(wood);
 
 }
 
@@ -255,6 +291,12 @@ void history()
     Model laptop = LoadModel("objects/laptop.obj");
     Model musket = LoadModel("objects/musket.obj");
     Model book = LoadModel("objects/book.obj");
+
+    Texture2D wood = LoadTexture("sprites/wood.png");
+    SetMaterialTexture(&studentDesk.materials[0], MATERIAL_MAP_DIFFUSE, wood);
+
+    Texture2D textbook = LoadTexture("sprites/historyBook.png");
+    SetMaterialTexture(&book.materials[0], MATERIAL_MAP_DIFFUSE, textbook);
 
     const int screenWidth = 1920;
     const int screenHeight = 975;
@@ -320,6 +362,7 @@ void history()
 
     SetExitKey(KEY_ESCAPE);
     EnableCursor();
+    UnloadTexture(wood);
 
 }
 void physics()
@@ -332,11 +375,17 @@ void physics()
     Model laptop = LoadModel("objects/laptop.obj");
     Model book = LoadModel("objects/book.obj");
 
+    Texture2D wood = LoadTexture("sprites/wood.png");
+    SetMaterialTexture(&studentDesk.materials[0], MATERIAL_MAP_DIFFUSE, wood);
+
+    Texture2D textbook = LoadTexture("sprites/physics.png");
+    SetMaterialTexture(&book.materials[0], MATERIAL_MAP_DIFFUSE, textbook);
+
     const int screenWidth = 1920;
     const int screenHeight = 975;
 
     Camera camera = { 0 };
-    camera.position = { 8.0f, 2.0f, -7.0f };   // Camera position
+    camera.position = { 8.0f, 3.0f, -7.0f };   // Camera position
     camera.target = { 0.0f, 2.0f, 0.0f };      // Camera looking at point
     camera.up = { 0.0f, 1.0f, 0.0f };          // Camera up vector (rotation towards target)
     camera.fovy = 60.0f;                                // Camera field-of-view Y
@@ -394,6 +443,7 @@ void physics()
 
     SetExitKey(KEY_ESCAPE);
     EnableCursor();
+    UnloadTexture(wood);
 
 }
 void literature()
@@ -406,6 +456,13 @@ void literature()
     Model laptop = LoadModel("objects/laptop.obj");
     Model bookshelf = LoadModel("objects/bookshelf.obj");
     Model book = LoadModel("objects/book.obj");
+
+    Texture2D wood = LoadTexture("sprites/wood.png");
+    SetMaterialTexture(&studentDesk.materials[0], MATERIAL_MAP_DIFFUSE, wood);
+    SetMaterialTexture(&bookshelf.materials[0], MATERIAL_MAP_DIFFUSE, wood);
+
+    Texture2D textbook = LoadTexture("sprites/literatureBook.png");
+    SetMaterialTexture(&book.materials[0], MATERIAL_MAP_DIFFUSE, textbook);
 
     const int screenWidth = 1920;
     const int screenHeight = 975;
@@ -471,6 +528,7 @@ void literature()
 
     SetExitKey(KEY_ESCAPE);
     EnableCursor();
+    UnloadTexture(wood);
 
 }
 void chemistry()
@@ -483,6 +541,12 @@ void chemistry()
     Model tubes = LoadModel("objects/tubes.obj");
     Model laptop = LoadModel("objects/laptop.obj");
     Model book = LoadModel("objects/book.obj");
+
+    Texture2D wood = LoadTexture("sprites/wood.png");
+    SetMaterialTexture(&studentDesk.materials[0], MATERIAL_MAP_DIFFUSE, wood);
+
+    Texture2D chemistryBook = LoadTexture("sprites/chemistryBook.png");
+    SetMaterialTexture(&book.materials[0], MATERIAL_MAP_DIFFUSE, chemistryBook);
 
     const int screenWidth = 1920;
     const int screenHeight = 975;
@@ -548,6 +612,7 @@ void chemistry()
 
     SetExitKey(KEY_ESCAPE);
     EnableCursor();
+    UnloadTexture(wood);
 
 }
 void english()
@@ -559,6 +624,12 @@ void english()
     Model board = LoadModel("objects/board.obj");
     Model laptop = LoadModel("objects/laptop.obj");
     Model book = LoadModel("objects/book.obj");
+
+    Texture2D wood = LoadTexture("sprites/wood.png");
+    SetMaterialTexture(&studentDesk.materials[0], MATERIAL_MAP_DIFFUSE, wood);
+
+    Texture2D textbook = LoadTexture("sprites/englishBook.png");
+    SetMaterialTexture(&book.materials[0], MATERIAL_MAP_DIFFUSE, textbook);
 
     const int screenWidth = 1920;
     const int screenHeight = 975;
@@ -624,7 +695,7 @@ void english()
 
     SetExitKey(KEY_ESCAPE);
     EnableCursor();
-
+    UnloadTexture(wood);
 }
 
 void biology()
@@ -637,10 +708,16 @@ void biology()
     Model skeleton = LoadModel("objects/skeleton.obj");
     Model laptop = LoadModel("objects/laptop.obj");
     Model book = LoadModel("objects/book.obj");
+    Model poster = LoadModel("objects/poster.obj");
+
+    Texture2D wood = LoadTexture("sprites/wood.png");
+    Texture2D Musculoskeletal = LoadTexture("sprites/Musculoskeletal.png");
+    SetMaterialTexture(&book.materials[0], MATERIAL_MAP_DIFFUSE, Musculoskeletal);
+    SetMaterialTexture(&studentDesk.materials[0], MATERIAL_MAP_DIFFUSE, wood);
 
     Camera camera = { 0 };
     camera.position = { 8.0f, 2.0f, -7.0f };    // Camera position
-    camera.target = { 0.0f, 2.0f, 0.0f };      // Camera looking at point
+    camera.target = { 0.0f, 2.0f, -5.0f };      // Camera looking at point
     camera.up = { 0.0f, 1.0f, 0.0f };          // Camera up vector (rotation towards target)
     camera.fovy = 60.0f;                                // Camera field-of-view Y
     camera.projection = CAMERA_PERSPECTIVE;             // Camera projection type
@@ -692,7 +769,7 @@ void biology()
 
         drawFurnitures(chair, desk, deskChair, studentDesk, board,laptop, book,  camera, previousCameraPosition);
         DrawModel(skeleton, { 5.0f, 2.2f, -9.0f }, 0.01, WHITE);
-        collisions(camera, previousCameraPosition, cameraBox, wallBox);
+
         EndMode3D();
 
         bioTextBook(camera);
@@ -702,7 +779,7 @@ void biology()
         EndDrawing();
 
     }
-
+    UnloadTexture(wood);
     SetExitKey(KEY_ESCAPE);
     EnableCursor();
 }
@@ -717,6 +794,12 @@ void geography()
     Model globe = LoadModel("objects/globe.obj");
     Model laptop = LoadModel("objects/laptop.obj");
     Model book = LoadModel("objects/book.obj");
+
+    Texture2D wood = LoadTexture("sprites/wood.png");
+    SetMaterialTexture(&studentDesk.materials[0], MATERIAL_MAP_DIFFUSE, wood);
+
+    Texture2D geographyBook = LoadTexture("sprites/geographyBook.png");
+    SetMaterialTexture(&book.materials[0], MATERIAL_MAP_DIFFUSE, geographyBook);
 
     const int screenWidth = 1920;
     const int screenHeight = 975;
@@ -784,7 +867,7 @@ void geography()
 
     SetExitKey(KEY_ESCAPE);
     EnableCursor();
-
+    UnloadTexture(wood);
 }
 
 void programming()
@@ -861,4 +944,70 @@ void programming()
     }
     EnableCursor();
 
+}
+
+void physyicaEducation()
+{
+    const int screenWidth = 1920;
+    const int screenHeight = 975;
+
+    Camera camera = { 0 };
+    camera.position = { 18.7f, 2.0f, -6.5f };    // Camera position
+    camera.target = { 0.0f, 2.0f, 0.0f };      // Camera looking at point
+    camera.up = { 0.0f, 1.0f, 0.0f };          // Camera up vector (rotation towards target)
+    camera.fovy = 60.0f;                                // Camera field-of-view Y
+    camera.projection = CAMERA_PERSPECTIVE;             // Camera projection type
+
+    int cameraMode = CAMERA_FIRST_PERSON;
+
+    BoundingBox wallBox;
+    wallBox.min = { -21.5f, 0.0f, -14.5f };
+    wallBox.max = { 37.5f, 22.5f,14.5f };
+
+    BoundingBox cameraBox;
+    cameraBox.min = camera.position;
+    cameraBox.max = camera.position;
+    cameraBox.min.x -= 0.1f;
+    cameraBox.min.y -= 0.1f;
+    cameraBox.min.z -= 0.1f;
+    cameraBox.max.x += 0.3f;
+    cameraBox.max.y += 0.5f;
+    cameraBox.max.z += 0.5f;
+
+    // Generates some random columns
+    DisableCursor();                    // Limit cursor to relative movement inside the window
+
+    SetTargetFPS(60);                   // Set our game to run at 60 frames-per-second
+    //--------------------------------------------------------------------------------------
+    Vector3 ballPosition = { 10.0f, 0.5f, 0.0f };
+    float potentialKickX = 0.0f;
+    // Main game loop
+    while (!WindowShouldClose())
+    {
+        kickBall(camera, ballPosition, potentialKickX);
+        Vector3 previousCameraPosition = camera.position;
+        UpdateCamera(&camera, cameraMode);
+        BeginDrawing();
+
+        ClearBackground(RAYWHITE);
+
+        BeginMode3D(camera);
+        DrawSphere(ballPosition, 0.5f, BLUE); 
+        cameraBox.min = camera.position;
+        cameraBox.max = camera.position;
+        DrawPlane({ 7.5f, 0.0f, 0.0f }, { 60.5f, 30.0f }, LIGHTGRAY);
+        DrawCube({ 38.0f, 2.5f, 0.0f }, 1.0f, 25.0f, 48.0f, BLUE);
+        DrawCube({ -22.0f, 2.5f,0.0f }, 1.0f, 25.0f, 48.5f, BLUE);
+        DrawCube({ 7.5f, 2.5f, 15.0f }, 60.5f, 25.0f, 1.0f, BLUE);
+        DrawCube({ 7.5f, 2.5f, -15.0f }, 60.5f, 25.0f, 1.0f, BLUE);
+        DrawCube({ 7.5f, 15.0f, 0.0f }, 62.5f, 0.2f, 30.0f, LIGHTGRAY);
+
+        
+        DrawBoundingBox(wallBox, RED);
+        collisions(camera, previousCameraPosition, cameraBox, wallBox);
+        EndMode3D();
+        drawCoordinates(camera);
+        EndDrawing();
+    }
+    EnableCursor();
 }
