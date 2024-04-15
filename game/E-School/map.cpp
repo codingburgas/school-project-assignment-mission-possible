@@ -28,8 +28,7 @@ void initMap(int character)
 	Texture2D studentFront = LoadTexture("sprites/studentFront.png");
 	Texture2D studentGirl = LoadTexture("sprites/girlSprite.png");
 
-	Rectangle student = { studentX, studentY, 50, 50 };
-
+	Rectangle student = { studentX, studentY, 16, 50 };
 	Rectangle spriteGirl[10] =
 	{
 		{0,0,55,80}, //1
@@ -46,8 +45,10 @@ void initMap(int character)
 
 
 	int currentFrame = 8;
+	int boyFrame = 0;
 	float frameCounter = 0;
-
+	float frameTime = 0;
+	Rectangle currentFrameBoy;
 	while (!WindowShouldClose())
 	{
 		if (IsKeyDown(KEY_W) || IsKeyDown(KEY_UP))
@@ -110,30 +111,80 @@ void initMap(int character)
 		DrawRectangleRec(subjects[8], CheckCollisionRecs(student, subjects[8]) ? GREEN : DARKGREEN);
 		DrawText("Geography", 1255, 592, 30, BLACK);
 
-		if (character == 1) {
-			if (IsKeyDown(KEY_W) || IsKeyDown(KEY_UP))
+		if (character == 1) 
+		{
+			if ((IsKeyDown(KEY_W) || IsKeyDown(KEY_UP)) && (IsKeyUp(KEY_A) && IsKeyUp(KEY_D)))
 			{
-				DrawTexture(studentBack, studentX, studentY, WHITE);
+				currentFrameBoy = { (float)boyFrame * studentBack.width / 3, 0, (float)studentBack.width / 3, (float)studentBack.height };
+				DrawTextureRec(studentBack, currentFrameBoy, { studentX, studentY }, WHITE);
+				frameCounter += 0.3f;
+
+				if (frameCounter >= 7)
+				{
+					frameCounter = 0;
+					boyFrame++;
+					if (boyFrame >= 3)
+					{
+						boyFrame = 0;
+					}
+				}
 			}
 
-			if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN))
+			if ((IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN)) && (IsKeyUp(KEY_A) && IsKeyUp(KEY_D)))
 			{
-				DrawTexture(studentFront, studentX, studentY, WHITE);
+				currentFrameBoy = { (float)boyFrame * studentFront.width / 3, 0, (float)studentFront.width / 3, (float)studentFront.height };
+				DrawTextureRec(studentFront, currentFrameBoy, { studentX, studentY }, WHITE);
+				frameCounter += 0.3f;
+
+				if (frameCounter >= 7)
+				{
+					frameCounter = 0;
+					boyFrame++;
+					if (boyFrame >= 3)
+					{
+						boyFrame = 0;
+					}
+				}
 			}
 
-			if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT))
+			if ((IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT)) || (IsKeyDown(KEY_A) && IsKeyDown(KEY_W)) || (IsKeyDown(KEY_A) && IsKeyDown(KEY_S)))
 			{
-				DrawTexture(studentLeft, studentX, studentY, WHITE);
-			}
+				currentFrameBoy = { (float)boyFrame * studentLeft.width / 2, 0, (float)studentLeft.width / 2, (float)studentLeft.height };
+				DrawTextureRec(studentLeft, currentFrameBoy, { studentX, studentY }, WHITE);
+				frameCounter += 0.3f;
 
-			if (IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT))
+				if (frameCounter >= 7)
+				{
+					frameCounter = 0;
+					boyFrame++;
+					if (boyFrame >= 2)
+					{
+						boyFrame = 0;
+					}
+				}
+			}
+			
+			if ((IsKeyDown(KEY_D)) || (IsKeyDown(KEY_D) && (IsKeyDown(KEY_W)) || (IsKeyDown(KEY_D)) && IsKeyDown(KEY_S)))
 			{
-				DrawTexture(studentRight, studentX, studentY, WHITE);
+				currentFrameBoy = { (float)boyFrame * studentRight.width / 2, 0, (float)studentRight.width / 2, (float)studentRight.height };
+				DrawTextureRec(studentRight, currentFrameBoy, { studentX, studentY }, WHITE);
+				frameCounter += 0.4f;
+
+				if (frameCounter >= 7)
+				{
+					frameCounter = 0;
+					boyFrame++;
+					if (boyFrame >= 2)
+					{
+						boyFrame = 0;
+					}
+				}
 			}
 
 			if (IsKeyUp(KEY_W) && IsKeyUp(KEY_S) && IsKeyUp(KEY_A) && IsKeyUp(KEY_D))
 			{
-				DrawTexture(studentBack, studentX, studentY, WHITE);
+				currentFrameBoy = { (float)boyFrame * studentBack.width / 3, 0, (float)studentBack.width / 3, (float)studentBack.height };
+				DrawTextureRec(studentBack, currentFrameBoy, { studentX, studentY }, WHITE);
 			}
 
 		}

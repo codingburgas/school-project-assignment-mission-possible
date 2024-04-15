@@ -9,7 +9,7 @@ void menu()
 
 	int character = 1;
 
-	Texture2D studentFront = LoadTexture("sprites/studentFront.png");
+	Texture2D studentFront = LoadTexture("sprites/studentFrontMenu.png");
 	Texture2D studentGirl = LoadTexture("sprites/girlSprite.png");
 	const Rectangle girlPos = { 80,160,60,80 };
 	 
