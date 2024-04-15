@@ -285,7 +285,7 @@ void maths()
                      timerIsZero = true;
                 }
                 minutes--;
-                seconds = 59;
+                seconds = 5;
 
             }
             else {
@@ -300,7 +300,7 @@ void maths()
         if (timerIsZero)
         {
             EnableCursor();
-            mathsExam();
+            mathsExaminationAlert();
         }
         
         EndDrawing();

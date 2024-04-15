@@ -1,4 +1,8 @@
 #include "exams.h"
+#include "textbooks.h"
+#include "rooms.h"
+#include "map.h"
+#include "menu.h"
 
 #define MAXQUESTIONS 10
 #define MAXOPTIONS 4
@@ -13,6 +17,8 @@ bool CheckMouseClickOnOption(int optionIndex, int mouseY) {
     // Check if the mouse is within the bounding box of the option and left mouse button is pressed
     return (GetMouseX() >= 100 && GetMouseX() <= 300 && GetMouseY() >= 150 + 30 * optionIndex && GetMouseY() <= 150 + 30 * optionIndex + 20 && IsMouseButtonPressed(MOUSE_LEFT_BUTTON));
 }
+
+
 void mathsExam()
 {
         // Array of questions with their options and correct answers
@@ -70,7 +76,7 @@ void mathsExam()
         int selectedOption = -1;
         bool answered = false;
         int score = 0;
-        SetExitKey(KEY_ESCAPE);
+    
         // Main game loop
         while (!WindowShouldClose()) {
 
@@ -126,5 +132,56 @@ void mathsExam()
                 selectedOption = -1; // Reset selected option
                 answered = false; // Reset answered flag
             }
+            if (currentQuestion >= MAXQUESTIONS)
+            { 
+                
+                maths(); 
+                break;
+            }
+            SetExitKey(KEY_ESCAPE);
         }
+
+}
+void mathsExaminationAlert()
+{
+    Camera camera = { 0 };
+  
+
+    const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
+    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
+
+    int character = GetRandomValue(1, 2);
+    while (!WindowShouldClose())
+    {
+        Vector2 mousePosition = GetMousePosition();
+        BeginDrawing();
+        ClearBackground(RAYWHITE);
+        bool isMouseOverButtonRevise = CheckCollisionPointRec(mousePosition, reviseButton);
+        // Set new colors for hovering the button and draw text
+        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? SKYBLUE : BLUE));
+        DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        // Handle click with the mouse over button
+        if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+            bioTextBook(camera);
+        }
+        bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
+        // Set new colors for hovering the button and draw text
+        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
+        DrawText("Start", GetScreenWidth() / 2 + 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        // Handle click with the mouse over button
+        if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+            mathsExam();
+            if (IsKeyPressed(KEY_ESCAPE))
+            {
+                initMap(character);
+                if (IsKeyPressed(KEY_ESCAPE))
+                {
+                    menu();
+                }
+            }
+        }
+     
+        EndDrawing();
+    }
+    
 }
