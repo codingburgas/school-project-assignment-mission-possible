@@ -26,6 +26,18 @@ void collisions(Camera& camera, Vector3 previousCameraPosition, BoundingBox came
     }
 }
 
+bool collisionsModelToModel(Vector3& ballPosition, Vector3 previousBallPosition, BoundingBox ballBox, BoundingBox wallBox)
+{
+
+    if (checkCollision(ballBox, wallBox)) {
+        return 0;
+    }
+    else {
+        return 1;
+    }
+
+}
+
 void collisionModels(Camera& camera, Vector3 previousCameraPosition, BoundingBox cameraBox, BoundingBox wallBox)
 {
 
@@ -37,35 +49,29 @@ void collisionModels(Camera& camera, Vector3 previousCameraPosition, BoundingBox
     }
 }
 
-void kickBall(Camera camera, Vector3 ballPosition, float& potentialKickX) {
+void kickBall(Camera camera, Vector3& ballPosition, float& potentialKickX) {
     float distanceToBall = distanceCalc(camera.position, ballPosition);
-    const float kickThreshold = 3.0f; // Adjust this threshold as needed
+    const float kickThreshold = 3.5f;
 
     if (IsMouseButtonDown(MOUSE_LEFT_BUTTON) && distanceToBall <= kickThreshold) {
-        // Charge the kick power
-        potentialKickX += GetFrameTime() * 5.0f; // Adjust charging speed as needed
+        potentialKickX += GetFrameTime() * 10.0f;
     }
 
     if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON) && distanceToBall <= kickThreshold) {
-        // Kick the ball when the left mouse button is released
-        // Calculate kick force based on charging time
-        float kickForce = potentialKickX * 10.0f; // Adjust kick force as needed
+        float kickForce = potentialKickX;
 
-        // Get direction vector from camera position to ball position
         Vector3 direction = Vector3Subtract(ballPosition, camera.position);
         direction = Vector3Normalize(direction);
 
-        // Apply kick force in the direction of the player's view
         ballPosition.x += direction.x * kickForce;
-        ballPosition.y += direction.y * kickForce;
         ballPosition.z += direction.z * kickForce;
 
-        // Reset potential kick X for next kick
         potentialKickX = 0.0f;
     }
 }
 
-void drawFurnitures(Model chair, Model desk, Model deskChair, Model studentDesk, Model board, Model laptop,Model book, Camera& camera, Vector3 previousCameraPosition)
+
+void drawFurnitures(Model chair, Model desk, Model deskChair, Model studentDesk, Model board, Model laptop, Model book, Camera& camera, Vector3 previousCameraPosition)
 {
     BoundingBox cameraBox;
     BoundingBox deskBox;
@@ -96,9 +102,9 @@ void drawFurnitures(Model chair, Model desk, Model deskChair, Model studentDesk,
     BoundingBox studentDeskBox[16];
     for (int i = 0; i < 3; i++)
     {
-         studentDeskBox[i].min = { 7.25f, 0.2f, -2.0f+change };
-         studentDeskBox[i].max = {8.9f,2.0f,0.0f+change};
-         change += 4;
+        studentDeskBox[i].min = { 7.25f, 0.2f, -2.0f + change };
+        studentDeskBox[i].max = { 8.9f,2.0f,0.0f + change };
+        change += 4;
     }
     change = 0;
     for (int i = 3; i < 6; i++)
@@ -135,7 +141,7 @@ void drawFurnitures(Model chair, Model desk, Model deskChair, Model studentDesk,
     deskBox.min = { -1.0f ,0.2f,-8.5f };
     deskBox.max = { 1.0f ,5.0f,-11.0f };
     collisionModels(camera, previousCameraPosition, cameraBox, deskBox);
-    
+
 }
 void drawTubes(Model tubes)
 {
@@ -147,7 +153,7 @@ void drawTubes(Model tubes)
 
     }
 }
-void drawFurnituresProgramming(Model desk, Model deskChair, Model chair, Model chairOther,Model workstation,Model computer ,Model computerRotated  , Camera& camera, Vector3 previousCameraPosition)
+void drawFurnituresProgramming(Model desk, Model deskChair, Model chair, Model chairOther, Model workstation, Model computer, Model computerRotated, Camera& camera, Vector3 previousCameraPosition)
 {
     BoundingBox cameraBox;
     cameraBox.min = camera.position;
@@ -165,8 +171,8 @@ void drawFurnituresProgramming(Model desk, Model deskChair, Model chair, Model c
     for (int i = 0; i <= 17.5; i += 2.5)
     {
         DrawModel(chair, { 15.0f - i,0.1f,7.0f }, 0.03, WHITE);
-        DrawModel(workstation,  { 15.0f - i,0.1f,7.0f }, 1.5, GRAY);
-        DrawModel(computer,  { 15.8f - i,1.2f,6.0f }, 1.5, BLACK);
+        DrawModel(workstation, { 15.0f - i,0.1f,7.0f }, 1.5, GRAY);
+        DrawModel(computer, { 15.8f - i,1.2f,6.0f }, 1.5, BLACK);
     }
 
     for (int i = 0; i <= 17.5; i += 2.5)
@@ -183,7 +189,7 @@ void drawFurnituresProgramming(Model desk, Model deskChair, Model chair, Model c
 
     for (int i = 0; i <= 17.5; i += 2.5)
     {
-        DrawModel(chairOther, { 15.0f - i,0.1f,-7.5f }, 0.03, WHITE);   
+        DrawModel(chairOther, { 15.0f - i,0.1f,-7.5f }, 0.03, WHITE);
         DrawModel(computerRotated, { 15.5f - i,1.2f,-7.8f }, 1.5, BLACK);
     }
     BoundingBox chairBox[2];
@@ -251,7 +257,7 @@ void maths()
     int seconds = 0;
 
     bool timerIsZero = false;
-    
+
     // Main game loop
     while (!WindowShouldClose())
     {
@@ -273,7 +279,7 @@ void maths()
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
 
-        drawFurnitures(chair, desk, deskChair, studentDesk, board,laptop, book,  camera, previousCameraPosition);
+        drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
         elapsedTime += GetFrameTime();
 
@@ -282,7 +288,7 @@ void maths()
             if (seconds == 0) {
                 if (minutes == 0)
                 {
-                     timerIsZero = true;
+                    timerIsZero = true;
                 }
                 minutes--;
                 seconds = 5;
@@ -302,9 +308,9 @@ void maths()
             EnableCursor();
             mathsExaminationAlert();
         }
-        
+
         EndDrawing();
-        
+
     }
 
     SetExitKey(KEY_ESCAPE);
@@ -383,7 +389,7 @@ void history()
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
 
-        drawFurnitures(chair, desk, deskChair, studentDesk, board,laptop, book,  camera, previousCameraPosition);
+        drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
         DrawModel(musket, { 0.0f,3.0f,8.5f }, 0.03f, BROWN);
 
@@ -465,7 +471,7 @@ void physics()
         DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
-        drawFurnitures(chair, desk, deskChair, studentDesk, board,laptop, book,  camera, previousCameraPosition);
+        drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
 
         EndMode3D();
@@ -549,8 +555,8 @@ void literature()
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
 
-        drawFurnitures(chair, desk, deskChair, studentDesk, board,laptop, book,  camera, previousCameraPosition);
-        DrawModel(bookshelf, { 0.0f,0.0f,8.5f },2.0f, BROWN);
+        drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
+        DrawModel(bookshelf, { 0.0f,0.0f,8.5f }, 2.0f, BROWN);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
 
         EndMode3D();
@@ -632,8 +638,8 @@ void chemistry()
         DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
-        
-        drawFurnitures(chair, desk, deskChair, studentDesk, board,laptop, book,  camera, previousCameraPosition);
+
+        drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
         drawTubes(tubes);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
 
@@ -717,7 +723,7 @@ void english()
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
 
-        drawFurnitures(chair, desk, deskChair, studentDesk, board,laptop, book,  camera, previousCameraPosition);
+        drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
 
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
         EndMode3D();
@@ -797,9 +803,7 @@ void biology()
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, BROWN);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
 
-        DrawCube({ 0.0f, 1.5f, -7.5f }, 1.0f, 1.0f, 1.0f, GOLD);
-
-        drawFurnitures(chair, desk, deskChair, studentDesk, board,laptop, book,  camera, previousCameraPosition);
+        drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
         DrawModel(skeleton, { 5.0f, 2.2f, -9.0f }, 0.01, WHITE);
 
         EndMode3D();
@@ -886,7 +890,7 @@ void geography()
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
 
-        drawFurnitures(chair, desk, deskChair, studentDesk, board,laptop, book,  camera, previousCameraPosition);
+        drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
 
         DrawModel(globe, { 0.65f,1.65f,-7.0f }, 0.4, GOLD);
 
@@ -965,7 +969,7 @@ void programming()
         DrawCube({ 7.5f, 2.5f, -10.0f }, 28.5f, 8.3f, 1.0f, GOLD);
         DrawCube({ 7.5f, 6.7f, 0.0f }, 28.5f, 0.2f, 21.0f, LIGHTGRAY);
 
-        drawFurnituresProgramming(desk, deskChair, chair, chairOther,workstation,computer, computerRotated ,camera,previousCameraPosition);
+        drawFurnituresProgramming(desk, deskChair, chair, chairOther, workstation, computer, computerRotated, camera, previousCameraPosition);
         DrawBoundingBox(wallBox, RED);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
         Vector3 cubePosition = { 19.5f,0.2f,7.0f };
@@ -980,6 +984,8 @@ void programming()
 
 void physyicaEducation()
 {
+    Model goal = LoadModel("objects/goal.obj");
+    Model basketballHoop = LoadModel("objects/basketballHoop.obj");
     const int screenWidth = 1920;
     const int screenHeight = 975;
 
@@ -992,9 +998,14 @@ void physyicaEducation()
 
     int cameraMode = CAMERA_FIRST_PERSON;
 
+    Vector3 ballPosition = { 10.0f, 0.5f, 0.0f };
+
     BoundingBox wallBox;
     wallBox.min = { -21.5f, 0.0f, -14.5f };
     wallBox.max = { 37.5f, 22.5f,14.5f };
+
+    BoundingBox ballBox;
+
 
     BoundingBox cameraBox;
     cameraBox.min = camera.position;
@@ -1006,25 +1017,36 @@ void physyicaEducation()
     cameraBox.max.y += 0.5f;
     cameraBox.max.z += 0.5f;
 
+    BoundingBox goalBox;
+    goalBox.min = { 34.0f, 0.0f, -2.5f };
+    goalBox.max = { 36.0f, 6.0f,4.0f };
+
+    float diff = 0;
     // Generates some random columns
     DisableCursor();                    // Limit cursor to relative movement inside the window
-
+    int footballPoints = 0;
     SetTargetFPS(60);                   // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
-    Vector3 ballPosition = { 10.0f, 0.5f, 0.0f };
     float potentialKickX = 0.0f;
     // Main game loop
     while (!WindowShouldClose())
     {
-        kickBall(camera, ballPosition, potentialKickX);
+        ballBox.min = { ballPosition.x - 0.3f, ballPosition.y ,ballPosition.z - 0.1f };
+        ballBox.max = { ballPosition.x + 0.4f , ballPosition.y + 0.7f ,ballPosition.z + 0.4f };
         Vector3 previousCameraPosition = camera.position;
+        kickBall(camera, ballPosition, potentialKickX);
+
         UpdateCamera(&camera, cameraMode);
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
 
+        collisionsModelToModel(ballPosition, { 10.0f, 0.5f, 0.0f }, ballBox, wallBox);
+
         BeginMode3D(camera);
-        DrawSphere(ballPosition, 0.5f, BLUE); 
+
+        DrawSphere(ballPosition, 0.5f, BLUE);
+
         cameraBox.min = camera.position;
         cameraBox.max = camera.position;
         DrawPlane({ 7.5f, 0.0f, 0.0f }, { 60.5f, 30.0f }, LIGHTGRAY);
@@ -1034,12 +1056,25 @@ void physyicaEducation()
         DrawCube({ 7.5f, 2.5f, -15.0f }, 60.5f, 25.0f, 1.0f, BLUE);
         DrawCube({ 7.5f, 15.0f, 0.0f }, 62.5f, 0.2f, 30.0f, LIGHTGRAY);
 
-        
+        DrawModel(goal, { 34.0f, 0.2f, 0.0f }, 1.0, WHITE);
+        DrawModel(basketballHoop, { -12.0f, 0.0f, 0.0f }, 3.0, WHITE);
+
         DrawBoundingBox(wallBox, RED);
+        DrawBoundingBox(goalBox, RED);
+
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
+        if (!collisionsModelToModel(ballPosition, { 34.0f, 0.2f, 0.0f }, ballBox, goalBox))
+        {
+            footballPoints += 1;
+            ballPosition = { 10.0f, 0.5f, 0.0f };
+        }
         EndMode3D();
         drawCoordinates(camera);
+        std::string pointsStr = "Points: " + std::to_string(footballPoints);
+        DrawText(pointsStr.c_str(), 10, 10, 10, BLACK);
         EndDrawing();
+
     }
     EnableCursor();
+    CloseWindow();
 }

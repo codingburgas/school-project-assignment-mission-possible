@@ -8,73 +8,271 @@ void menu()
 	const int screenHeight = 975;
 
 	int character = 1;
-
 	Texture2D studentFront = LoadTexture("sprites/studentFrontMenu.png");
 	Texture2D studentGirl = LoadTexture("sprites/girlSprite.png");
 	const Rectangle girlPos = { 80,160,60,80 };
-	 
-	const Rectangle startButton = { (screenWidth / 2) + 340, (screenHeight / 2) - 30, 270, 90 };
-	const Rectangle rulesButton = { (screenWidth / 2) + 340, (screenHeight / 2) + 125, 270, 90 };
-	const Rectangle exitButton = { (screenWidth / 2) + 100, (screenHeight / 2) + 280, 270, 90 };
+
+	const Rectangle startButton = { (screenWidth / 2) - 330, (screenHeight / 2) + 50, 200, 50 };
+	const Rectangle rulesButton = { (screenWidth / 2) - 60, (screenHeight / 2) + 50, 200, 50 };
+	const Rectangle exitButton = { (screenWidth / 2) + 230, (screenHeight / 2) + 50, 200, 50 };
 
 	const  Vector2 screenPos[2] = {
 		{(screenWidth / 2) - 340, (screenHeight / 2) - 30 },
 		{(screenWidth / 2) - 680, (screenHeight / 2) - 30 }
 	};
+
 	const Rectangle bounds[2] = {
 		{(screenWidth / 2) - 720, (screenHeight / 2) - 30,150,325},
 		{ (screenWidth / 2) - 250, (screenHeight / 2) - 30,125,325}
 	};
+	bool animationShown = 0;
+	bool showParticle = 0;
+	Texture2D tubes = LoadTexture("sprites/tubes.png");
+	Texture2D logo = LoadTexture("../images/logoResized.png");
+	Texture2D skeleton = LoadTexture("sprites/skeleton.png");
+	Texture2D book = LoadTexture("sprites/book.png");
+	Texture2D molecual = LoadTexture("sprites/molecual.png");
+	Texture2D globus = LoadTexture("sprites/globus.png");
+	Texture2D calculator = LoadTexture("sprites/calculator.png");
+	Texture2D bus = LoadTexture("sprites/bus.png");
+
+	int tubesX = 0;
+	int skeletonX = 0;
+	int tubesY = 0;
+	int molecualX = 0;
+	int molecualY = 0;
+	int bookX = 0;
+	int bookY = 0;
+	int globusX = 0;
+	int globusY = 0;
+	int calculatorX = 0;
+	int calculatorY = 0;
+	int busX = 0;
+	int doneAnimationCount = 0;
+	int particleShow = 0;
+	int i = 0;
+	int particleCount = 1;
+	std::vector<Particle> particles;
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();
-		ClearBackground(WHITE);
-		Vector2 mousePosition = GetMousePosition();
-		// Check if mouse is hovering the specific button
-		bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, startButton);
-		// Set new colors for hovering the button and draw text
+		ClearBackground(GRAY);
+		DrawTexture(logo, 500, 250, WHITE);
+		if (animationShown == 0)
 
-		DrawTexturePro(studentGirl, girlPos, { (screenWidth / 2) + 340, (screenHeight / 2) + 430 ,150,350}, screenPos[0], 0.0, WHITE);
-		DrawTextureEx(studentFront, screenPos[1],0.0f,5.0f, WHITE);
+		{
 
-		if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), bounds[0]))
-		{
-			character = 1;
+			DrawTexture(tubes, 10 + tubesX, 100 + tubesY, WHITE);
+			DrawTexture(calculator, 800 - calculatorX, 710 - calculatorY, WHITE);
+			DrawTexture(globus, 1450 - globusX, 400 - globusY, WHITE);
+			DrawTexture(skeleton, 100 + skeletonX, 100, WHITE);
+			DrawTexture(book, 100 + bookX, 100 + bookY, WHITE);
+			DrawTexture(molecual, 1200 - molecualX, 100 + molecualY, WHITE);
+			DrawTexture(bus, 1400 - busX, 550, WHITE);
+			skeletonX += 10;
+			tubesY += 10;
+			tubesX += 10;
+			molecualX += 10;
+			molecualY += 10;
+			bookX += 10;
+			bookY += 10;
+			globusX += 10;
+			globusY += 10;
+			calculatorX += 10;
+			calculatorY += 10;
+			busX += 10;
+			if (10 + bookX >= 1400)
+			{
+				bookX = 1400;
+				doneAnimationCount++;
+			}
+			if (10 + bookY >= 450)
+			{
+				bookY = 450;
+				doneAnimationCount++;
+			}
+			if (10 + skeletonX >= 1400)
+			{
+				skeletonX = 1400;
+				doneAnimationCount++;
+
+			}
+			if (10 + tubesX >= 1000)
+			{
+				tubesX = 1090;
+				doneAnimationCount++;
+
+			}
+			if (100 + tubesY >= 700)
+			{
+				tubesY = 710;
+				doneAnimationCount++;
+
+			}
+			if (10 + molecualY >= 550)
+			{
+				molecualY = 550;
+				doneAnimationCount++;
+
+			}
+			if (10 + molecualX >= 700)
+			{
+				molecualX = 700;
+				doneAnimationCount++;
+
+			}
+			if (globusY >= 390)
+			{
+				globusY = 390;
+				doneAnimationCount++;
+
+			}
+			if (10 + globusX >= 600)
+			{
+				globusX = 600;
+				doneAnimationCount++;
+
+			}
+			if (10 + calculatorX >= 700)
+			{
+				calculatorX = 700;
+				doneAnimationCount++;
+
+			}
+			if (calculatorY >= 610)
+			{
+				calculatorY = 610;
+				doneAnimationCount++;
+
+			}
+			if (busX >= 1300)
+			{
+				busX = 1300;
+				doneAnimationCount++;
+
+			}
+			i++;
+			if (i == 160)
+			{
+				animationShown = 1;
+			}
+
 		}
-		if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), bounds[1]))
+		else
 		{
-			character = 2;
+			DrawTexture(tubes, 10 + tubesX, 100 + tubesY, WHITE);
+			DrawTexture(calculator, 800 - calculatorX, 710 - calculatorY, WHITE);
+			DrawTexture(globus, 1450 - globusX, 400 - globusY, WHITE);
+			DrawTexture(skeleton, 100 + skeletonX, 100, WHITE);
+			DrawTexture(book, 100 + bookX, 100 + bookY, WHITE);
+			DrawTexture(molecual, 1200 - molecualX, 100 + molecualY, WHITE);
+			DrawTexture(bus, 1400 - busX, 550, WHITE);
+			Vector2 mousePosition = GetMousePosition();
+			// Check if mouse is hovering the specific button
+			bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, startButton);
+			// Set new colors for hovering the button and draw text
+
+			DrawRectangleRounded(startButton, 10, 10, (isMouseOverButtonStart ? PINK : LIGHTGRAY));
+			DrawText("Start", (screenWidth / 2) - 260, (screenHeight / 2) + 62, 25, WHITE);
+			if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+				showParticle = 1;
+			}
+
+			// Check if mouse is hovering the specific button
+			bool isMouseOverButtonRules = CheckCollisionPointRec(mousePosition, rulesButton);
+			// Set new colors for hovering the button and draw text
+			DrawRectangleRounded(rulesButton, 10, 10, (isMouseOverButtonRules ? PINK : LIGHTGRAY));
+			DrawText("Rules", screenWidth / 2 + 5, screenHeight / 2 + 62, 25, WHITE);
+			// Handle click with the mouse over button
+			if (isMouseOverButtonRules && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+				rules();
+			}
+
+			// Check if mouse is hovering the specific button
+			bool isMouseOverButtonExit = CheckCollisionPointRec(mousePosition, exitButton);
+			// Set new colors for hovering the button and draw text
+			DrawRectangleRounded(exitButton, 10, 10, (isMouseOverButtonExit ? PINK : LIGHTGRAY));
+			DrawText("Exit", screenWidth / 2 + 310, screenHeight / 2 + 62, 25, WHITE);
+			// Handle click with the mouse over button
+			if (isMouseOverButtonExit && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+				CloseWindow();
+			}
 		}
-		DrawRectangleRec(startButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
-		DrawText("Start", screenWidth / 2 + 400, screenHeight / 2 - 10, 50, WHITE);
-		if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+		if (showParticle == 1)
+		{
+			if (particleCount == 2)
+			{
+				for (int i = 0; i < 150; i++) {
+					Particle particle;
+					particle.position = { 810, 330 };
+					particle.velocity = { static_cast<float>(GetRandomValue(-5, 5)), static_cast<float>(GetRandomValue(-5, 5)) };
+					particle.color = PINK;
+					particle.radius = GetRandomValue(1, 5);
+					particles.push_back(particle);
+				}
+			}
+
+			if (!particles.empty()) {
+				for (auto it = particles.begin(); it != particles.end();) {
+					it->position.x += it->velocity.x;
+					it->position.y += it->velocity.y;
+
+
+					DrawCircleV(it->position, it->radius, it->color);
+
+					if (it->position.x < 0 || it->position.x > GetScreenWidth() ||
+						it->position.y < 0 || it->position.y > GetScreenHeight()) {
+						it = particles.erase(it);
+					}
+					else {
+						++it;
+					}
+				}
+			}
+			if (particleCount == 2)
+			{
+				for (int i = 0; i < 150; i++) {
+					Particle particle;
+					particle.position = { 810, 330 };
+					particle.velocity = { static_cast<float>(GetRandomValue(-5, 5)), static_cast<float>(GetRandomValue(-5, 5)) };
+					particle.color = PURPLE;
+					particle.radius = GetRandomValue(1, 5);
+					particles.push_back(particle);
+				}
+			}
+
+
+			if (!particles.empty()) {
+				for (auto it = particles.begin(); it != particles.end();) {
+					it->position.x += it->velocity.x;
+					it->position.y += it->velocity.y;
+
+
+					DrawCircleV(it->position, it->radius, it->color);
+
+					if (it->position.x < 0 || it->position.x > GetScreenWidth() ||
+						it->position.y < 0 || it->position.y > GetScreenHeight()) {
+						it = particles.erase(it);
+					}
+					else {
+						++it;
+					}
+				}
+			}
+			particleCount++;
+
+			particleShow++;
+
+		}
+		if (particleShow == 35)
+		{
 			initMap(character);
-		}
-		// Check if mouse is hovering the specific button
-		bool isMouseOverButtonRules = CheckCollisionPointRec(mousePosition, rulesButton);
-		// Set new colors for hovering the button and draw text
-		DrawRectangleRec(rulesButton, (isMouseOverButtonRules ? SKYBLUE : BLUE));
-		DrawText("Rules", screenWidth / 2 + 400, screenHeight / 2 + 142, 50, WHITE);
-		// Handle click with the mouse over button
-		if (isMouseOverButtonRules && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-			rules();
-		}
-
-		// Check if mouse is hovering the specific button
-		bool isMouseOverButtonExit = CheckCollisionPointRec(mousePosition, exitButton);
-		// Set new colors for hovering the button and draw text
-		DrawRectangleRec(exitButton, (isMouseOverButtonExit ? SKYBLUE : BLUE));
-		DrawText("Exit", screenWidth / 2 + 425, screenHeight / 2 + 300, 50, WHITE);
-		// Handle click with the mouse over button
-		if (isMouseOverButtonExit && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-			CloseWindow();
-		}
-		if (IsKeyPressed(KEY_ESCAPE))
-		{
-			CloseWindow();
 		}
 		EndDrawing();
 	}
-	
+	if (IsKeyPressed(KEY_ESCAPE))
+	{
+		CloseWindow();
+	}
 
 }
