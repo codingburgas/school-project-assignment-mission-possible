@@ -1,6 +1,6 @@
 #include "map.h"
 #include "rooms.h"
-
+#include "menu.h"
 void initMap(int character)
 {
 	const int screenWidth = 1920;
@@ -44,7 +44,7 @@ void initMap(int character)
 	};
 
 
-	int currentFrame = 8;
+	int currentFrameGirl = 8;
 	int boyFrame = 0;
 	float frameCounter = 0;
 	float frameTime = 0;
@@ -55,28 +55,28 @@ void initMap(int character)
 		{
 			studentY -= 3.0f;
 			student.y = studentY;
-			currentFrame = 8 + (int)(GetTime() * 5) % 2; // Animation for walking forward
+			currentFrameGirl = 8 + (int)(GetTime() * 5) % 2; // Animation for walking forward
 		}
 
 		if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN))
 		{
 			studentY += 3.0f;
 			student.y = studentY;
-			currentFrame = 6 + (int)(GetTime() * 5) % 2; // Animation for walking back
+			currentFrameGirl = 6 + (int)(GetTime() * 5) % 2; // Animation for walking back
 		}
 
 		if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT))
 		{
 			studentX -= 3.0f;
 			student.x = studentX;
-			currentFrame = 2 + (int)(GetTime() * 5) % 2; // Animation for walking left
+			currentFrameGirl = 2 + (int)(GetTime() * 5) % 2; // Animation for walking left
 		}
 
 		if (IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT))
 		{
 			studentX += 3.0f;
 			student.x = studentX;
-			currentFrame = 4 + (int)(GetTime() * 5) % 2; // Animation for walking right
+			currentFrameGirl = 4 + (int)(GetTime() * 5) % 2; // Animation for walking right
 		}
 
 
@@ -111,13 +111,13 @@ void initMap(int character)
 		DrawRectangleRec(subjects[8], CheckCollisionRecs(student, subjects[8]) ? GREEN : DARKGREEN);
 		DrawText("Geography", 1255, 592, 30, BLACK);
 
-		if (character == 1) 
+		if (character == 1)
 		{
 			if ((IsKeyDown(KEY_W) || IsKeyDown(KEY_UP)) && (IsKeyUp(KEY_A) && IsKeyUp(KEY_D)))
 			{
 				currentFrameBoy = { (float)boyFrame * studentBack.width / 3, 0, (float)studentBack.width / 3, (float)studentBack.height };
 				DrawTextureRec(studentBack, currentFrameBoy, { studentX, studentY }, WHITE);
-				frameCounter += 0.3f;
+				frameCounter += 0.4f;
 
 				if (frameCounter >= 7)
 				{
@@ -134,7 +134,7 @@ void initMap(int character)
 			{
 				currentFrameBoy = { (float)boyFrame * studentFront.width / 3, 0, (float)studentFront.width / 3, (float)studentFront.height };
 				DrawTextureRec(studentFront, currentFrameBoy, { studentX, studentY }, WHITE);
-				frameCounter += 0.3f;
+				frameCounter += 0.4f;
 
 				if (frameCounter >= 7)
 				{
@@ -151,7 +151,7 @@ void initMap(int character)
 			{
 				currentFrameBoy = { (float)boyFrame * studentLeft.width / 2, 0, (float)studentLeft.width / 2, (float)studentLeft.height };
 				DrawTextureRec(studentLeft, currentFrameBoy, { studentX, studentY }, WHITE);
-				frameCounter += 0.3f;
+				frameCounter += 0.4f;
 
 				if (frameCounter >= 7)
 				{
@@ -163,7 +163,7 @@ void initMap(int character)
 					}
 				}
 			}
-			
+
 			if ((IsKeyDown(KEY_D)) || (IsKeyDown(KEY_D) && (IsKeyDown(KEY_W)) || (IsKeyDown(KEY_D)) && IsKeyDown(KEY_S)))
 			{
 				currentFrameBoy = { (float)boyFrame * studentRight.width / 2, 0, (float)studentRight.width / 2, (float)studentRight.height };
@@ -190,141 +190,144 @@ void initMap(int character)
 		}
 		else if (character == 2)
 		{
-			DrawTextureRec(studentGirl, spriteGirl[currentFrame], { studentX,studentY }, WHITE);
+			DrawTextureRec(studentGirl, spriteGirl[currentFrameGirl], { studentX,studentY }, WHITE);
 			frameCounter += 0.5f;
 
 			if (frameCounter >= 5)
 			{
 				frameCounter = 0;
-				currentFrame++;
+				currentFrameGirl++;
 
-				if (currentFrame > 9)
+				if (currentFrameGirl > 9)
 				{
-					currentFrame = 0;
+					currentFrameGirl = 0;
 				}
 			}
 		}
-		
-			if (CheckCollisionRecs(student, subjects[0]))
-			{
-				DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
-				if (IsKeyDown(KEY_ENTER))
-				{
-					physyicaEducation();
-					studentX = 435;
-					studentY = 700;
-					student.x = studentX;
-					student.y = studentY;
-				}
-			}
 
-			if (CheckCollisionRecs(student, subjects[1]))
+		if (CheckCollisionRecs(student, subjects[0]))
+		{
+			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
 			{
-				DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
-				if (IsKeyDown(KEY_ENTER))
-				{
-					biology();
-					studentX = 435;
-					studentY = 700;
-					student.x = studentX;
-					student.y = studentY;
-				}
+				physyicaEducation();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
 			}
+		}
 
-			if (CheckCollisionRecs(student, subjects[2]))
+		if (CheckCollisionRecs(student, subjects[1]))
+		{
+			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
 			{
-				DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
-				if (IsKeyDown(KEY_ENTER))
-				{
-					physics();
-					studentX = 435;
-					studentY = 700;
-					student.x = studentX;
-					student.y = studentY;
-				}
+				biology();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
 			}
+		}
 
-			if (CheckCollisionRecs(student, subjects[3]))
+		if (CheckCollisionRecs(student, subjects[2]))
+		{
+			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
 			{
-				DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
-				if (IsKeyDown(KEY_ENTER))
-				{
-					chemistry();
-					studentX = 435;
-					studentY = 700;
-					student.x = studentX;
-					student.y = studentY;
-				}
+				physics();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
 			}
+		}
 
-			if (CheckCollisionRecs(student, subjects[4]))
+		if (CheckCollisionRecs(student, subjects[3]))
+		{
+			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
 			{
-				DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
-				if (IsKeyDown(KEY_ENTER))
-				{
-					history();
-					studentX = 435;
-					studentY = 700;
-					student.x = studentX;
-					student.y = studentY;
-				}
+				chemistry();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
 			}
+		}
 
-			if (CheckCollisionRecs(student, subjects[5]))
+		if (CheckCollisionRecs(student, subjects[4]))
+		{
+			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
 			{
-				DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
-				if (IsKeyDown(KEY_ENTER))
-				{
-					literature();
-					studentX = 435;
-					studentY = 700;
-					student.x = studentX;
-					student.y = studentY;
-				}
+				history();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
 			}
+		}
 
-			if (CheckCollisionRecs(student, subjects[6]))
+		if (CheckCollisionRecs(student, subjects[5]))
+		{
+			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
 			{
-				DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
-				if (IsKeyDown(KEY_ENTER))
-				{
-					english();
-					studentX = 435;
-					studentY = 700;
-					student.x = studentX;
-					student.y = studentY;
-				}
+				literature();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
 			}
+		}
 
-			if (CheckCollisionRecs(student, subjects[7]))
+		if (CheckCollisionRecs(student, subjects[6]))
+		{
+			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
 			{
-				DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
-				if (IsKeyDown(KEY_ENTER))
-				{
-					maths();
-					studentX = 435;
-					studentY = 700;
-					student.x = studentX;
-					student.y = studentY;
-				}
+				english();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
 			}
+		}
 
-			if (CheckCollisionRecs(student, subjects[8]))
+		if (CheckCollisionRecs(student, subjects[7]))
+		{
+			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
 			{
-				DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
-				if (IsKeyDown(KEY_ENTER))
-				{
-					geography();
-					studentX = 435;
-					studentY = 700;
-					student.x = studentX;
-					student.y = studentY;
-				}
+				maths();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
 			}
-		
+		}
 
+		if (CheckCollisionRecs(student, subjects[8]))
+		{
+			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
+			{
+				geography();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
+			}
+		}
+
+		if (IsKeyPressed(KEY_ESCAPE))
+		{
+			menu();
+		}
 		EndDrawing();
-		currentFrame = 8;
+		currentFrameGirl = 8;
 		if (IsKeyPressed(KEY_F))
 		{
 			cout << "Character: (" << student.x << ", " << student.y << "), width: " << student.width << ", height: " << student.height << endl;
@@ -335,6 +338,8 @@ void initMap(int character)
 
 			cout << "Collision with subject 0: " << (CheckCollisionRecs(student, subjects[0]) ? "Yes" : "No") << endl;
 		}
+		SetExitKey(KEY_ESCAPE);
 	}
+	
 
 }

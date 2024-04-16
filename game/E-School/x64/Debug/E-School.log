@@ -1,10 +1,2 @@
-﻿  exams.cpp
-C:\Users\HP\Desktop\Нова папка\school-project-assignment-mission-possible\game\E-School\exams.cpp(150,59): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
-C:\Users\HP\Desktop\Нова папка\school-project-assignment-mission-possible\game\E-School\exams.cpp(150,59): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\Desktop\Нова папка\school-project-assignment-mission-possible\game\E-School\exams.cpp(150,84): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
-C:\Users\HP\Desktop\Нова папка\school-project-assignment-mission-possible\game\E-School\exams.cpp(150,84): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\Desktop\Нова папка\school-project-assignment-mission-possible\game\E-School\exams.cpp(151,61): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
-C:\Users\HP\Desktop\Нова папка\school-project-assignment-mission-possible\game\E-School\exams.cpp(151,61): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\Desktop\Нова папка\school-project-assignment-mission-possible\game\E-School\exams.cpp(151,86): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
-C:\Users\HP\Desktop\Нова папка\school-project-assignment-mission-possible\game\E-School\exams.cpp(151,86): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  E-School.vcxproj -> C:\Users\HP\Desktop\Нова папка\school-project-assignment-mission-possible\game\x64\Debug\E-School.exe
+﻿  map.cpp
+  E-School.vcxproj -> C:\Users\HP\Desktop\ewedwsc\school-project-assignment-mission-possible\game\x64\Debug\E-School.exe

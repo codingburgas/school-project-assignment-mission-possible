@@ -15,7 +15,7 @@ void menu()
 	 
 	const Rectangle startButton = { (screenWidth / 2) + 340, (screenHeight / 2) - 30, 270, 90 };
 	const Rectangle rulesButton = { (screenWidth / 2) + 340, (screenHeight / 2) + 125, 270, 90 };
-	const Rectangle exitButton = { (screenWidth / 2) + 340, (screenHeight / 2) + 280, 270, 90 };
+	const Rectangle exitButton = { (screenWidth / 2) + 100, (screenHeight / 2) + 280, 270, 90 };
 
 	const  Vector2 screenPos[2] = {
 		{(screenWidth / 2) - 340, (screenHeight / 2) - 30 },
@@ -69,12 +69,12 @@ void menu()
 		if (isMouseOverButtonExit && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
 			CloseWindow();
 		}
-		
+		if (IsKeyPressed(KEY_ESCAPE))
+		{
+			CloseWindow();
+		}
 		EndDrawing();
 	}
-	if (IsKeyPressed(KEY_ESCAPE))
-	{
-		CloseWindow();
-	}
+	
 
 }
