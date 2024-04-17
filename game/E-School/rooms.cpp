@@ -1,6 +1,7 @@
 #include "rooms.h"
 #include "textbooks.h"
 #include "exams.h"
+
 void drawCoordinates(Camera& camera)
 {
     string positionString = "Camera Position: (" +
@@ -9,6 +10,7 @@ void drawCoordinates(Camera& camera)
         to_string(camera.position.z) + ")";
     DrawText(positionString.c_str(), 10, 10, 20, GOLD);
 }
+
 bool checkCollision(const BoundingBox& box1, const BoundingBox& box2) {
     return (box1.min.x <= box2.max.x && box1.max.x >= box2.min.x) &&
         (box1.min.y <= box2.max.y && box1.max.y >= box2.min.y) &&
@@ -69,7 +71,6 @@ void kickBall(Camera camera, Vector3& ballPosition, float& potentialKickX) {
         potentialKickX = 0.0f;
     }
 }
-
 
 void drawFurnitures(Model chair, Model desk, Model deskChair, Model studentDesk, Model board, Model laptop, Model book, Camera& camera, Vector3 previousCameraPosition)
 {
@@ -702,10 +703,18 @@ void english()
     //--------------------------------------------------------------------------------------
 
     // Main game loop
+    float elapsedTime = 0.0f;
+    float updateInterval = 1.0f;
+
+    int minutes = 1;
+    int seconds = 0;
+
+    bool timerIsZero = false;
+
+    // Main game loop
     while (!WindowShouldClose())
     {
         Vector3 previousCameraPosition = camera.position;
-
         UpdateCamera(&camera, cameraMode);
         BeginDrawing();
 
@@ -716,7 +725,7 @@ void english()
         cameraBox.min = camera.position;
         cameraBox.max = camera.position;
 
-        DrawPlane({ 0.0f, 0.0f, 0.0f }, { 19.0f, 19.0f }, LIGHTGRAY);
+        DrawPlane({ 0.0f, 0.0f, 0.0f }, { 21.0f, 21.0f }, LIGHTGRAY);
         DrawCube({ -10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, BLUE);
         DrawCube({ 10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, LIME);
         DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
@@ -724,9 +733,35 @@ void english()
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
 
         drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
-
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
+        elapsedTime += GetFrameTime();
+
+        if (elapsedTime >= updateInterval) {
+            // Decrement the timer
+            if (seconds == 0) {
+                if (minutes == 0)
+                {
+                    timerIsZero = true;
+                }
+                minutes--;
+                seconds = 5;
+
+            }
+            else {
+                seconds--;
+            }
+
+            elapsedTime = 0.0f; // Reset elapsed time
+        }
         EndMode3D();
+        drawCoordinates(camera);
+        DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+        if (timerIsZero)
+        {
+            EnableCursor();
+            englishExaminationAlert();
+        }
+
         EndDrawing();
 
     }
@@ -1057,10 +1092,9 @@ void physyicaEducation()
         DrawCube({ 7.5f, 15.0f, 0.0f }, 62.5f, 0.2f, 30.0f, LIGHTGRAY);
 
         DrawModel(goal, { 34.0f, 0.2f, 0.0f }, 1.0, WHITE);
-        DrawModel(basketballHoop, { -12.0f, 0.0f, 0.0f }, 3.0, WHITE);
+        DrawModel(basketballHoop, { -12.0f, -2.0f, 0.0f }, 10.0, WHITE);
 
         DrawBoundingBox(wallBox, RED);
-        DrawBoundingBox(goalBox, RED);
 
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
         if (!collisionsModelToModel(ballPosition, { 34.0f, 0.2f, 0.0f }, ballBox, goalBox))

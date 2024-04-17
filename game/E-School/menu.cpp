@@ -264,7 +264,7 @@ void menu()
 			particleShow++;
 
 		}
-		if (particleShow == 35)
+		if (particleShow == 100)
 		{
 			initMap(character);
 		}

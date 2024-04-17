@@ -1,1 +1,6 @@
-﻿  E-School.vcxproj -> C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\x64\Debug\E-School.exe
+﻿  menu.cpp
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\menu.cpp(221,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\menu.cpp(251,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  E-School.vcxproj -> C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\x64\Debug\E-School.exe
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.

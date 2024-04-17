@@ -6,4 +6,8 @@ void mathsExaminationAlert();
 
 void mathsExam();
 
+void englishExam();
+
+void englishExaminationAlert();
+
 bool CheckMouseClickOnOption(int optionIndex, int mouseY);
