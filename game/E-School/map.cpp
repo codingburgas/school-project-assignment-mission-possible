@@ -215,6 +215,7 @@ void initMap(int character)
 				studentY = 700;
 				student.x = studentX;
 				student.y = studentY;
+				
 			}
 		}
 
@@ -228,6 +229,7 @@ void initMap(int character)
 				studentY = 700;
 				student.x = studentX;
 				student.y = studentY;
+				
 			}
 		}
 
@@ -241,6 +243,7 @@ void initMap(int character)
 				studentY = 700;
 				student.x = studentX;
 				student.y = studentY;
+				
 			}
 		}
 
@@ -254,6 +257,7 @@ void initMap(int character)
 				studentY = 700;
 				student.x = studentX;
 				student.y = studentY;
+				
 			}
 		}
 
@@ -267,6 +271,7 @@ void initMap(int character)
 				studentY = 700;
 				student.x = studentX;
 				student.y = studentY;
+				
 			}
 		}
 
@@ -280,6 +285,7 @@ void initMap(int character)
 				studentY = 700;
 				student.x = studentX;
 				student.y = studentY;
+				
 			}
 		}
 
@@ -293,6 +299,7 @@ void initMap(int character)
 				studentY = 700;
 				student.x = studentX;
 				student.y = studentY;
+				
 			}
 		}
 
@@ -306,6 +313,7 @@ void initMap(int character)
 				studentY = 700;
 				student.x = studentX;
 				student.y = studentY;
+				
 			}
 		}
 
@@ -319,11 +327,14 @@ void initMap(int character)
 				studentY = 700;
 				student.x = studentX;
 				student.y = studentY;
+				
 			}
 		}
 
+		
 		if (IsKeyPressed(KEY_ESCAPE))
 		{
+			EnableCursor();
 			menu();
 		}
 		EndDrawing();
@@ -338,7 +349,7 @@ void initMap(int character)
 
 			cout << "Collision with subject 0: " << (CheckCollisionRecs(student, subjects[0]) ? "Yes" : "No") << endl;
 		}
-		SetExitKey(KEY_ESCAPE);
+
 	}
 	
 

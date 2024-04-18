@@ -1,7 +1,7 @@
 #include "rooms.h"
 #include "textbooks.h"
 #include "exams.h"
-
+#include "map.h"
 void drawCoordinates(Camera& camera)
 {
     string positionString = "Camera Position: (" +
@@ -309,12 +309,13 @@ void maths()
             EnableCursor();
             mathsExaminationAlert();
         }
+        if (IsKeyPressed(KEY_M))
+            initMap(1);
 
         EndDrawing();
 
     }
-
-    SetExitKey(KEY_ESCAPE);
+    SetExitKey(KEY_EIGHT);
     EnableCursor();
     UnloadTexture(wood);
 
@@ -395,11 +396,12 @@ void history()
         DrawModel(musket, { 0.0f,3.0f,8.5f }, 0.03f, BROWN);
 
         EndMode3D();
+        if (IsKeyPressed(KEY_M))
+            initMap(1);
         EndDrawing();
 
     }
-
-    SetExitKey(KEY_ESCAPE);
+    SetExitKey(KEY_EIGHT);
     EnableCursor();
     UnloadTexture(wood);
 
@@ -476,11 +478,12 @@ void physics()
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
 
         EndMode3D();
+        if (IsKeyPressed(KEY_M))
+            initMap(1);
         EndDrawing();
 
     }
-
-    SetExitKey(KEY_ESCAPE);
+    SetExitKey(KEY_EIGHT);
     EnableCursor();
     UnloadTexture(wood);
 
@@ -561,11 +564,12 @@ void literature()
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
 
         EndMode3D();
+        if (IsKeyPressed(KEY_M))
+            initMap(1);
         EndDrawing();
 
     }
-
-    SetExitKey(KEY_ESCAPE);
+    SetExitKey(KEY_EIGHT);
     EnableCursor();
     UnloadTexture(wood);
 
@@ -645,11 +649,12 @@ void chemistry()
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
 
         EndMode3D();
+        if (IsKeyPressed(KEY_M))
+            initMap(1);
         EndDrawing();
 
     }
-
-    SetExitKey(KEY_ESCAPE);
+    SetExitKey(KEY_EIGHT);
     EnableCursor();
     UnloadTexture(wood);
 
@@ -761,12 +766,12 @@ void english()
             EnableCursor();
             englishExaminationAlert();
         }
-
+        if (IsKeyPressed(KEY_M))
+            initMap(1);
         EndDrawing();
 
     }
-
-    SetExitKey(KEY_ESCAPE);
+    SetExitKey(KEY_EIGHT);
     EnableCursor();
     UnloadTexture(wood);
 }
@@ -846,12 +851,13 @@ void biology()
         bioTextBook(camera);
         DisableCursor();
         drawCoordinates(camera);
-
+        if (IsKeyPressed(KEY_M))
+            initMap(1);
         EndDrawing();
 
     }
+    SetExitKey(KEY_EIGHT);
     UnloadTexture(wood);
-    SetExitKey(KEY_ESCAPE);
     EnableCursor();
 }
 
@@ -930,14 +936,13 @@ void geography()
         DrawModel(globe, { 0.65f,1.65f,-7.0f }, 0.4, GOLD);
 
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
-
+        if (IsKeyPressed(KEY_M))
+            initMap(1);
         EndMode3D();
         EndDrawing();
-
     }
-
-    SetExitKey(KEY_ESCAPE);
     EnableCursor();
+    SetExitKey(KEY_EIGHT);
     UnloadTexture(wood);
 }
 

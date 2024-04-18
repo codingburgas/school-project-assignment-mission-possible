@@ -269,10 +269,7 @@ void menu()
 			initMap(character);
 		}
 		EndDrawing();
+		
 	}
-	if (IsKeyPressed(KEY_ESCAPE))
-	{
-		CloseWindow();
-	}
-
+	EnableCursor();
 }

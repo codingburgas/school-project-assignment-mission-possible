@@ -2,7 +2,7 @@
 
 
 void howToPlay() {
-    SetExitKey(KEY_ESCAPE);
+    SetExitKey(KEY_APOSTROPHE);
 
     while (!WindowShouldClose())
     {
@@ -35,7 +35,7 @@ void howToPlay() {
     }
 }
 void controls() {
-    SetExitKey(KEY_ESCAPE);
+    SetExitKey(KEY_APOSTROPHE);
     while (!WindowShouldClose())
     {
         // Get mouse position, start drawing, and clear background
@@ -62,7 +62,7 @@ void rules()
     // Add storyButton and controlsButton
     const Rectangle storyButton = { (GetScreenWidth() / 2) - 130, (GetScreenHeight() / 2) - 120, 310, 100 };
     const Rectangle controlsButton = { (GetScreenWidth() / 2) - 130, (GetScreenHeight() / 2) + 15, 310, 100 };
-    SetExitKey(KEY_ESCAPE);
+    SetExitKey(KEY_APOSTROPHE);
     while (!WindowShouldClose())
     {
         // Get mouse position

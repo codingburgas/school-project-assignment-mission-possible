@@ -161,7 +161,7 @@ void mathsExam()
             maths();
             break;
         }
-        SetExitKey(KEY_ESCAPE);
+        SetExitKey(KEY_APOSTROPHE);
     }
 
 }
@@ -193,13 +193,10 @@ void mathsExaminationAlert()
         // Handle click with the mouse over button
         if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             mathsExam();
-            if (IsKeyPressed(KEY_ESCAPE))
+            if (IsKeyPressed(KEY_M))
             {
                 initMap(character);
-                if (IsKeyPressed(KEY_ESCAPE))
-                {
-                    menu();
-                }
+                
             }
         }
 
@@ -388,7 +385,7 @@ void englishExam()
             english();
             break;
         }
-        SetExitKey(KEY_ESCAPE);
+        SetExitKey(KEY_APOSTROPHE);
     }
 
 }
@@ -418,16 +415,10 @@ void englishExaminationAlert() {
         DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
         DrawText("Start", GetScreenWidth() / 2 + 110, GetScreenHeight() / 2 + 5, 40, WHITE);
         // Handle click with the mouse over button
-        if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) 
+        {
             englishExam();
-            if (IsKeyPressed(KEY_ESCAPE))
-            {
-                initMap(character);
-                if (IsKeyPressed(KEY_ESCAPE))
-                {
-                    menu();
-                }
-            }
+
         }
 
         EndDrawing();
