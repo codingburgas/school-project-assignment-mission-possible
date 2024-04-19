@@ -3,6 +3,7 @@
 #include "rooms.h"
 #include "map.h"
 #include "menu.h"
+#include "accessData.h"
 
 #define MAXQUESTIONS 20
 #define MAXOPTIONS 4
@@ -24,19 +25,19 @@ int gradeSystem(int score)
     {
         return 6;
     }
-    if (score <9 && score <=8)
+    if (score == 8)
     {
         return 5;
     }
-    if (score >= 7 && score < 8)
+    if (score == 7)
     {
         return 4;
     }
-    if (score >= 6 && score < 7)
+    if (score == 6)
     {
         return 3;
     }
-    if (score <6)
+    if (score < 6)
     {
         return 2;
     }
@@ -158,6 +159,10 @@ void mathsExam()
         }
         if (count >= 10)
         {
+            string subject = "mathsbiolo";
+            DataAccess accessData;
+            int grade = gradeSystem(score);
+            accessData.addGrade(subject, to_string(grade));
             maths();
             break;
         }
@@ -396,7 +401,10 @@ void englishExam()
         }
         if (count >= 10)
         {
+            string subject = "english";
+            DataAccess accessData;
             int grade = gradeSystem(score);
+            accessData.addGrade(subject, to_string(grade));
             english();
             break;
         }
@@ -632,7 +640,10 @@ void historyExam()
         }
         if (count >= 10)
         {
+            string subject = "history";
+            DataAccess accessData;
             int grade = gradeSystem(score);
+            accessData.addGrade(subject, to_string(grade));
             history();
             break;
         }
@@ -868,7 +879,10 @@ void literatureExam()
         }
         if (count >= 10)
         {
+            string subject = "literature";
+            DataAccess accessData;
             int grade = gradeSystem(score);
+            accessData.addGrade(subject, to_string(grade));
             literature();
             break;
         }
@@ -1104,7 +1118,10 @@ void biologyExam()
         }
         if (count >= 10)
         {
+            string subject = "biology";
+            DataAccess accessData;
             int grade = gradeSystem(score);
+            accessData.addGrade(subject, to_string(grade));
             biology();
             break;
         }
@@ -1340,7 +1357,10 @@ void geographyExam()
         }
         if (count >= 10)
         {
+            string subject = "geography";
+            DataAccess accessData;
             int grade = gradeSystem(score);
+            accessData.addGrade(subject, to_string(grade));
             geography();
             break;
         }

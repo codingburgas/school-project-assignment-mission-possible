@@ -180,7 +180,7 @@ void menu()
 
 			// Check if mouse is hovering the specific button
 			bool isMouseOverButtonRules = CheckCollisionPointRec(mousePosition, rulesButton);
-			// Set new colors for hovering the button and draw text
+			// Set new colors for hovering the button and draw 
 			DrawRectangleRounded(rulesButton, 10, 10, (isMouseOverButtonRules ? PINK : LIGHTGRAY));
 			DrawText("Rules", screenWidth / 2 + 5, screenHeight / 2 + 62, 25, WHITE);
 			// Handle click with the mouse over button
@@ -271,5 +271,6 @@ void menu()
 		EndDrawing();
 		
 	}
+	SetExitKey(KEY_APOSTROPHE);
 	EnableCursor();
 }

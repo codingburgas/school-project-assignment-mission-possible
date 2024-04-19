@@ -351,6 +351,7 @@ void initMap(int character)
 		}
 
 	}
+	SetExitKey(KEY_APOSTROPHE);
 	
 
 }

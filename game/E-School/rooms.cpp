@@ -465,7 +465,7 @@ void physics()
     const int screenHeight = 975;
 
     Camera camera = { 0 };
-    camera.position = { 8.0f, 3.0f, -7.0f };   // Camera position
+    camera.position = { 8.0f, 2.0f, -7.0f };   // Camera position
     camera.target = { 0.0f, 2.0f, 0.0f };      // Camera looking at point
     camera.up = { 0.0f, 1.0f, 0.0f };          // Camera up vector (rotation towards target)
     camera.fovy = 60.0f;                                // Camera field-of-view Y
@@ -487,6 +487,13 @@ void physics()
     cameraBox.max.y += 0.5f;
     cameraBox.max.z += 0.5f;
 
+    float elapsedTime = 0.0f;
+    float updateInterval = 1.0f;
+
+    int minutes = 1;
+    int seconds = 0;
+
+    bool timerIsZero = false;
     // Generates some random columns
     DisableCursor();                    // Limit cursor to relative movement inside the window
 
@@ -519,9 +526,33 @@ void physics()
         EndMode3D();
         if (IsKeyPressed(KEY_M))
             initMap(1);
+        elapsedTime += GetFrameTime();
+
+        if (elapsedTime >= updateInterval) {
+            // Decrement the timer
+            if (seconds == 0) {
+                if (minutes == 0)
+                {
+                    timerIsZero = true;
+                }
+                minutes--;
+                seconds = 5;
+
+            }
+            else {
+                seconds--;
+            }
+
+            elapsedTime = 0.0f; // Reset elapsed time
+        }
         EndDrawing();
 
     }
+    if (timerIsZero)
+    {
+        EnableCursor();
+    }
+
     SetExitKey(KEY_EIGHT);
     EnableCursor();
     UnloadTexture(wood);
@@ -925,7 +956,7 @@ void biology()
 
         drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
         DrawModel(skeleton, { 5.0f, 2.2f, -9.0f }, 0.01, WHITE);
-
+        collisions(camera, previousCameraPosition, cameraBox, wallBox);
         EndMode3D();
 
         bioTextBook(camera);
