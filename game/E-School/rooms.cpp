@@ -364,6 +364,14 @@ void history()
     cameraBox.max.y += 0.5f;
     cameraBox.max.z += 0.5f;
 
+    float elapsedTime = 0.0f;
+    float updateInterval = 1.0f;
+
+    int minutes = 1;
+    int seconds = 0;
+
+    bool timerIsZero = false;
+
     // Generates some random columns
     DisableCursor();                    // Limit cursor to relative movement inside the window
 
@@ -394,6 +402,37 @@ void history()
         drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
         DrawModel(musket, { 0.0f,3.0f,8.5f }, 0.03f, BROWN);
+
+        elapsedTime += GetFrameTime();
+
+        if (elapsedTime >= updateInterval) {
+            // Decrement the timer
+            if (seconds == 0) {
+                if (minutes == 0)
+                {
+                    timerIsZero = true;
+                }
+                minutes--;
+                seconds = 5;
+
+            }
+            else {
+                seconds--;
+            }
+
+            elapsedTime = 0.0f; // Reset elapsed time
+        }
+
+        EndMode3D();
+
+        DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+        historyTextBook(camera);
+
+        if (timerIsZero)
+        {
+            EnableCursor();
+            historyExaminationAlert();
+        }
 
         EndMode3D();
         if (IsKeyPressed(KEY_M))
@@ -532,6 +571,14 @@ void literature()
     cameraBox.max.y += 0.5f;
     cameraBox.max.z += 0.5f;
 
+    float elapsedTime = 0.0f;
+    float updateInterval = 1.0f;
+
+    int minutes = 1;
+    int seconds = 0;
+
+    bool timerIsZero = false;
+
     // Generates some random columns
     DisableCursor();                    // Limit cursor to relative movement inside the window
 
@@ -562,6 +609,39 @@ void literature()
         drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
         DrawModel(bookshelf, { 0.0f,0.0f,8.5f }, 2.0f, BROWN);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
+
+
+        collisions(camera, previousCameraPosition, cameraBox, wallBox);
+        elapsedTime += GetFrameTime();
+
+        if (elapsedTime >= updateInterval) {
+            // Decrement the timer
+            if (seconds == 0) {
+                if (minutes == 0)
+                {
+                    timerIsZero = true;
+                }
+                minutes--;
+                seconds = 5;
+
+            }
+            else {
+                seconds--;
+            }
+
+            elapsedTime = 0.0f; // Reset elapsed time
+        }
+
+        EndMode3D();
+
+        DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+        literatureTextBook(camera);
+
+        if (timerIsZero)
+        {
+            EnableCursor();
+            literatureExaminationAlert();
+        }
 
         EndMode3D();
         if (IsKeyPressed(KEY_M))
