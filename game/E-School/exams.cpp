@@ -189,7 +189,7 @@ void mathsExaminationAlert()
         DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-            bioTextBook(camera);
+            bioTextBook(camera, 1);
         }
         bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
         // Set new colors for hovering the button and draw text
@@ -431,7 +431,7 @@ void englishExaminationAlert() {
         DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-            englishTextBook(camera);
+            englishTextBook(camera, 1);
         }
         bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
         // Set new colors for hovering the button and draw text
@@ -670,7 +670,7 @@ void historyExaminationAlert() {
         DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-            historyTextBook(camera);
+            historyTextBook(camera,1);
         }
         bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
         // Set new colors for hovering the button and draw text
@@ -909,7 +909,7 @@ void literatureExaminationAlert() {
         DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-            literatureTextBook(camera);
+            literatureTextBook(camera, 1);
         }
         bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
         // Set new colors for hovering the button and draw text
@@ -1148,7 +1148,7 @@ void biologyExaminationAlert() {
         DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-            bioTextBook(camera);
+            bioTextBook(camera,1);
         }
         bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
         // Set new colors for hovering the button and draw text
@@ -1387,7 +1387,7 @@ void geographyExaminationAlert() {
         DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-            geographyTextBook(camera);
+            geographyTextBook(camera,1);
         }
         bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
         // Set new colors for hovering the button and draw text

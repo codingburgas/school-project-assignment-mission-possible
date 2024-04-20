@@ -1,6 +1,7 @@
 #pragma once
 
 #include "pch.h"
+#include "textbooks.h"
 
 void mathsExaminationAlert();
 
@@ -25,3 +26,7 @@ void literatureExaminationAlert();
 void biologyExaminationAlert();
 
 void biologyExam();
+
+void geographyExaminationAlert();
+
+void geographyExam();

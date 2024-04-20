@@ -426,19 +426,20 @@ void history()
         EndMode3D();
 
         DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
-        historyTextBook(camera);
+        historyTextBook(camera,0);
 
         if (timerIsZero)
         {
             EnableCursor();
             historyExaminationAlert();
+            timerIsZero = 0;    
         }
 
         EndMode3D();
+        
+        EndDrawing(); 
         if (IsKeyPressed(KEY_M))
             initMap(1);
-        EndDrawing();
-
     }
     SetExitKey(KEY_EIGHT);
     EnableCursor();
@@ -666,7 +667,7 @@ void literature()
         EndMode3D();
 
         DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
-        literatureTextBook(camera);
+        literatureTextBook(camera,0);
 
         if (timerIsZero)
         {
@@ -959,7 +960,7 @@ void biology()
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
         EndMode3D();
 
-        bioTextBook(camera);
+        bioTextBook(camera,0);
         DisableCursor();
         drawCoordinates(camera);
         if (IsKeyPressed(KEY_M))
@@ -1124,7 +1125,7 @@ void programming()
         DrawBoundingBox(wallBox, RED);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
         Vector3 cubePosition = { 19.5f,0.2f,7.0f };
-        prgTextBook(camera, cubePosition);
+        prgTextBook(camera, cubePosition,0);
         EndMode3D();
         drawCoordinates(camera);
         EndDrawing();

@@ -1,5 +1,5 @@
 #include "textbooks.h"
-
+#include "exams.h"
 
 float distanceCalc(Vector3 a, Vector3 b) {
     float distanceX = b.x - a.x;
@@ -7,7 +7,7 @@ float distanceCalc(Vector3 a, Vector3 b) {
     float distanceZ = b.z - a.z;
     return sqrt(distanceX * distanceX + distanceY * distanceY + distanceZ * distanceZ);
 }
-void bioTextBook(Camera camera)
+void bioTextBook(Camera camera, bool examination)
 {
     unsigned int pageNumber = 1;
     Vector3 cubePosition = { 0.0f, 1.5f, -7.5f };
@@ -24,7 +24,7 @@ void bioTextBook(Camera camera)
 
     bool timerIsZero = 0;
 
-    if (distance < 3.5f && IsKeyPressed(KEY_F))
+    if ((distance < 3.5f && IsKeyPressed(KEY_F)))
     {
         EnableCursor();
         EndMode3D();
@@ -89,6 +89,7 @@ void bioTextBook(Camera camera)
             if (timerIsZero == 1)
             {
                 DisableCursor();
+				biologyExaminationAlert();
                 break;
             }
             if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), previous))
@@ -104,7 +105,7 @@ void bioTextBook(Camera camera)
     }
 }
 
-void prgTextBook(Camera camera,Vector3 cubePosition)
+void prgTextBook(Camera camera,Vector3 cubePosition, bool examination)
 {
 	unsigned int pageNumber = 1;
 	float distance = distanceCalc(camera.position, cubePosition);
@@ -234,7 +235,7 @@ void prgTextBook(Camera camera,Vector3 cubePosition)
 }
 
 
-void englishTextBook(Camera camera)
+void englishTextBook(Camera camera, bool examination)
 {
 	unsigned int pageNumber = 1;
 	Vector3 cubePosition = { 0.0f, 1.5f, -7.5f };
@@ -316,6 +317,7 @@ void englishTextBook(Camera camera)
 			if (timerIsZero == 1)
 			{
 				DisableCursor();
+				englishExaminationAlert();
 				break;
 			}
 			if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), previous))
@@ -331,7 +333,7 @@ void englishTextBook(Camera camera)
 	}
 }
 
-void geographyTextBook(Camera camera)
+void geographyTextBook(Camera camera, bool examination)
 {
 	unsigned int pageNumber = 1;
 	Vector3 cubePosition = { 0.0f, 1.5f, -7.5f };
@@ -413,6 +415,7 @@ void geographyTextBook(Camera camera)
 			if (timerIsZero == 1)
 			{
 				DisableCursor();
+				geographyExaminationAlert();
 				break;
 			}
 			if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), previous))
@@ -429,7 +432,7 @@ void geographyTextBook(Camera camera)
 }
 
 
-void historyTextBook(Camera camera)
+void historyTextBook(Camera camera, bool examination)
 {
 	unsigned int pageNumber = 1;
 	Vector3 cubePosition = { 0.0f, 1.5f, -7.5f };
@@ -446,7 +449,7 @@ void historyTextBook(Camera camera)
 
 	bool timerIsZero = 0;
 
-	if (distance < 3.5f && IsKeyPressed(KEY_F))
+	if ((distance < 3.5f && IsKeyPressed(KEY_F)) || examination == 1)
 	{
 		EnableCursor();
 		EndMode3D();
@@ -454,7 +457,6 @@ void historyTextBook(Camera camera)
 		{
 			BeginDrawing();
 			ClearBackground(WHITE);
-
 			DrawRectangleRec(previous, BLUE);
 			DrawRectangleRec(next, BLUE);
 
@@ -569,8 +571,7 @@ void historyTextBook(Camera camera)
 
 			if (timerIsZero == 1)
 			{
-				DisableCursor();
-				break;
+				historyExam();
 			}
 			if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), previous))
 			{
@@ -585,7 +586,7 @@ void historyTextBook(Camera camera)
 	}
 }
 
-void literatureTextBook(Camera camera)
+void literatureTextBook(Camera camera, bool examination)
 {
 	unsigned int pageNumber = 1;
 	Vector3 cubePosition = { 0.0f, 1.5f, -7.5f };
