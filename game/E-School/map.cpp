@@ -29,18 +29,22 @@ void initMap(int character)
 	Texture2D studentGirl = LoadTexture("sprites/girlSprite.png");
 
 	Rectangle student = { studentX, studentY, 16, 50 };
-	Rectangle spriteGirl[10] =
+	Rectangle spriteGirl[14] =
 	{
-		{0,0,55,80}, //1
-		{80,0,55,80},//2
-		{160,0,55,80},//3
-		{0,80,60,80},//4
-		{80,80,60,80},//5
-		{160,80,60,80},//6
-		{0,160,60,80},//7
-		{80,160,60,80},//8
-		{160,160,60,80},//9
-		{0,240,60,75},//10
+		{0,0,50,50},
+		{50,0,50,50},
+		{100,0,50,50},
+		{150,0,50,50},
+		{0,50,50,50},
+		{50,50,50,50},
+		{100,50,50,50},
+		{150,50,50,50},
+		{0,100,50,50},
+		{50,100,50,50},
+		{100,100,50,50},
+		{150,100,50,50},
+		{0,155,50,50},
+		{50,155,50,50},
 	};
 
 
@@ -55,14 +59,14 @@ void initMap(int character)
 		{
 			studentY -= 3.0f;
 			student.y = studentY;
-			currentFrameGirl = 8 + (int)(GetTime() * 5) % 2; // Animation for walking forward
+			currentFrameGirl = 11 + (int)(GetTime() * 5) % 2; // Animation for walking forward
 		}
 
 		if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN))
 		{
 			studentY += 3.0f;
 			student.y = studentY;
-			currentFrameGirl = 6 + (int)(GetTime() * 5) % 2; // Animation for walking back
+			currentFrameGirl = 8 + (int)(GetTime() * 5) % 2; // Animation for walking back
 		}
 
 		if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT))
@@ -198,7 +202,7 @@ void initMap(int character)
 				frameCounter = 0;
 				currentFrameGirl++;
 
-				if (currentFrameGirl > 9)
+				if (currentFrameGirl > 13)
 				{
 					currentFrameGirl = 0;
 				}

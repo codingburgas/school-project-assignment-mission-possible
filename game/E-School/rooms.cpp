@@ -928,6 +928,14 @@ void biology()
     cameraBox.max.y += 0.5f;
     cameraBox.max.z += 0.5f;
 
+	float elapsedTime = 0.0f;
+	float updateInterval = 1.0f;
+
+	int minutes = 1;
+	int seconds = 0;
+
+	bool timerIsZero = false;
+
     // Generates some random columns
     DisableCursor();                    // Limit cursor to relative movement inside the window
 
@@ -958,15 +966,37 @@ void biology()
         drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
         DrawModel(skeleton, { 5.0f, 2.2f, -9.0f }, 0.01, WHITE);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
-        EndMode3D();
+		elapsedTime += GetFrameTime();
 
-        bioTextBook(camera,0);
-        DisableCursor();
-        drawCoordinates(camera);
+		if (elapsedTime >= updateInterval) {
+			// Decrement the timer
+			if (seconds == 0) {
+				if (minutes == 0)
+				{
+					timerIsZero = true;
+				}
+				minutes--;
+				seconds = 5;
+
+			}
+			else {
+				seconds--;
+			}
+
+			elapsedTime = 0.0f; // Reset elapsed time
+		}
+		EndMode3D();
+		drawCoordinates(camera);
+		DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+		if (timerIsZero)
+		{
+			EnableCursor();
+			biologyExaminationAlert();
+		}
         if (IsKeyPressed(KEY_M))
             initMap(1);
         EndDrawing();
-
+        bioTextBook(camera, 0);
     }
     SetExitKey(KEY_EIGHT);
     UnloadTexture(wood);

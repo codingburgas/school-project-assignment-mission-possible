@@ -7,103 +7,7 @@ float distanceCalc(Vector3 a, Vector3 b) {
     float distanceZ = b.z - a.z;
     return sqrt(distanceX * distanceX + distanceY * distanceY + distanceZ * distanceZ);
 }
-void bioTextBook(Camera camera, bool examination)
-{
-    unsigned int pageNumber = 1;
-    Vector3 cubePosition = { 0.0f, 1.5f, -7.5f };
-    float distance = distanceCalc(camera.position, cubePosition);
 
-	float elapsedTime = 0.0f;
-	float updateInterval = 1.0f;
-
-	int minutes = 1;
-	int seconds = 0;
-
-    Rectangle next = { 1800,900,100,50 };
-    Rectangle previous = { 50,900,100,50 };
-
-    bool timerIsZero = 0;
-
-    if ((distance < 3.5f && IsKeyPressed(KEY_F)))
-    {
-        EnableCursor();
-        EndMode3D();
-        while (!WindowShouldClose())
-        {
-            BeginDrawing();
-            ClearBackground(WHITE);
-
-            DrawRectangleRec(previous, BLUE);
-            DrawRectangleRec(next, BLUE);
-
-            DrawText("previous", 50, 915, 20, BLACK);
-            DrawText("next", 1800, 915, 20, BLACK);
-            switch (pageNumber)
-            {
-            case 1:
-                DrawText("Biology", 825, 100, 100, BLACK);
-                DrawText("Author: Kaloyan Ivanov", 875, 250, 25, BLACK);
-                DrawText("1", 975, 900, 25, BLACK);
-                break;
-            case 2:
-                DrawText("2", 975, 900, 25, BLACK);
-                break;
-            case 3:
-                DrawText("3", 975, 900, 25, BLACK);
-                break;
-            case 4:
-                DrawText("4", 975, 900, 25, BLACK);
-                break;
-            case 5:
-                DrawText("5", 975, 900, 25, BLACK);
-                break;
-            default:
-                pageNumber = 1;
-                break;
-            }
-
-			elapsedTime += GetFrameTime();
-
-			if (elapsedTime >= updateInterval) {
-				// Decrement the timer
-				if (seconds == 0) {
-					if (minutes == 0)
-					{
-                        timerIsZero = 1;
-					}
-					minutes--;
-					seconds = 59;
-
-				}
-				else {
-					seconds--;
-				}
-
-				elapsedTime = 0.0f; // Reset elapsed time
-			}
-
-			EndMode3D();
-			// Draw timer
-			DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
-
-            if (timerIsZero == 1)
-            {
-                DisableCursor();
-				biologyExaminationAlert();
-                break;
-            }
-            if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), previous))
-            {
-                pageNumber--;
-            }
-            if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), next))
-            {
-                pageNumber++;
-            }
-            EndDrawing();
-        }
-    }
-}
 
 void prgTextBook(Camera camera,Vector3 cubePosition, bool examination)
 {
@@ -571,7 +475,9 @@ void historyTextBook(Camera camera, bool examination)
 
 			if (timerIsZero == 1)
 			{
-				historyExam();
+				DisableCursor();
+				historyExaminationAlert();
+				break;
 			}
 			if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), previous))
 			{
@@ -727,6 +633,164 @@ void literatureTextBook(Camera camera, bool examination)
 			if (timerIsZero == 1)
 			{
 				DisableCursor();
+				literatureExaminationAlert();
+				break;
+			}
+			if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), previous))
+			{
+				pageNumber--;
+			}
+			if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), next))
+			{
+				pageNumber++;
+			}
+			EndDrawing();
+		}
+	}
+}
+
+void bioTextBook(Camera camera, bool examination)
+{
+	unsigned int pageNumber = 1;
+	Vector3 cubePosition = { 0.0f, 1.5f, -7.5f };
+	float distance = distanceCalc(camera.position, cubePosition);
+
+	float elapsedTime = 0.0f;
+	float updateInterval = 1.0f;
+
+	int minutes = 1;
+	int seconds = 0;
+
+	Rectangle next = { 1800,900,100,50 };
+	Rectangle previous = { 50,900,100,50 };
+
+	bool timerIsZero = 0;
+
+	if ((distance < 3.5f && IsKeyPressed(KEY_F)) || examination==1)
+	{
+		EnableCursor();
+		EndMode3D();
+		while (!WindowShouldClose())
+		{
+			BeginDrawing();
+			ClearBackground(WHITE);
+
+			DrawRectangleRec(previous, BLUE);
+			DrawRectangleRec(next, BLUE);
+
+			DrawText("previous", 50, 915, 20, BLACK);
+			DrawText("next", 1800, 915, 20, BLACK);
+			switch (pageNumber)
+			{
+			case 1:
+				DrawText("Biology", 725, 100, 100, BLACK);
+				DrawText("Author: Stoyan Hristov", 590, 200, 70, BLACK);
+
+				DrawText("1. Function of Carbohydrates", 200, 320, 30, BLACK);
+				DrawText("Carbohydrates primarily serve as a source of energy for living organisms. They are broken down into glucose, which is used as fuel for cellular processes.", 255, 370, 23, BLACK);
+
+				DrawText("2. Main Energy Currency of the Cell", 200, 450, 30, BLACK);
+				DrawText("Adenosine triphosphate (ATP) serves as the main energy currency of the cell, storing and releasing energy for cellular processes.", 255, 500, 23, BLACK);
+
+				DrawText("3. Structural Unit of Proteins", 200, 570, 30, BLACK);
+				DrawText("Amino acids are the structural units of proteins. They are linked together by peptide bonds to form polypeptide chains, which fold into specific three-dimensional structures.", 255, 620, 23, BLACK);
+
+				DrawText("4. Function of Lipids", 200, 700, 30, BLACK);
+				DrawText("Lipids serve multiple functions in the human body, including energy storage, insulation, and hormone synthesis. They also form the structural basis of cell membranes.", 255, 750, 23, BLACK);
+				break;
+			case 2:
+				DrawText("5. Role of Enzymes", 200, 240, 30, BLACK);
+				DrawText("Enzymes are biological catalysts that accelerate chemical reactions in living organisms. They lower the activation energy required for reactions to occur, thus speeding up metabolic processes.", 255, 290, 23, BLACK);
+
+				DrawText("6. Water-Soluble Vitamin for Collagen Synthesis", 200, 370, 30, BLACK);
+				DrawText("Vitamin C is a water-soluble vitamin essential for collagen synthesis, wound healing, and maintaining connective tissue health.", 255, 420, 23, BLACK);
+
+				DrawText("7. Primary Function of Lipids", 200, 490, 30, BLACK);
+				DrawText("Lipids primarily serve as energy storage molecules in the human body. They provide a concentrated source of energy and play a role in insulation and protection of vital organs.", 255, 540, 23, BLACK);
+
+				DrawText("8. Organelle Responsible for Protein Synthesis", 200, 620, 30, BLACK);
+				DrawText("Ribosomes are the cellular organelles responsible for protein synthesis in eukaryotic cells. They are composed of RNA and protein and are found in the cytoplasm and on the rough endoplasmic reticulum.", 255, 670, 23, BLACK);
+
+				DrawText("2", 975, 900, 25, BLACK);
+				break;
+			case 3:
+				DrawText("9. Role of Nucleic Acids", 200, 240, 30, BLACK);
+				DrawText("Nucleic acids, such as DNA and RNA, serve as the genetic information storage and transmission molecules in living organisms. They encode the instructions for building proteins and regulate cellular processes.", 255, 290, 23, BLACK);
+
+				DrawText("10. Body's Primary Source of Energy", 200, 370, 30, BLACK);
+				DrawText("Carbohydrates are the body's primary source of energy, providing fuel for cellular activities and metabolic processes.", 255, 420, 23, BLACK);
+
+				DrawText("11. Function of DNA", 200, 520, 30, BLACK);
+				DrawText("DNA (deoxyribonucleic acid) serves as the repository of genetic information in cells. It contains the instructions for synthesizing proteins and is passed from parent to offspring during reproduction.", 255, 570, 23, BLACK);
+
+				DrawText("12. Structural Unit of Nucleic Acids", 200, 630, 30, BLACK);
+				DrawText("Nucleic acids are composed of nucleotides, which consist of a sugar molecule, phosphate group, and nitrogenous base. These nucleotides polymerize to form DNA and RNA.", 255, 680, 23, BLACK);
+
+				DrawText("3", 975, 900, 25, BLACK);
+				break;
+			case 4:
+				DrawText("13. Role of RNA in Protein Synthesis", 200, 240, 30, BLACK);
+				DrawText("RNA (ribonucleic acid) acts as a messenger between DNA and the ribosome during protein synthesis. It carries the genetic information encoded in DNA to the ribosome, where it is used to assemble proteins.", 255, 290, 23, BLACK);
+
+				DrawText("14. Function of Proteins", 200, 400, 30, BLACK);
+				DrawText("Proteins have diverse functions in the human body, including building and repairing tissues, serving as enzymes and hormones, and facilitating transport of molecules across cell membranes.", 255, 450, 23, BLACK);
+
+				DrawText("15. Function of Chlorophyll", 200, 540, 30, BLACK);
+				DrawText("Chlorophyll is a pigment found in chloroplasts that absorbs light energy for the process of photosynthesis in plants. It captures sunlight and converts it into chemical energy used to synthesize glucose from carbon dioxide and water.", 255, 580, 23, BLACK);
+
+				DrawText("16. Role of Vitamin K", 200, 660, 30, BLACK);
+				DrawText("Vitamin K is a fat-soluble vitamin essential for blood clotting and bone health. It plays a critical role in the synthesis of clotting factors and helps maintain bone density.", 255, 710, 23, BLACK);
+
+				DrawText("4", 975, 900, 25, BLACK);
+				break;
+			case 5:
+				DrawText("17. Function of Carbohydrates in Cellular Respiration", 200, 240, 30, BLACK);
+				DrawText("Carbohydrates serve as a primary source of energy during cellular respiration. Glucose, derived from carbohydrates, is broken down in the presence of oxygen to produce ATP, the energy currency of the cell.", 255, 290, 23, BLACK);
+
+				DrawText("18. Function of Vitamin B12", 200, 370, 30, BLACK);
+				DrawText("Vitamin B12 is a water-soluble vitamin essential for red blood cell formation and neural function. It is involved in DNA synthesis and plays a role in maintaining the health of the nervous system.", 255, 420, 23, BLACK);
+
+				DrawText("19. Function of Proteins in Cell Membranes", 200, 490, 30, BLACK);
+				DrawText("Proteins in cell membranes serve various functions, including facilitating transport of molecules across the membrane, cell signaling, and cell adhesion.", 255, 540, 23, BLACK);
+
+				DrawText("20. Role of Electrolytes", 200, 620, 30, BLACK);
+				DrawText("Electrolytes are minerals that dissociate into ions in solution and play crucial roles in maintaining proper fluid balance, nerve function, and muscle contraction in the body.", 255, 670, 23, BLACK);
+
+				DrawText("5", 975, 900, 25, BLACK);
+				break;
+			default:
+				pageNumber = 1;
+				break;
+			}
+
+			elapsedTime += GetFrameTime();
+
+			if (elapsedTime >= updateInterval) {
+				// Decrement the timer
+				if (seconds == 0) {
+					if (minutes == 0)
+					{
+						timerIsZero = 1;
+					}
+					minutes--;
+					seconds = 59;
+
+				}
+				else {
+					seconds--;
+				}
+
+				elapsedTime = 0.0f; // Reset elapsed time
+			}
+
+			EndMode3D();
+			// Draw timer
+			DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+
+			if (timerIsZero == 1)
+			{
+				DisableCursor();
+				literatureExaminationAlert();
 				break;
 			}
 			if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), previous))

@@ -1,7 +1,7 @@
 #include "menu.h"
 #include "map.h"
 #include "rules.h"
-
+#include "characterSelect.h"
 void menu()
 {
 	const int screenWidth = 1920;
@@ -266,7 +266,7 @@ void menu()
 		}
 		if (particleShow == 100)
 		{
-			initMap(character);
+			select();
 		}
 		EndDrawing();
 		
