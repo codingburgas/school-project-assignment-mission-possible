@@ -7,16 +7,9 @@ void select()
 	Texture2D arrow = LoadTexture("Textures/arrow.png");
 
 	Texture2D background1 = LoadTexture("../images/selectionBackground1.png");
-	Texture2D boySelected1 = LoadTexture("../images/boySelected1.png");
-	Texture2D girlSelected1 = LoadTexture("../images/girlSelected1.png");
-
 	Texture2D background2 = LoadTexture("../images/selectionBackground2.png");
-	Texture2D boySelected2 = LoadTexture("../images/boySelected2.png");
-	Texture2D girlSelected2 = LoadTexture("../images/girlSelected2.png");
-
 	Texture2D background3 = LoadTexture("../images/selectionBackground3.png");
-	Texture2D boySelected3 = LoadTexture("../images/boySelected3.png");
-	Texture2D girlSelected3 = LoadTexture("../images/girlSelected3.png");
+
 	int backgroundScene;
 	int character = 1;
 	float arrowX = 800;
@@ -55,13 +48,13 @@ void select()
 			if (CheckCollisionPointRec(GetMousePosition(), choice[0]))
 			{
 				arrowX = 800;
-				DrawTexture(boySelected1, 0, 0, WHITE);
+				DrawRectangle(0, 0, 960, 975, { 117, 123, 156, 175 });
 				DrawTexture(arrow, arrowX, arrowY, WHITE);
 			}
 			if (CheckCollisionPointRec(GetMousePosition(), choice[1]))
 			{
-				arrowX = 1150;
-				DrawTexture(girlSelected1, 0, 0, WHITE);
+				arrowX = 1100;
+				DrawRectangle(960, 0, 960, 975, { 157, 111, 142, 175 });
 				DrawTexture(arrow, arrowX, arrowY, WHITE);
 			}
 		}
@@ -76,13 +69,13 @@ void select()
 			if (CheckCollisionPointRec(GetMousePosition(), choice[0]))
 			{
 				arrowX = 800;
-				DrawTexture(boySelected2, 0, 0, WHITE);
+				DrawRectangle(0, 0, 960, 975, { 117, 123, 156, 175 });
 				DrawTexture(arrow, arrowX, arrowY, WHITE);
 			}
 			if (CheckCollisionPointRec(GetMousePosition(), choice[1]))
 			{
-				arrowX = 1150;
-				DrawTexture(girlSelected2, 0, 0, WHITE);
+				arrowX = 1100;
+				DrawRectangle(960, 0, 960, 975, { 157, 111, 142, 175 });
 				DrawTexture(arrow, arrowX, arrowY, WHITE);
 			}
 		}
@@ -97,13 +90,13 @@ void select()
 			if (CheckCollisionPointRec(GetMousePosition(), choice[0]))
 			{
 				arrowX = 800;
-				DrawTexture(boySelected3, 0, 0, WHITE);
+				DrawRectangle(0, 0, 960, 975, { 117, 123, 156, 175 });
 				DrawTexture(arrow, arrowX, arrowY, WHITE);
 			}
 			if (CheckCollisionPointRec(GetMousePosition(), choice[1]))
 			{
-				arrowX = 1150;
-				DrawTexture(girlSelected3, 0, 0, WHITE);
+				arrowX = 1100;
+				DrawRectangle(960, 0, 960, 975, { 157, 111, 142, 175 });
 				DrawTexture(arrow, arrowX, arrowY, WHITE);
 			}
 		}

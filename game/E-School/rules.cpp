@@ -4,8 +4,14 @@
 void rules()
 {
     // Add storyButton and controlsButton
-    const Rectangle storyButton = { (GetScreenWidth() / 2) - 130, (GetScreenHeight() / 2) - 120, 310, 100 };
-    const Rectangle controlsButton = { (GetScreenWidth() / 2) - 130, (GetScreenHeight() / 2) + 15, 310, 100 };
+    
+    Texture2D skeleton = LoadTexture("Textures/skeleton.png");
+    Texture2D molecual = LoadTexture("Textures/molecual.png");
+    Texture2D calculator = LoadTexture("Textures/calculator.png");
+    Texture2D bus = LoadTexture("Textures/bus.png");
+
+    const Rectangle storyButton = { (GetScreenWidth() / 3) - 80, (GetScreenHeight() / 2) - 120, 310, 100 };
+    const Rectangle controlsButton = { (GetScreenWidth() / 2) - 40, (GetScreenHeight() / 3) + 42, 310, 100 };
     SetExitKey(KEY_ESCAPE);
     while (!WindowShouldClose())
     {
@@ -14,12 +20,16 @@ void rules()
         BeginDrawing();
 
         // Clear the background
-        ClearBackground({ 0, 1, 41, 255 });
+        ClearBackground(GRAY);
         // Check if mouse is over the button
         bool isMouseOverStoryButton = CheckCollisionPointRec(mousePosition, storyButton);
+        DrawTexture(skeleton, 20, 120, WHITE);
+        DrawTexture(molecual, 1500, 120, WHITE);
+        DrawTexture(calculator, 1500, 820, WHITE);
+        DrawTexture(bus, 20, 820, WHITE);
         // Add colors for if mouse is over the button
-        DrawRectangleRec(storyButton, (isMouseOverStoryButton ? SKYBLUE : BLUE));
-        DrawText("How to play", GetScreenWidth() / 2 - 117, GetScreenHeight() / 2 - 97, 50, WHITE);
+        DrawRectangleRec(storyButton, (isMouseOverStoryButton ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("How to play", GetScreenWidth() / 3 - 72, GetScreenHeight() / 2 - 90, 50, WHITE);
 
         // Get sent to story() after clicking the story button
         if (isMouseOverStoryButton && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
@@ -29,8 +39,8 @@ void rules()
         // Check if mouse is over the button
         bool isMouseOverControls = CheckCollisionPointRec(mousePosition, controlsButton);
         // Add colors for if mouse is over the button
-        DrawRectangleRec(controlsButton, (isMouseOverControls ? GREEN : LIME));
-        DrawText("Controls", GetScreenWidth() / 2 - 83, (GetScreenHeight() / 2) - (-40), 50, WHITE);
+        DrawRectangleRec(controlsButton, (isMouseOverControls ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("Controls", GetScreenWidth() / 2 + 8, (GetScreenHeight() / 3) - (-68), 50, WHITE);
 
         // Get sent to controls() after clicking the controls button
         if (isMouseOverControls && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
@@ -50,9 +60,9 @@ void howToPlay() {
         Vector2 mousePosition = GetMousePosition();
         // Start drawing, draw textures, and clear background
         BeginDrawing();
-        ClearBackground({ 0, 1, 41, 255 });
+        ClearBackground(GRAY);
         DrawText("press ESC to go back", 75, 915, 20, RAYWHITE);
-        DrawRectangleLines(GetScreenWidth() / 4 - 100, GetScreenHeight() / 4 - 100, GetScreenWidth() / 2 + 250, GetScreenHeight() / 2 + 150, { 0, 91, 241, 255 });
+        DrawRectangleLines(GetScreenWidth() / 4 - 100, GetScreenHeight() / 4 - 100, GetScreenWidth() / 2 + 250, GetScreenHeight() / 2 + 150, { 255, 109, 194, 255 });
 
         // Draw text for story
         DrawText("Hi, welcome to our game! In it you're a student", GetScreenWidth() / 4 + 40, GetScreenHeight() / 4 + 50, 40, WHITE);
@@ -75,11 +85,11 @@ void controls() {
         // Get mouse position, start drawing, and clear background
         Vector2 mousePosition = GetMousePosition();
         BeginDrawing();
-        ClearBackground({ 0, 1, 41, 255 });
+        ClearBackground(GRAY);
 
         // Draw text for controls
         DrawText("press ESC to go back", 75, 915, 20, RAYWHITE);
-        DrawRectangleLines(530, 100, 800, 800, { 0, 91, 241, 255 });
+        DrawRectangleLines(530, 100, 800, 800, { 255, 109, 194, 255 });
         DrawText("W - move forward", 680, 155, 50, WHITE);
         DrawText("A - move to the left", 680, 265, 50, WHITE);
         DrawText("S - move backwards", 680, 375, 50, WHITE);
