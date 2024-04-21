@@ -1,4 +1,86 @@
-﻿  map.cpp
+﻿  exams.cpp
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(89,10): warning C4566: character represented by universal-character-name '\u2212' cannot be represented in the current code page (1252)
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(90,37): warning C4566: character represented by universal-character-name '\u2212' cannot be represented in the current code page (1252)
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(271,59): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(271,59): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(271,84): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(271,84): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(272,61): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(272,61): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(272,86): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(272,86): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(524,59): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(524,59): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(524,84): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(524,84): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(525,61): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(525,61): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(525,86): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(525,86): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(775,59): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(775,59): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(775,84): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(775,84): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(776,61): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(776,61): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(776,86): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(776,86): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1022,59): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1022,59): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1022,84): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1022,84): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1023,61): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1023,61): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1023,86): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1023,86): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1267,59): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1267,59): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1267,84): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1267,84): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1268,61): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1268,61): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1268,86): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1268,86): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1515,59): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1515,59): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1515,84): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1515,84): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1516,61): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1516,61): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1516,86): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1516,86): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1761,59): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1761,59): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1761,84): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1761,84): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1762,61): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1762,61): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1762,86): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(1762,86): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2008,56): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2008,56): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2008,81): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2008,81): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2009,58): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2009,58): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2009,83): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2009,83): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2132,4): warning C4566: character represented by universal-character-name '\u03BB' cannot be represented in the current code page (1252)
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2133,4): warning C4566: character represented by universal-character-name '\u03BB' cannot be represented in the current code page (1252)
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2134,4): warning C4566: character represented by universal-character-name '\u03BB' cannot be represented in the current code page (1252)
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2135,4): warning C4566: character represented by universal-character-name '\u03BB' cannot be represented in the current code page (1252)
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2150,4): warning C4566: character represented by universal-character-name '\u03BB' cannot be represented in the current code page (1252)
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2152,4): warning C4566: character represented by universal-character-name '\u03BB' cannot be represented in the current code page (1252)
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2153,4): warning C4566: character represented by universal-character-name '\u03BB' cannot be represented in the current code page (1252)
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2254,56): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2254,56): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2254,81): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2254,81): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2255,58): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2255,58): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2255,83): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(2255,83): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\exams.cpp(71): warning C4715: 'gradeSystem': not all control paths return a value
   E-School.vcxproj -> C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\x64\Debug\E-School.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

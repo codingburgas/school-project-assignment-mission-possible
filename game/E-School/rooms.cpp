@@ -215,10 +215,10 @@ void maths()
     Model laptop = LoadModel("objects/laptop.obj");
     Model book = LoadModel("objects/book.obj");
 
-    Texture2D wood = LoadTexture("sprites/wood.png");
+    Texture2D wood = LoadTexture("Textures/wood.png");
     SetMaterialTexture(&studentDesk.materials[0], MATERIAL_MAP_DIFFUSE, wood);
 
-    Texture2D mathBook = LoadTexture("sprites/mathBook.png");
+    Texture2D mathBook = LoadTexture("Textures/mathBook.png");
     SetMaterialTexture(&book.materials[0], MATERIAL_MAP_DIFFUSE, mathBook);
 
     const int screenWidth = 1920;
@@ -332,10 +332,10 @@ void history()
     Model musket = LoadModel("objects/musket.obj");
     Model book = LoadModel("objects/book.obj");
 
-    Texture2D wood = LoadTexture("sprites/wood.png");
+    Texture2D wood = LoadTexture("Textures/wood.png");
     SetMaterialTexture(&studentDesk.materials[0], MATERIAL_MAP_DIFFUSE, wood);
 
-    Texture2D textbook = LoadTexture("sprites/historyBook.png");
+    Texture2D textbook = LoadTexture("Textures/historyBook.png");
     SetMaterialTexture(&book.materials[0], MATERIAL_MAP_DIFFUSE, textbook);
 
     const int screenWidth = 1920;
@@ -456,10 +456,10 @@ void physics()
     Model laptop = LoadModel("objects/laptop.obj");
     Model book = LoadModel("objects/book.obj");
 
-    Texture2D wood = LoadTexture("sprites/wood.png");
+    Texture2D wood = LoadTexture("Textures/wood.png");
     SetMaterialTexture(&studentDesk.materials[0], MATERIAL_MAP_DIFFUSE, wood);
 
-    Texture2D textbook = LoadTexture("sprites/physics.png");
+    Texture2D textbook = LoadTexture("Textures/physics.png");
     SetMaterialTexture(&book.materials[0], MATERIAL_MAP_DIFFUSE, textbook);
 
     const int screenWidth = 1920;
@@ -551,6 +551,7 @@ void physics()
     }
     if (timerIsZero)
     {
+        physicsExaminationAlert();
         EnableCursor();
     }
 
@@ -570,11 +571,11 @@ void literature()
     Model bookshelf = LoadModel("objects/bookshelf.obj");
     Model book = LoadModel("objects/book.obj");
 
-    Texture2D wood = LoadTexture("sprites/wood.png");
+    Texture2D wood = LoadTexture("Textures/wood.png");
     SetMaterialTexture(&studentDesk.materials[0], MATERIAL_MAP_DIFFUSE, wood);
     SetMaterialTexture(&bookshelf.materials[0], MATERIAL_MAP_DIFFUSE, wood);
 
-    Texture2D textbook = LoadTexture("sprites/literatureBook.png");
+    Texture2D textbook = LoadTexture("Textures/literatureBook.png");
     SetMaterialTexture(&book.materials[0], MATERIAL_MAP_DIFFUSE, textbook);
 
     const int screenWidth = 1920;
@@ -697,10 +698,10 @@ void chemistry()
     Model laptop = LoadModel("objects/laptop.obj");
     Model book = LoadModel("objects/book.obj");
 
-    Texture2D wood = LoadTexture("sprites/wood.png");
+    Texture2D wood = LoadTexture("Textures/wood.png");
     SetMaterialTexture(&studentDesk.materials[0], MATERIAL_MAP_DIFFUSE, wood);
 
-    Texture2D chemistryBook = LoadTexture("sprites/chemistryBook.png");
+    Texture2D chemistryBook = LoadTexture("Textures/chemistryBook.png");
     SetMaterialTexture(&book.materials[0], MATERIAL_MAP_DIFFUSE, chemistryBook);
 
     const int screenWidth = 1920;
@@ -781,10 +782,10 @@ void english()
     Model laptop = LoadModel("objects/laptop.obj");
     Model book = LoadModel("objects/book.obj");
 
-    Texture2D wood = LoadTexture("sprites/wood.png");
+    Texture2D wood = LoadTexture("Textures/wood.png");
     SetMaterialTexture(&studentDesk.materials[0], MATERIAL_MAP_DIFFUSE, wood);
 
-    Texture2D textbook = LoadTexture("sprites/englishBook.png");
+    Texture2D textbook = LoadTexture("Textures/englishBook.png");
     SetMaterialTexture(&book.materials[0], MATERIAL_MAP_DIFFUSE, textbook);
 
     const int screenWidth = 1920;
@@ -900,8 +901,8 @@ void biology()
     Model book = LoadModel("objects/book.obj");
     Model poster = LoadModel("objects/poster.obj");
 
-    Texture2D wood = LoadTexture("sprites/wood.png");
-    Texture2D Musculoskeletal = LoadTexture("sprites/Musculoskeletal.png");
+    Texture2D wood = LoadTexture("Textures/wood.png");
+    Texture2D Musculoskeletal = LoadTexture("Textures/Musculoskeletal.png");
     SetMaterialTexture(&book.materials[0], MATERIAL_MAP_DIFFUSE, Musculoskeletal);
     SetMaterialTexture(&studentDesk.materials[0], MATERIAL_MAP_DIFFUSE, wood);
 
@@ -1014,10 +1015,10 @@ void geography()
     Model laptop = LoadModel("objects/laptop.obj");
     Model book = LoadModel("objects/book.obj");
 
-    Texture2D wood = LoadTexture("sprites/wood.png");
+    Texture2D wood = LoadTexture("Textures/wood.png");
     SetMaterialTexture(&studentDesk.materials[0], MATERIAL_MAP_DIFFUSE, wood);
 
-    Texture2D geographyBook = LoadTexture("sprites/geographyBook.png");
+    Texture2D geographyBook = LoadTexture("Textures/geographyBook.png");
     SetMaterialTexture(&book.materials[0], MATERIAL_MAP_DIFFUSE, geographyBook);
 
     const int screenWidth = 1920;
@@ -1045,6 +1046,14 @@ void geography()
     cameraBox.max.x += 0.3f;
     cameraBox.max.y += 0.5f;
     cameraBox.max.z += 0.5f;
+
+	float elapsedTime = 0.0f;
+	float updateInterval = 1.0f;
+
+	int minutes = 1;
+	int seconds = 0;
+
+	bool timerIsZero = false;
 
     // Generates some random columns
     DisableCursor();                    // Limit cursor to relative movement inside the window
@@ -1078,6 +1087,34 @@ void geography()
         DrawModel(globe, { 0.65f,1.65f,-7.0f }, 0.4, GOLD);
 
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
+
+		elapsedTime += GetFrameTime();
+
+		if (elapsedTime >= updateInterval) {
+			// Decrement the timer
+			if (seconds == 0) {
+				if (minutes == 0)
+				{
+					timerIsZero = true;
+				}
+				minutes--;
+				seconds = 5;
+
+			}
+			else {
+				seconds--;
+			}
+
+			elapsedTime = 0.0f; // Reset elapsed time
+		}
+		EndMode3D();
+		drawCoordinates(camera);
+		DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+		if (timerIsZero)
+		{
+			EnableCursor();
+			geographyExaminationAlert();
+		}
         if (IsKeyPressed(KEY_M))
             initMap(1);
         EndMode3D();
@@ -1154,8 +1191,8 @@ void programming()
         drawFurnituresProgramming(desk, deskChair, chair, chairOther, workstation, computer, computerRotated, camera, previousCameraPosition);
         DrawBoundingBox(wallBox, RED);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
-        Vector3 cubePosition = { 19.5f,0.2f,7.0f };
-        prgTextBook(camera, cubePosition,0);
+        
+        prgTextBook(camera, 0);
         EndMode3D();
         drawCoordinates(camera);
         EndDrawing();

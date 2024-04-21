@@ -1,4 +1,4 @@
-#include "exams.h"
+﻿#include "exams.h"
 #include "textbooks.h"
 #include "rooms.h"
 #include "map.h"
@@ -15,9 +15,35 @@ struct Question {
     int correctOption;
 };
 
-bool CheckMouseClickOnOption(int optionIndex, int mouseY) {
-    // Check if the mouse is within the bounding box of the option and left mouse button is pressed
-    return (GetMouseX() >= 100 && GetMouseX() <= 300 && GetMouseY() >= 150 + 30 * optionIndex && GetMouseY() <= 150 + 30 * optionIndex + 20 && IsMouseButtonPressed(MOUSE_LEFT_BUTTON));
+int CheckMouseClickOnOption(int optionIndex, int mouseY) {
+    Rectangle answers[4] = {
+          { 200, 550, 200,50},
+          { 1400, 550,200,50},
+          { 200, 750, 200,50},
+          { 1400, 750,200,50},
+    };
+    int i = 0;
+        if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), answers[0]))
+        {
+                i= 2;         
+        }
+        if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), answers[1]))
+        {
+            i = 2;
+        }
+        if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), answers[2]))
+        {
+            i = 2;
+        }
+        if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), answers[3]))
+        {
+            i = 2;
+        }
+        if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), answers[optionIndex]))
+        {
+            i = 1;
+        }
+        return i;
 }
 
 int gradeSystem(int score)
@@ -45,11 +71,12 @@ int gradeSystem(int score)
 }
 void mathsExam()
 {
+    Texture2D background = LoadTexture("textures/mathsExam.png");
     // Array of questions with their options and correct answers
     Question questions[MAXQUESTIONS] = {
         {"What is: 1^0 + 1?",
          {"a) 2", "b) 1", "c) -1", "d) 0"},
-         1},
+         0},
         {"What is 8 x 2 - 2 x (2 + 3)?",
          {"a) 19", "b) 5", "c) -6", "d) 6"},
          2},
@@ -59,89 +86,154 @@ void mathsExam()
         {"What is: 2^3 + 16 - 23?",
          {"a) 1", "b) 20", "c) 26", "d) -2"},
          0},
-        {"",
-         {"a) ", "b) ", "c) ", "d) "},
+        {"Determine the solution of the system of equations 2x−y = 4 and x + 2y = 2.",
+         {"a) (0, 2)", "b)(2, 0) ", "c) (2, −1)", "d) (1, 2)"},
+         1},
+        {"What is three fifth of 100?",
+         {"a) 3",
+          "b) 5",
+          "c) 20",
+          "d) 60"},
+         3},
+        {"What is the value of x if x^2 = 169",
+         {"a) 1",
+          "b) 13",
+          "c) 169",
+          "d) 338"},
+         1},
+        {"10^-2 means ………….",
+         {"a) milli",
+          "b) centi",
+          "c) micro",
+          "d) deci"},
+         1},
+        {"All natural numbers and 0 are called the ……………….. numbers",
+         {"a) whole",
+          "b) prime",
+          "c) integer",
+          "d) rational"},
+         0},
+        {" What is the sum of 5x^3 – 3x^2 - 1 and 3x^2 + 1?",
+         {"a) 5x^3",
+          "b) 6x^2",
+          "c)5x ",
+          "d) 3x^2"},
+         0},
+         {" Which of the following numbers gives 240 when added to its own square?",
+         {"a) 15",
+          "b) 16",
+          "c)18",
+          "d) 20"},
+         0},
+         {" A car can cover a distance of 522 km on 36 liters of petrol. How far can it travel on 14 liters of petrol?",
+         {"a) 213 km",
+          "b) 223 km",
+          "c) 203 km",
+          "d) 302 km"},
          2},
-        {"",
-         {"a) ",
-          "b) ",
-          "c) ",
-          "d) "},
+         {"(4)^2 + (3)^2 = (……..)^2.",
+         {"a) 5",
+          "b) 14",
+          "c) 25",
+          "d) 7"},
+         0},
+         {" What percentage should be added to 40 to make it 50?",
+         {"a) 15",
+          "b) 25",
+          "c) 75",
+          "d) 80"},
          1},
-        {"",
-         {"a) ",
-          "b) ",
-          "c) ",
-          "d) "},
-         1},
-        {"",
-         {"a) ",
-          "b) ",
-          "c) ",
-          "d) "},
-         1},
-        {"",
-         {"a) ",
-          "b) ",
-          "c) ",
-          "d) "},
+         {" The difference between the smallest number of four digits and the largest number of three digits is ……. ",
+         {"a) 1",
+          "b) 100",
+          "c) 0",
+          "d) 999"},
+         0},
+         {" Simplify :150 ÷ (6 + 3 x 8) - 5 ",
+         {"a) 2",
+          "b) 5",
+          "c) 0",
+          "d) none of the above"},
          2},
-        {" ",
-         {"a) ",
-          "b) ",
-          "c) ",
-          "d) "},
-         2}
+         {" What is the largest two digits prime number? ",
+         {"a) 96",
+          "b) 97",
+          "c) 98",
+          "d) 99"},
+         1},
+         {" How many diagonals are there in a quadrilateral ",
+         {"a) 2",
+          "b) 3",
+          "c) 4",
+          "d) No diagonals"},
+         0},
+         {" How much water is added to 750 g milk to get 1 kilogram mixture of liquid? ",
+         {"a) 2.5kg",
+          "b) 0.25kg",
+          "c) 20.5kg",
+          "d) 25.0 kg"},
+         1},
+         {" Annual income of A is 10% more than of B whereas income of B is 20% more than that of C. If monthly income of C is $ 2000 then what is the sum of monthly incomes of A, B and C? (1$ = 1,83bgn)",
+         {"a) 12595.72leva",
+          "b) 12914.64leva",
+          "c) 14245.33leva",
+          "d) 12903.64leva"},
+         3},
     };
 
 
     int count = 1;
-    int currentQuestion = GetRandomValue(0, 9);
+    int currentQuestion = GetRandomValue(0, 19);
     int selectedOption = -1;
     bool answered = false;
     int score = 0;
-
+        EnableCursor();
+        bool correctOption = false;
     // Main game loop
     while (!WindowShouldClose()) {
-
         // Update
-        if (!answered) {
-            // Check if the mouse clicked on any option
-            for (int i = 0; i < MAXOPTIONS; i++) {
-                if (CheckMouseClickOnOption(i, GetMouseY())) {
-                    selectedOption = i; // Update the selected option
-                    break;
-                }
-            }
-            // Check if an option is selected
-            if (selectedOption >= 0) {
+        if(answered == 0) 
+        {
                 // If the selected option is correct, increment the score
-                if (selectedOption == questions[currentQuestion].correctOption) {
+            if (CheckMouseClickOnOption(questions[currentQuestion].correctOption, GetMouseY()) == 1) {
 
-                    score++;
-                }
+                score++;
+                answered = true; // Mark the question as answered
+                count++;
+                correctOption = true;
+            }
+            else if(CheckMouseClickOnOption(questions[currentQuestion].correctOption, GetMouseY()) == 2)
+            {
                 answered = true; // Mark the question as answered
                 count++;
             }
         }
+            
+        
 
         // Draw
         BeginDrawing();
         ClearBackground(RAYWHITE); // Clear the screen
-
+        DrawTexture(background, 0, 0, WHITE);
+        
         // Display the current question
-        DrawText(questions[currentQuestion].question.c_str(), 100, 100, 20, BLACK);
+        DrawText(questions[currentQuestion].question.c_str(), 600, 200, 30, BLACK);
 
         // Display the options for the current question
-        for (int i = 0; i < MAXOPTIONS; i++) {
-            DrawText(questions[currentQuestion].options[i].c_str(), 100, 150 + 30 * i, 20, BLACK);
+        int questionNumer = 0;
+        for (int i = 0; i < 2; i++) {
+            for(int j=0; j<2;j++)
+            {
+                DrawText(questions[currentQuestion].options[questionNumer].c_str(), 200 + (1200 * j), 600 + 200 * i, 30, BLACK);
+                questionNumer++;
+            }
         }
-
+        questionNumer = 0;
         // Display feedback for answered question
         if (answered) {
 
             // If the selected option is correct, display "Correct!", otherwise display "Incorrect!"
-            if (selectedOption == questions[currentQuestion].correctOption) {
+            if (correctOption == 1) {
                 DrawText("Correct!", 100, 400, 20, GREEN);
             }
             else {
@@ -154,13 +246,14 @@ void mathsExam()
         // Reset if answer was given
         if (answered && IsKeyPressed(KEY_ENTER)) {
 
-            currentQuestion = GetRandomValue(0, 9); // Move to the next question
+            currentQuestion = GetRandomValue(0, 19); // Move to the next question
             selectedOption = -1; // Reset selected option
             answered = false; // Reset answered flag
+            correctOption = false;
         }
         if (count >= 10)
         {
-            string subject = "mathsbiolo";
+            string subject = "maths";
             DataAccess accessData;
             int grade = gradeSystem(score);
             accessData.addGrade(subject, to_string(grade));
@@ -177,6 +270,7 @@ void mathsExaminationAlert()
 
     const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
     const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
+        EnableCursor();
 
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
@@ -213,6 +307,7 @@ void mathsExaminationAlert()
 
 void englishExam()
 {
+    Texture2D background = LoadTexture("textures/englishExam.png");
     Question questions[MAXQUESTIONS] = {
        {"Molly used to ... watching cartoons when she was young.",
         {"a) loving", 
@@ -342,6 +437,7 @@ void englishExam()
     int selectedOption = -1;
     bool answered = false;
     int score = 0;
+        EnableCursor();
 
     // Main game loop
     while (!WindowShouldClose()) {
@@ -370,13 +466,20 @@ void englishExam()
         // Draw
         BeginDrawing();
         ClearBackground(RAYWHITE); // Clear the screen
-
+        DrawTexture(background, 0, 0, WHITE);
         // Display the current question
-        DrawText(questions[currentQuestion].question.c_str(), 100, 100, 20, BLACK);
 
         // Display the options for the current question
-        for (int i = 0; i < MAXOPTIONS; i++) {
-            DrawText(questions[currentQuestion].options[i].c_str(), 100, 150 + 30 * i, 20, BLACK);
+        DrawText(questions[currentQuestion].question.c_str(), 600, 200, 30, BLACK);
+
+        // Display the options for the current question
+        int questionNumer = 0;
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++)
+            {
+                DrawText(questions[currentQuestion].options[questionNumer].c_str(), 200 + (1200 * j), 600 + 200 * i, 30, BLACK);
+                questionNumer++;
+            }
         }
 
         // Display feedback for answered question
@@ -419,10 +522,12 @@ void englishExaminationAlert() {
 
     const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
     const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
+        EnableCursor();
 
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
     {
+
         Vector2 mousePosition = GetMousePosition();
         BeginDrawing();
         ClearBackground(RAYWHITE);
@@ -452,6 +557,8 @@ void englishExaminationAlert() {
 
 void historyExam()
 {
+    Texture2D background = LoadTexture("textures/historyExam.png");
+
     Question questions[MAXQUESTIONS] = {
        {"When did World War II officially begin?",
         {"a) 1914",
@@ -575,12 +682,12 @@ void historyExam()
         1},
     };
 
-
     int count = 1;
     int currentQuestion = GetRandomValue(0, 9);
     int selectedOption = -1;
     bool answered = false;
     int score = 0;
+    EnableCursor();
 
     // Main game loop
     while (!WindowShouldClose()) {
@@ -609,13 +716,21 @@ void historyExam()
         // Draw
         BeginDrawing();
         ClearBackground(RAYWHITE); // Clear the screen
-
+        DrawTexture(background, 0, 0, WHITE);
         // Display the current question
         DrawText(questions[currentQuestion].question.c_str(), 100, 100, 20, BLACK);
 
         // Display the options for the current question
-        for (int i = 0; i < MAXOPTIONS; i++) {
-            DrawText(questions[currentQuestion].options[i].c_str(), 100, 150 + 30 * i, 20, BLACK);
+        DrawText(questions[currentQuestion].question.c_str(), 600, 200, 30, BLACK);
+
+        // Display the options for the current question
+        int questionNumer = 0;
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++)
+            {
+                DrawText(questions[currentQuestion].options[questionNumer].c_str(), 200 + (1200 * j), 600 + 200 * i, 30, BLACK);
+                questionNumer++;
+            }
         }
 
         // Display feedback for answered question
@@ -658,10 +773,11 @@ void historyExaminationAlert() {
 
     const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
     const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
-
+EnableCursor();
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
     {
+        
         Vector2 mousePosition = GetMousePosition();
         BeginDrawing();
         ClearBackground(RAYWHITE);
@@ -691,6 +807,8 @@ void historyExaminationAlert() {
 
 void literatureExam()
 {
+    Texture2D background = LoadTexture("textures/literatureExam.png");
+
     Question questions[MAXQUESTIONS] = {
        {"Who is considered one of the key figures of modernist literature?",
         {"a) William Shakespeare",
@@ -820,6 +938,7 @@ void literatureExam()
     int selectedOption = -1;
     bool answered = false;
     int score = 0;
+    EnableCursor();
 
     // Main game loop
     while (!WindowShouldClose()) {
@@ -848,15 +967,19 @@ void literatureExam()
         // Draw
         BeginDrawing();
         ClearBackground(RAYWHITE); // Clear the screen
-
+        DrawTexture(background, 0, 0, WHITE);
         // Display the current question
-        DrawText(questions[currentQuestion].question.c_str(), 100, 100, 20, BLACK);
+        DrawText(questions[currentQuestion].question.c_str(), 600, 200, 30, BLACK);
 
         // Display the options for the current question
-        for (int i = 0; i < MAXOPTIONS; i++) {
-            DrawText(questions[currentQuestion].options[i].c_str(), 100, 150 + 30 * i, 20, BLACK);
+        int questionNumer = 0;
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++)
+            {
+                DrawText(questions[currentQuestion].options[questionNumer].c_str(), 200 + (1200 * j), 600 + 200 * i, 30, BLACK);
+                questionNumer++;
+            }
         }
-
         // Display feedback for answered question
         if (answered) {
 
@@ -897,6 +1020,7 @@ void literatureExaminationAlert() {
 
     const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
     const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
+		EnableCursor();
 
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
@@ -930,6 +1054,7 @@ void literatureExaminationAlert() {
 
 void biologyExam()
 {
+    Texture2D background = LoadTexture("textures/biologyExam.png");
     Question questions[MAXQUESTIONS] = {
        {"What is the primary function of carbohydrates in living organisms?",
         {"a)Energy storage",
@@ -1053,12 +1178,12 @@ void biologyExam()
         3},
     };
 
-
     int count = 1;
     int currentQuestion = GetRandomValue(0, 9);
     int selectedOption = -1;
     bool answered = false;
     int score = 0;
+    EnableCursor();
 
     // Main game loop
     while (!WindowShouldClose()) {
@@ -1087,15 +1212,19 @@ void biologyExam()
         // Draw
         BeginDrawing();
         ClearBackground(RAYWHITE); // Clear the screen
-
+        DrawTexture(background, 0, 0, WHITE);
         // Display the current question
-        DrawText(questions[currentQuestion].question.c_str(), 100, 100, 20, BLACK);
+        DrawText(questions[currentQuestion].question.c_str(), 600, 200, 30, BLACK);
 
         // Display the options for the current question
-        for (int i = 0; i < MAXOPTIONS; i++) {
-            DrawText(questions[currentQuestion].options[i].c_str(), 100, 150 + 30 * i, 20, BLACK);
+        int questionNumer = 0;
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++)
+            {
+                DrawText(questions[currentQuestion].options[questionNumer].c_str(), 200 + (1200 * j), 600 + 200 * i, 30, BLACK);
+                questionNumer++;
+            }
         }
-
         // Display feedback for answered question
         if (answered) {
 
@@ -1136,10 +1265,11 @@ void biologyExaminationAlert() {
 
     const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
     const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
-
+    EnableCursor();
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
     {
+		
         Vector2 mousePosition = GetMousePosition();
         BeginDrawing();
         ClearBackground(RAYWHITE);
@@ -1169,6 +1299,8 @@ void biologyExaminationAlert() {
 
 void geographyExam()
 {
+    Texture2D background = LoadTexture("textures/geographyExam.png");
+
     Question questions[MAXQUESTIONS] = {
        {"What is the largest continent by land area?",
         {"a)North America",
@@ -1298,6 +1430,7 @@ void geographyExam()
     int selectedOption = -1;
     bool answered = false;
     int score = 0;
+    EnableCursor();
 
     // Main game loop
     while (!WindowShouldClose()) {
@@ -1326,13 +1459,18 @@ void geographyExam()
         // Draw
         BeginDrawing();
         ClearBackground(RAYWHITE); // Clear the screen
-
+        DrawTexture(background, 0, 0, WHITE);
         // Display the current question
-        DrawText(questions[currentQuestion].question.c_str(), 100, 100, 20, BLACK);
+        DrawText(questions[currentQuestion].question.c_str(), 600, 200, 30, BLACK);
 
         // Display the options for the current question
-        for (int i = 0; i < MAXOPTIONS; i++) {
-            DrawText(questions[currentQuestion].options[i].c_str(), 100, 150 + 30 * i, 20, BLACK);
+        int questionNumer = 0;
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++)
+            {
+                DrawText(questions[currentQuestion].options[questionNumer].c_str(), 200 + (1200 * j), 600 + 200 * i, 30, BLACK);
+                questionNumer++;
+            }
         }
 
         // Display feedback for answered question
@@ -1375,6 +1513,7 @@ void geographyExaminationAlert() {
 
     const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
     const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
+		EnableCursor();
 
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
@@ -1402,5 +1541,744 @@ void geographyExaminationAlert() {
 
         EndDrawing();
     }
+
+}
+
+void programmingExam()
+{
+    Texture2D background = LoadTexture("textures/programmingExam.png");
+
+    Question questions[MAXQUESTIONS] = {
+       {"What is a correct syntax to output Hello World in C++?",
+        {"a)Console.WriteLine(Hello World);",
+        "b)  System.out.println(Hello World); ",
+        "c) cout << Hello world;",
+        "d) print(Hello world); "},
+        2},
+       {"C++ is an alias of C#",
+        {"a) True",
+        "b) False",
+        " ",
+        " "},
+        1},
+       {"How do you insert COMMENTS in C++ code?",
+        {"a) // ",
+        "b) /* ",
+        "c) # ",
+        " "},
+        0},
+       {"Which data type is used to create a variable that should store text?",
+        {"a)String",
+        "b) txt",
+        "c) string ",
+        "d) myString "},
+        3},
+       {"How do you create a variable with the numeric value 5?",
+        {"a)double x = 5;",
+        "b)int = 5;",
+        "c)num x = 5;",
+        "d)x = 5;"},
+        1},
+       {"How do you create a variable with the floating number 2.8?",
+        {"a) x = 2.8;",
+         "b) double x = 2.8;",
+         "c) int x = 2.8;",
+         "d) byte x = 2.8;"},
+        1},
+       {"Which method can be used to find the length of a string?",
+        {"a) len()",
+         "b) length() ",
+         "c) getSize() ",
+         "d) getLength() "},
+        1},
+       {"Which operator is used to add together two values?",
+        {"a)+",
+         "b)& ",
+         "c)* ",
+         "d)^"},
+        0},
+       {"The value of a string variable can be surrounded by single quotes.",
+        {"a)True ",
+         "b)False ",
+         " ",
+         " "},
+        1},
+       {"Which header file lets us work with input and output objects?",
+        {"a)#include <inputstr>",
+         "b)#include <iosstring>",
+         "c)#include <stream>  ",
+         "d)#include <iostream> "},
+        3},
+        {"Which operator can be used to compare two values?",
+        {" a) <> ",
+         "b)= ",
+         "c)== ",
+         "d)><"},
+        2},
+        {"At which number do indexes start?",
+        {"a)1 ",
+         "b)2 ",
+         "c)0",
+         "d)-1 "},
+        2},
+        {"Which keyword is used to create a class in C++??",
+        {"a)className",
+         "b)myClass ",
+         "c)class ",
+         "d)class()"},
+        2},
+        {"Which keyword is used to create a class in C++?",
+        {"a)class myObj = new MyClass();",
+         "b) class MyClass = new myObj(); ",
+         "c) MyClass myObj; ",
+         "d) new myObj = MyClass();"},
+        2},
+        {"In C++, it is possible to inherit attributes and methods from one class to another. ",
+        {"a)True",
+         "b)False",
+         " ",
+         " "},
+        0},
+        {"Which operator is used to multiply numbers?",
+        {"a)x",
+         "b)%",
+         "c)* ",
+         "d)#"},
+        2},
+        {"How do you create a reference variable of an existing variable? ",
+        {"a)* ",
+         "b)& ",
+         "c)REF ",
+         "d)ref"},
+        1},
+        {"How do you start writing an if statement in C++?",
+        {"a)if x > y ",
+         "b)if x > y then; ",
+         "c)if (x > y)",
+         "d)if x > y :  "},
+        2},
+        {"Which keyword is used to return a value inside a method?",
+        {"a)void  ",
+         "b)return  ",
+         "c)get ",
+         "d)break "},
+        1},
+        {"Which statement is used to stop a loop? ",
+        {"a)void  ",
+         "b)return  ",
+         "c)get ",
+         "d)break "},
+        3},
+    };
+
+    int count = 1;
+    int currentQuestion = GetRandomValue(0, 9);
+    int selectedOption = -1;
+    bool answered = false;
+    int score = 0;
+    EnableCursor();
+
+    // Main game loop
+    while (!WindowShouldClose()) {
+
+        // Update
+        if (!answered) {
+            // Check if the mouse clicked on any option
+            for (int i = 0; i < MAXOPTIONS; i++) {
+                if (CheckMouseClickOnOption(i, GetMouseY())) {
+                    selectedOption = i; // Update the selected option
+                    break;
+                }
+            }
+            // Check if an option is selected
+            if (selectedOption >= 0) {
+                // If the selected option is correct, increment the score
+                if (selectedOption == questions[currentQuestion].correctOption) {
+
+                    score++;
+                }
+                answered = true; // Mark the question as answered
+                count++;
+            }
+        }
+
+        // Draw
+        BeginDrawing();
+        ClearBackground(RAYWHITE); // Clear the screen
+        DrawTexture(background, 0, 0, WHITE);
+        // Display the current question
+        DrawText(questions[currentQuestion].question.c_str(), 600, 200, 30, BLACK);
+
+        // Display the options for the current question
+        int questionNumer = 0;
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++)
+            {
+                DrawText(questions[currentQuestion].options[questionNumer].c_str(), 200 + (1200 * j), 600 + 200 * i, 30, BLACK);
+                questionNumer++;
+            }
+        }
+
+        // Display feedback for answered question
+        if (answered) {
+
+            // If the selected option is correct, display "Correct!", otherwise display "Incorrect!"
+            if (selectedOption == questions[currentQuestion].correctOption) {
+                DrawText("Correct!", 100, 400, 20, GREEN);
+            }
+            else {
+                DrawText("Incorrect!", 100, 400, 20, RED);
+            }
+        }
+
+        EndDrawing(); // End drawing frame
+
+        // Reset if answer was given
+        if (answered && IsKeyPressed(KEY_ENTER)) {
+
+            currentQuestion = GetRandomValue(0, 19); // Move to the next question
+            selectedOption = -1; // Reset selected option
+            answered = false; // Reset answered flag
+        }
+        if (count >= 10)
+        {
+            string subject = "programming";
+            DataAccess accessData;
+            int grade = gradeSystem(score);
+            accessData.addGrade(subject, to_string(grade));
+            geography();
+            break;
+        }
+        SetExitKey(KEY_APOSTROPHE);
+    }
+
+}
+
+void programmingExaminationAlert() {
+    Camera camera = { 0 };
+
+    const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
+    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
+        EnableCursor();
+
+    int character = GetRandomValue(1, 2);
+    while (!WindowShouldClose())
+    {
+        Vector2 mousePosition = GetMousePosition();
+        BeginDrawing();
+        ClearBackground(RAYWHITE);
+        bool isMouseOverButtonRevise = CheckCollisionPointRec(mousePosition, reviseButton);
+        // Set new colors for hovering the button and draw text
+        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? SKYBLUE : BLUE));
+        DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        // Handle click with the mouse over button
+        if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+            prgTextBook(camera, 1);
+        }
+        bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
+        // Set new colors for hovering the button and draw text
+        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
+        DrawText("Start", GetScreenWidth() / 2 + 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        // Handle click with the mouse over button
+        if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+        {
+            programmingExam();
+        }
+
+        EndDrawing();
+    }
+
+}
+
+void chemistryExam()
+{
+    Texture2D background = LoadTexture("textures/chemistryExam.png");
+
+	Question questions[MAXQUESTIONS] = {
+	   {"What is the chemical symbol for water?",
+		{"a) Wa",
+		"b)  H2O",
+		"c) Hy",
+		"d) O2"},
+		1},
+	   {"Which element is essential for organic life and is the main component of organic molecules?",
+		{"a) Carbon",
+		"b) Oxygen",
+		"c) Hydrogen",
+		"d) Nitrogen"},
+		0},
+	   {"What is the smallest unit of an element that retains its chemical properties?",
+		{"a) Atom ",
+		"b) Molecule ",
+		"c) Compound ",
+		"d) Ion "},
+		0},
+	   {"What is the chemical symbol for iron?",
+		{"a) Ir ",
+		"b) Fe",
+		"c) Io ",
+		"d) In "},
+		1},
+	   {"What is the process by which a solid changes directly into a gas without passing through the liquid state?",
+		{"a) Condensation",
+		"b) Condensation",
+		"c) Evaporation",
+		"d) Melting"},
+		1},
+	   {"What is the chemical formula for carbon dioxide?",
+		{"a) CO2",
+		 "b) CO",
+		 "c) O2",
+		 "d) C2O"},
+		0},
+	   {"Which of the following is a noble gas?",
+		{"a) Helium",
+		 "b) Neon",
+		 "c) Argon",
+		 "d) All of the above "},
+		3},
+	   {"What is the pH value of pure water at room temperature?",
+		{"a) 0",
+		 "b) 7 ",
+		 "c) 14 ",
+		 "d) 10"},
+		1},
+	   {"Which subatomic particle has a positive charge?",
+		{"a) Proton ",
+		 "b) Neutron ",
+		 "c) Electron",
+		 "d) Ion"},
+		0},
+	   {"What is the process by which a liquid changes into a gas at temperatures below its boiling point?",
+		{"a) Evaporation",
+		 "b) Condensation",
+		 "c) Sublimation",
+		 "d) Vaporization"},
+		0},
+		{"What is the chemical symbol for gold?",
+		{"a) Go ",
+		 "b) Au",
+		 "c) Ag ",
+		 "d) Gd"},
+		1},
+		{"What is the chemical formula for table salt?",
+		{"a) NaCl ",
+		 "b) H2O ",
+		 "c) CO2",
+		 "d) CaCO3 "},
+		0},
+		{"Which of the following is a greenhouse gas?",
+		{"a) Oxygen",
+		 "b) Carbon dioxide ",
+		 "c) Nitrogen ",
+		 "d) Hydrogen"},
+		1},
+		{"What is the atomic number of oxygen?",
+		{"a) 8",
+		 "b) 1",
+		 "c) 16 ",
+		 "d) 32"},
+		0},
+		{"What is the chemical formula for methane? ",
+		{"a) CH4",
+		 "b) CO2",
+		 "c) H2O",
+		 "d) NH3"},
+		0},
+		{"Which of the following is a halogen?",
+		{"a)Chlorine",
+		 "b) Sodium",
+		 "c)Calcium ",
+		 "d)Potassium"},
+		0},
+		{"What is the chemical formula for sulfuric acid? ",
+		{"a) H2SO3 ",
+		 "b) H2SO4 ",
+		 "c) HCl ",
+		 "d) HNO3"},
+		1},
+		{"What is the chemical symbol for lead?",
+		{"a)Ld ",
+		 "b)Pb ",
+		 "c)Pd ",
+		 "d)Pt "},
+		1},
+		{"Which subatomic particle has a neutral charge?",
+		{"a)Neutron  ",
+		 "b)Proton ",
+		 "c)Electron ",
+		 "d)Ion"},
+		0},
+		{"What is the chemical formula for hydrogen peroxide? ",
+		{"a)H2O ",
+		 "b)HO ",
+		 "c)H2O2 ",
+		 "d)H3O+"},
+		1},
+	};
+
+
+    int count = 1;
+    int currentQuestion = GetRandomValue(0, 9);
+    int selectedOption = -1;
+    bool answered = false;
+    int score = 0;
+    EnableCursor();
+
+    // Main game loop
+    while (!WindowShouldClose()) {
+
+        // Update
+        if (!answered) {
+            // Check if the mouse clicked on any option
+            for (int i = 0; i < MAXOPTIONS; i++) {
+                if (CheckMouseClickOnOption(i, GetMouseY())) {
+                    selectedOption = i; // Update the selected option
+                    break;
+                }
+            }
+            // Check if an option is selected
+            if (selectedOption >= 0) {
+                // If the selected option is correct, increment the score
+                if (selectedOption == questions[currentQuestion].correctOption) {
+
+                    score++;
+                }
+                answered = true; // Mark the question as answered
+                count++;
+            }
+        }
+
+        // Draw
+        BeginDrawing();
+        ClearBackground(RAYWHITE); // Clear the screen
+        DrawTexture(background, 0, 0, WHITE);
+        // Display the current question
+        DrawText(questions[currentQuestion].question.c_str(), 600, 200, 30, BLACK);
+
+        // Display the options for the current question
+        int questionNumer = 0;
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++)
+            {
+                DrawText(questions[currentQuestion].options[questionNumer].c_str(), 200 + (1200 * j), 600 + 200 * i, 30, BLACK);
+                questionNumer++;
+            }
+        }
+
+        // Display feedback for answered question
+        if (answered) {
+
+            // If the selected option is correct, display "Correct!", otherwise display "Incorrect!"
+            if (selectedOption == questions[currentQuestion].correctOption) {
+                DrawText("Correct!", 100, 400, 20, GREEN);
+            }
+            else {
+                DrawText("Incorrect!", 100, 400, 20, RED);
+            }
+        }
+
+        EndDrawing(); // End drawing frame
+
+        // Reset if answer was given
+        if (answered && IsKeyPressed(KEY_ENTER)) {
+
+            currentQuestion = GetRandomValue(0, 19); // Move to the next question
+            selectedOption = -1; // Reset selected option
+            answered = false; // Reset answered flag
+        }
+		if (count >= 10)
+		{
+			string subject = "chemistry";
+			DataAccess accessData;
+			int grade = gradeSystem(score);
+			accessData.addGrade(subject, to_string(grade));
+			geography();
+			break;
+		}
+		SetExitKey(KEY_APOSTROPHE);
+	}
+
+}
+
+void chemistryExaminationAlert() {
+	Camera camera = { 0 };
+
+	const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
+	const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
+EnableCursor();
+	int character = GetRandomValue(1, 2);
+	while (!WindowShouldClose())
+	{
+        
+		Vector2 mousePosition = GetMousePosition();
+		BeginDrawing();
+		ClearBackground(RAYWHITE);
+		bool isMouseOverButtonRevise = CheckCollisionPointRec(mousePosition, reviseButton);
+		// Set new colors for hovering the button and draw text
+		DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? SKYBLUE : BLUE));
+		DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+		// Handle click with the mouse over button
+		if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+			chemistryTextBook(camera, 1);
+		}
+		bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
+		// Set new colors for hovering the button and draw text
+		DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
+		DrawText("Start", GetScreenWidth() / 2 + 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+		// Handle click with the mouse over button
+		if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+		{
+			chemistryExam();
+		}
+
+		EndDrawing();
+	}
+
+}
+
+
+void physicsExam()
+{
+    Texture2D background = LoadTexture("textures/physicsExam.png");
+
+	Question questions[MAXQUESTIONS] = {
+	   {"What is the SI unit of force?",
+		{"a) Joule",
+		"b)  Newton",
+		"c) Watt",
+		"d) Kilogram"},
+		1},
+	   {"What is the acceleration due to gravity on Earth's surface (approximately)?",
+		{"a) 10 m/s^2",
+		"b) 9.8 m/s^2 ",
+		"c) 5 m/s^2",
+		"d) 20 m/s^2"},
+		1},
+	   {"Which law of motion states that an object at rest will remain at rest, and an object in motion will remain in motion unless acted upon by an external force?",
+		{"a) Newton's First Law of Motion ",
+		"b) Newton's Second Law of Motion ",
+		"c) Newton's Third Law of Motion ",
+		"d) Law of Universal Gravitation "},
+		0},
+	   {"What is the formula for calculating kinetic energy?",
+		{"a) KE = mv ",
+		"b) KE = 1/2mv^2 ",
+		"c) KE = mgh ",
+		"d) KE = Fd "},
+		1},
+	   {"Which of the following is a unit of power?",
+		{"a) Joule",
+		"b) Watt ",
+		"c) Newton",
+		"d) Kilogram-meter"},
+		1},
+	   {"What is the relationship between force, mass, and acceleration as described by Newton's Second Law of Motion?",
+		{"a) Force = mass × acceleration",
+		 "b) Force = mass ÷ acceleration",
+		 "c) Force = acceleration ÷ mass",
+		 "d) Force = mass + acceleration"},
+		0},
+	   {"What is the law that states that the total energy of an isolated system remains constant over time, even though energy within the system can change forms?",
+		{"a) Law of Conservation of Momentum",
+		 "b) Law of Conservation of Mass",
+		 "c) Law of Conservation of Energy",
+		 "d) Law of Universal Gravitation "},
+		2},
+	   {"What is the formula for calculating gravitational potential energy near the Earth's surface?",
+		{"a) PE = mgh ",
+		 "b) PE = 1/2mv^2 ",
+		 "c) PE = Fd ",
+		 "d) PE = KE × mg"},
+		0},
+	   {"Which of the following is a unit of electric charge?",
+		{"a) Coulomb ",
+		 "b) Volt ",
+		 "c) Ohm",
+		 "d) Ampere"},
+		0},
+	   {"What is the speed of light in a vacuum (approximately)?",
+		{"a) 300,000 m/s",
+		 "b) 100,000 m/s",
+		 "c) 3 × 10^8 m/s",
+		 "d) 30,000 m/s"},
+		2},
+		{"Which law of thermodynamics states that energy cannot be created or destroyed, only transformed from one form to another?",
+		{"a) First Law of Thermodynamics ",
+		 "b) Second Law of Thermodynamics",
+		 "c) Third Law of Thermodynamics ",
+		 "d) Zeroth Law of Thermodynamics"},
+		0},
+		{"What is the formula for calculating work done by a constant force on an object?",
+		{"a) Work = force × distance ",
+		 "b) Work = force ÷ distance ",
+		 "c) Work = mass × acceleration",
+		 "d) Work = energy × time "},
+		0},
+		{"What is the SI unit of electric current?",
+		{"a) Volt",
+		 "b) Ampere ",
+		 "c) Coulomb ",
+		 "d) Ohm"},
+		1},
+		{"What is the law that states that for every action, there is an equal and opposite reaction?",
+		{"a) Newton's First Law of Motion",
+		 "b) Newton's Second Law of Motion",
+		 "c) Newton's Third Law of Motion ",
+		 "d) Law of Universal Gravitation "},
+		2},
+		{"What is the formula for calculating the frequency of a wave? ",
+		{"a) f = v/λ",
+		 "b) f = λ/v ",
+		 "c) f = v × λ",
+		 "d) f = v - λ"},
+		1},
+		{"What is the principle that states that the total electric charge within a closed system is constant over time?",
+		{"a) Law of Conservation of Charge",
+		 "b) Coulomb's Law",
+		 "c) Ohm's Law",
+		 "d) Kirchhoff's Law"},
+		0},
+		{"Which of the following is a unit of electric potential difference? ",
+		{"a) Ampere ",
+		 "b) Volt ",
+		 "c) Ohm ",
+		 "d) Coulomb "},
+		1},
+		{"What is the formula for calculating the period of a wave?",
+		{"a) T = f × λ ",
+		 "b) T = 1/f ",
+		 "c) T = f/λ ",
+		 "d) T = λ/f "},
+		1},
+		{"What is the SI unit of pressure?",
+		{"a)Pascal  ",
+		 "b)Newton ",
+		 "c)Joule ",
+		 "d)Ohm "},
+		0},
+		{"What is the law that states that the pressure of a given mass of gas is inversely proportional to its volume at constant temperature? ",
+		{"a)Boyle's Law ",
+		 "b)Charles's Law ",
+		 "c)H2O2 ",
+		 "d)H3O+"},
+		1},
+	};
+
+    int count = 1;
+    int currentQuestion = GetRandomValue(0, 9);
+    int selectedOption = -1;
+    bool answered = false;
+    int score = 0;
+    EnableCursor();
+
+    // Main game loop
+    while (!WindowShouldClose()) {
+
+        // Update
+        if (!answered) {
+            // Check if the mouse clicked on any option
+            for (int i = 0; i < MAXOPTIONS; i++) {
+                if (CheckMouseClickOnOption(i, GetMouseY())) {
+                    selectedOption = i; // Update the selected option
+                    break;
+                }
+            }
+            // Check if an option is selected
+            if (selectedOption >= 0) {
+                // If the selected option is correct, increment the score
+                if (selectedOption == questions[currentQuestion].correctOption) {
+
+                    score++;
+                }
+                answered = true; // Mark the question as answered
+                count++;
+            }
+        }
+
+        // Draw
+        BeginDrawing();
+        ClearBackground(RAYWHITE); // Clear the screen
+        DrawTexture(background, 0, 0, WHITE);
+        // Display the current question
+        DrawText(questions[currentQuestion].question.c_str(), 600, 200, 30, BLACK);
+
+        // Display the options for the current question
+        int questionNumer = 0;
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++)
+            {
+                DrawText(questions[currentQuestion].options[questionNumer].c_str(), 200 + (1200 * j), 600 + 200 * i, 30, BLACK);
+                questionNumer++;
+            }
+        }
+        // Display feedback for answered question
+        if (answered) {
+
+            // If the selected option is correct, display "Correct!", otherwise display "Incorrect!"
+            if (selectedOption == questions[currentQuestion].correctOption) {
+                DrawText("Correct!", 100, 400, 20, GREEN);
+            }
+            else {
+                DrawText("Incorrect!", 100, 400, 20, RED);
+            }
+        }
+
+        EndDrawing(); // End drawing frame
+
+        // Reset if answer was given
+        if (answered && IsKeyPressed(KEY_ENTER)) {
+
+            currentQuestion = GetRandomValue(0, 19); // Move to the next question
+            selectedOption = -1; // Reset selected option
+            answered = false; // Reset answered flag
+        }
+		if (count >= 10)
+		{
+			string subject = "physics";
+			DataAccess accessData;
+			int grade = gradeSystem(score);
+			accessData.addGrade(subject, to_string(grade));
+			geography();
+			break;
+		}
+		SetExitKey(KEY_APOSTROPHE);
+	}
+
+}
+
+void physicsExaminationAlert() {
+	Camera camera = { 0 };
+
+	const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
+	const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
+	EnableCursor();
+	int character = GetRandomValue(1, 2);
+	while (!WindowShouldClose())
+	{
+
+		Vector2 mousePosition = GetMousePosition();
+		BeginDrawing();
+		ClearBackground(RAYWHITE);
+		bool isMouseOverButtonRevise = CheckCollisionPointRec(mousePosition, reviseButton);
+		// Set new colors for hovering the button and draw text
+		DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? SKYBLUE : BLUE));
+		DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+		// Handle click with the mouse over button
+		if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+			physicsTextBook(camera, 1);
+		}
+		bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
+		// Set new colors for hovering the button and draw text
+		DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
+		DrawText("Start", GetScreenWidth() / 2 + 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+		// Handle click with the mouse over button
+		if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+		{
+			physicsExam();
+		}
+
+		EndDrawing();
+	}
 
 }

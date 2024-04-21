@@ -15,7 +15,7 @@ void historyExaminationAlert();
 
 void historyExam();
 
-bool CheckMouseClickOnOption(int optionIndex, int mouseY);
+int CheckMouseClickOnOption(int optionIndex, int mouseY);
 
 void historyExaminationAlert();
 
@@ -30,3 +30,16 @@ void biologyExam();
 void geographyExaminationAlert();
 
 void geographyExam();
+
+void programmingExam();
+
+void programmingExaminationAlert();
+
+void chemistryExam();
+
+void chemistryExaminationAlert();
+
+void physicsExam();
+
+void physicsExaminationAlert();
+

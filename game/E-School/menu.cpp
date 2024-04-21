@@ -8,8 +8,8 @@ void menu()
 	const int screenHeight = 975;
 
 	int character = 1;
-	Texture2D studentFront = LoadTexture("sprites/studentFrontMenu.png");
-	Texture2D studentGirl = LoadTexture("sprites/girlSprite.png");
+	Texture2D studentFront = LoadTexture("Textures/studentFrontMenu.png");
+	Texture2D studentGirl = LoadTexture("Textures/girlSprite.png");
 	const Rectangle girlPos = { 80,160,60,80 };
 
 	const Rectangle startButton = { (screenWidth / 2) - 330, (screenHeight / 2) + 50, 200, 50 };
@@ -27,14 +27,14 @@ void menu()
 	};
 	bool animationShown = 0;
 	bool showParticle = 0;
-	Texture2D tubes = LoadTexture("sprites/tubes.png");
+	Texture2D tubes = LoadTexture("Textures/tubes.png");
 	Texture2D logo = LoadTexture("../images/logoResized.png");
-	Texture2D skeleton = LoadTexture("sprites/skeleton.png");
-	Texture2D book = LoadTexture("sprites/book.png");
-	Texture2D molecual = LoadTexture("sprites/molecual.png");
-	Texture2D globus = LoadTexture("sprites/globus.png");
-	Texture2D calculator = LoadTexture("sprites/calculator.png");
-	Texture2D bus = LoadTexture("sprites/bus.png");
+	Texture2D skeleton = LoadTexture("Textures/skeleton.png");
+	Texture2D book = LoadTexture("Textures/book.png");
+	Texture2D molecual = LoadTexture("Textures/molecual.png");
+	Texture2D globus = LoadTexture("Textures/globus.png");
+	Texture2D calculator = LoadTexture("Textures/calculator.png");
+	Texture2D bus = LoadTexture("Textures/bus.png");
 
 	int tubesX = 0;
 	int skeletonX = 0;

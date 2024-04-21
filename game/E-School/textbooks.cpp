@@ -1,4 +1,4 @@
-#include "textbooks.h"
+﻿#include "textbooks.h"
 #include "exams.h"
 
 float distanceCalc(Vector3 a, Vector3 b) {
@@ -9,11 +9,12 @@ float distanceCalc(Vector3 a, Vector3 b) {
 }
 
 
-void prgTextBook(Camera camera,Vector3 cubePosition, bool examination)
+void prgTextBook(Camera camera, bool examination)
 {
+	Vector3 cubePosition = { 19.5f,0.2f,7.0f };
 	unsigned int pageNumber = 1;
 	float distance = distanceCalc(camera.position, cubePosition);
-
+	
 	Rectangle gameButton = { 900,460,100,50 };
 	Rectangle textButton = { 1100,460,100,50 };
 
@@ -173,22 +174,56 @@ void englishTextBook(Camera camera, bool examination)
 			switch (pageNumber)
 			{
 			case 1:
-				DrawText("Biology", 825, 100, 100, BLACK);
-				DrawText("Author: Kaloyan Ivanov", 875, 250, 25, BLACK);
-				DrawText("1", 975, 900, 25, BLACK);
+				DrawText("English", 825, 100, 100, BLACK);
+				DrawText("Author: Stoyan Hristov", 590, 200, 70, BLACK);
+
+				DrawText("1. Present Perfect Tense:", 200, 320, 30, BLACK);
+				DrawText("Used to express actions that occurred at an unspecified time in the past, or actions with relevance to the present. \n Example: I have visited Paris.", 255, 370, 23, BLACK);
+
+				DrawText("2.Present Perfect Continuous Tense:", 200, 450, 30, BLACK);
+				DrawText("Used to indicate actions that started in the past and continue up to the present moment. \n Example: He has been studying for two hours.", 255, 500, 23, BLACK);
+
+				DrawText("3. Past Continuous Tense:", 200, 570, 30, BLACK);
+				DrawText("Used to describe actions that were ongoing in the past at a specific moment. \n Example: She was reading a book when the phone rang.", 255, 620, 23, BLACK);
+
 				break;
 			case 2:
+				DrawText("4. Past Perfect Tense:", 200, 240, 30, BLACK);
+				DrawText("Used to describe an action that occurred before another action in the past. \n Example: She had already left when I arrived.", 255, 290, 23, BLACK);
+
+				DrawText("5. Past Perfect Continuous Tense:", 200, 370, 30, BLACK);
+				DrawText("Used to express the duration of an activity that started in the past and continued up to a certain point in the past. \n Example: They had been waiting for over an hour when the train finally arrived.", 255, 420, 23, BLACK);
+
+				DrawText("6. Future Continuous Tense:", 200, 490, 30, BLACK);
+				DrawText("Used to describe actions that will be ongoing at a specific future time. \n Example: She will be sleeping when you arrive.", 255, 540, 23, BLACK);
+
 				DrawText("2", 975, 900, 25, BLACK);
 				break;
 			case 3:
+				DrawText("7. Future Perfect Tense:", 200, 240, 30, BLACK);
+				DrawText("Used to describe actions that will be completed before a specific point in the future. \n Example: They will have finished the project by next week.", 255, 290, 23, BLACK);
+
+				DrawText("8. Future Perfect Continuous Tense:", 200, 370, 30, BLACK);
+				DrawText("Used to describe the duration of an activity that will be ongoing up to a certain point in the future. \n Example: By December, they will have been living in the city for ten years.", 255, 420, 23, BLACK);
+
+				DrawText("9.Modal Verbs:", 200, 490, 30, BLACK);
+				DrawText("Expresses necessity, possibility, ability, permission, obligation, or advice. \n Example: You should study for the exam.", 255, 540, 23, BLACK);
+
 				DrawText("3", 975, 900, 25, BLACK);
 				break;
 			case 4:
+				DrawText("10. Questions:", 200, 240, 30, BLACK);
+				DrawText("Inverting the subject and auxiliary verb, or using question words such as who, what, where, when, why, how. \n Example: Have you finished your homework ? ", 255, 290, 23, BLACK);
+
+				DrawText("11. Passive Voice:", 200, 370, 30, BLACK);
+				DrawText("Used when the focus is on the action, not the doer. \n Example: The report was written by Sarah.", 255, 420, 23, BLACK);
+
+				DrawText("12. Reported Speech:", 200, 490, 30, BLACK);
+				DrawText("Used to report what someone else said without quoting them directly. \n Example: He said that he was going to the store.", 255, 540, 23, BLACK);
+
 				DrawText("4", 975, 900, 25, BLACK);
 				break;
-			case 5:
-				DrawText("5", 975, 900, 25, BLACK);
-				break;
+			
 			default:
 				pageNumber = 1;
 				break;
@@ -271,20 +306,79 @@ void geographyTextBook(Camera camera, bool examination)
 			switch (pageNumber)
 			{
 			case 1:
-				DrawText("Biology", 825, 100, 100, BLACK);
-				DrawText("Author: Kaloyan Ivanov", 875, 250, 25, BLACK);
-				DrawText("1", 975, 900, 25, BLACK);
+				DrawText("Geography", 825, 100, 100, BLACK);
+				DrawText("Author: Stoyan Hristov", 590, 200, 70, BLACK);
+
+				DrawText("1. Largest Continent by Land Area", 200, 320, 30, BLACK);
+				DrawText("Asia is the largest continent by land area, covering approximately 30% of the Earth's land surface.", 255, 370, 23, BLACK);
+
+				DrawText("2.Longest River in the World", 200, 450, 30, BLACK);
+				DrawText("The Nile River is the longest river in the world, with a length of approximately 6,650 kilometers (4,130 miles).", 255, 500, 23, BLACK);
+
+				DrawText("3. Largest Ocean by Surface Area", 200, 570, 30, BLACK);
+				DrawText("The Pacific Ocean is the largest ocean by surface area, covering approximately 63 million square miles (165 million square kilometers).", 255, 620, 23, BLACK);
+
+				DrawText("4. Capital City of France", 200, 700, 30, BLACK);
+				DrawText("Paris is the capital city of France, known for its iconic landmarks such as the Eiffel Tower and Louvre Museum.", 255, 750, 23, BLACK);
 				break;
 			case 2:
+				DrawText("5. Mountain Range in South America", 200, 240, 30, BLACK);
+				DrawText("The Andes is the longest continental mountain range in the world, stretching along the western coast of South America.", 255, 290, 23, BLACK);
+
+				DrawText("6. Largest Desert in the World", 200, 370, 30, BLACK);
+				DrawText("The Sahara Desert is the largest hot desert in the world, covering much of North Africa and spanning approximately 9.2 million square kilometers (3.6 million square miles).", 255, 420, 23, BLACK);
+
+				DrawText("7. Land of the Rising Sun", 200, 490, 30, BLACK);
+				DrawText("Japan is known as the Land of the Rising Sun, a nickname derived from its name in Japanese, Nihon or Nippon, which means origin of the sun.", 255, 540, 23, BLACK);
+
+				DrawText("8. Tallest Mountain in the World", 200, 620, 30, BLACK);
+				DrawText("Mount Everest is the tallest mountain in the world, with a peak elevation of 8,848.86 meters (29,031.7 feet) above sea level.", 255, 670, 23, BLACK);
+
 				DrawText("2", 975, 900, 25, BLACK);
 				break;
 			case 3:
+				DrawText("9. Home to the Amazon Rainforest", 200, 240, 30, BLACK);
+				DrawText("South America is home to the Amazon Rainforest, the largest tropical rainforest in the world, known for its rich biodiversity.", 255, 290, 23, BLACK);
+
+				DrawText("10. Capital City of Australia", 200, 370, 30, BLACK);
+				DrawText("Canberra is the capital city of Australia, located in the Australian Capital Territory.", 255, 420, 23, BLACK);
+
+				DrawText("11.Land of the Midnight Sun", 200, 490, 30, BLACK);
+				DrawText("Norway is known as the Land of the Midnight Sun, as regions within the Arctic Circle experience continuous daylight during summer months.", 255, 540, 23, BLACK);
+
+				DrawText("12. Longest Mountain Range in the World", 200, 620, 30, BLACK);
+				DrawText("The Mid-Atlantic Ridge is the longest mountain range in the world, extending for approximately 16,000 kilometers (10,000 miles) along the ocean floor.", 255, 670, 23, BLACK);
+
 				DrawText("3", 975, 900, 25, BLACK);
 				break;
 			case 4:
+				DrawText("13. Capital City of Canada", 200, 240, 30, BLACK);
+				DrawText("Ottawa is the capital city of Canada, located in the province of Ontario.", 255, 290, 23, BLACK);
+
+				DrawText("14. Largest Lake by Surface Area in Africa", 200, 370, 30, BLACK);
+				DrawText("Lake Victoria is the largest lake by surface area in Africa, spanning approximately 68,800 square kilometers (26,600 square miles).", 255, 420, 23, BLACK);
+
+				DrawText("15. Largest Country by Land Area", 200, 490, 30, BLACK);
+				DrawText("Russia is the largest country by land area, covering approximately 17.1 million square kilometers (6.6 million square miles).", 255, 540, 23, BLACK);
+
+				DrawText("16. Capital City of Brazil", 200, 620, 30, BLACK);
+				DrawText("Brasília is the capital city of Brazil, located in the Federal District.", 255, 670, 23, BLACK);
+
 				DrawText("4", 975, 900, 25, BLACK);
 				break;
 			case 5:
+				DrawText("17. Pearl of the Indian Ocean", 200, 240, 30, BLACK);
+				DrawText("Sri Lanka is known as the Pearl of the Indian Ocean for its natural beauty and cultural heritage.", 255, 290, 23, BLACK);
+
+				DrawText("18. Largest Island in the Mediterranean Sea", 200, 370, 30, BLACK);
+				DrawText("Cyprus is the largest island in the Mediterranean Sea, located in the eastern part of the basin.", 255, 420, 23, BLACK);
+
+				DrawText("19. Country on the Iberian Peninsula", 200, 490, 30, BLACK);
+				DrawText("Spain is located on the Iberian Peninsula, along with Portugal and a small portion of Andorra.", 255, 540, 23, BLACK);
+
+				DrawText("20.Capital City of China", 200, 620, 30, BLACK);
+				DrawText("Beijing is the capital city of China, known for its historical landmarks such as the Forbidden City and the Great Wall of China.", 255, 670, 23, BLACK);
+
 				DrawText("5", 975, 900, 25, BLACK);
 				break;
 			default:
@@ -791,6 +885,321 @@ void bioTextBook(Camera camera, bool examination)
 			{
 				DisableCursor();
 				literatureExaminationAlert();
+				break;
+			}
+			if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), previous))
+			{
+				pageNumber--;
+			}
+			if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), next))
+			{
+				pageNumber++;
+			}
+			EndDrawing();
+		}
+	}
+}
+
+
+void chemistryTextBook(Camera camera, bool examination)
+{
+	unsigned int pageNumber = 1;
+	Vector3 cubePosition = { 0.0f, 1.5f, -7.5f };
+	float distance = distanceCalc(camera.position, cubePosition);
+
+	float elapsedTime = 0.0f;
+	float updateInterval = 1.0f;
+
+	int minutes = 1;
+	int seconds = 0;
+
+	Rectangle next = { 1800,900,100,50 };
+	Rectangle previous = { 50,900,100,50 };
+
+	bool timerIsZero = 0;
+
+	if (distance < 3.5f && IsKeyPressed(KEY_F))
+	{
+		EnableCursor();
+		EndMode3D();
+		while (!WindowShouldClose())
+		{
+			BeginDrawing();
+			ClearBackground(WHITE);
+
+			DrawRectangleRec(previous, BLUE);
+			DrawRectangleRec(next, BLUE);
+
+			DrawText("previous", 50, 915, 20, BLACK);
+			DrawText("next", 1800, 915, 20, BLACK);
+			switch (pageNumber)
+			{
+			case 1:
+				DrawText("Chemistry", 825, 100, 100, BLACK);
+				DrawText("Author: Stoyan Hristov", 590, 200, 70, BLACK);
+
+				DrawText("1. Chemical Symbol for Water", 200, 320, 30, BLACK);
+				DrawText("The chemical symbol for water is H2O, representing two hydrogen atoms bonded to one oxygen atom.", 255, 370, 23, BLACK);
+
+				DrawText("2.Essential Element for Organic Life", 200, 450, 30, BLACK);
+				DrawText("Carbon is essential for organic life and is the main component of organic molecules, forming the backbone of many biological compounds.", 255, 500, 23, BLACK);
+
+				DrawText("3. Smallest Unit of an Element", 200, 570, 30, BLACK);
+				DrawText("An atom is the smallest unit of an element that retains its chemical properties. Atoms consist of a nucleus containing protons and neutrons, surrounded by electrons.", 255, 620, 23, BLACK);
+
+				DrawText("4. Chemical Symbol for Iron", 200, 700, 30, BLACK);
+				DrawText("The chemical symbol for iron is Fe, derived from its Latin name Ferrum.", 255, 750, 23, BLACK);
+				break;
+			case 2:
+				DrawText("5. Process of Sublimation", 200, 240, 30, BLACK);
+				DrawText("Sublimation is the process by which a solid changes directly into a gas without passing through the liquid state. Examples include dry ice (solid carbon dioxide) subliming into carbon dioxide gas.", 255, 290, 23, BLACK);
+
+				DrawText("6. Chemical Formula for Carbon Dioxide", 200, 370, 30, BLACK);
+				DrawText("The chemical formula for carbon dioxide is CO2, representing one carbon atom bonded to two oxygen atoms.", 255, 420, 23, BLACK);
+
+				DrawText("7. Noble Gases", 200, 490, 30, BLACK);
+				DrawText("Noble gases are a group of elements that are generally inert and have full valence electron shells. These include helium (He), neon (Ne), argon (Ar), krypton (Kr), xenon (Xe), and radon (Rn).", 255, 540, 23, BLACK);
+
+				DrawText("8. pH Value of Pure Water", 200, 620, 30, BLACK);
+				DrawText("Pure water has a pH value of 7 at room temperature, indicating neutrality. It is neither acidic nor basic.", 255, 670, 23, BLACK);
+
+				DrawText("2", 975, 900, 25, BLACK);
+				break;
+			case 3:
+				DrawText("9. Particle with Positive Charge", 200, 240, 30, BLACK);
+				DrawText("The proton is a subatomic particle with a positive charge. It is found in the nucleus of an atom and contributes to its atomic number.", 255, 290, 23, BLACK);
+
+				DrawText("10. Process of Evaporation", 200, 370, 30, BLACK);
+				DrawText("Evaporation is the process by which a liquid changes into a gas at temperatures below its boiling point. It occurs at the surface of the liquid.", 255, 420, 23, BLACK);
+
+				DrawText("11.Chemical Symbol for Gold", 200, 490, 30, BLACK);
+				DrawText("The chemical symbol for gold is Au, derived from its Latin name Aurum.", 255, 540, 23, BLACK);
+
+				DrawText("12. Chemical Formula for Table Salt", 200, 620, 30, BLACK);
+				DrawText("The chemical formula for table salt (sodium chloride) is NaCl, representing one sodium ion bonded to one chloride ion.", 255, 670, 23, BLACK);
+
+				DrawText("3", 975, 900, 25, BLACK);
+				break;
+			case 4:
+				DrawText("13. Greenhouse Gas", 200, 240, 30, BLACK);
+				DrawText("Carbon dioxide (CO2) is a greenhouse gas, contributing to the greenhouse effect and global warming when present in the atmosphere in high concentrations.", 255, 290, 23, BLACK);
+
+				DrawText("14. Atomic Number of Oxygen", 200, 370, 30, BLACK);
+				DrawText("The atomic number of oxygen is 8, indicating the number of protons in its nucleus.", 255, 420, 23, BLACK);
+
+				DrawText("15. Chemical Formula for Methane", 200, 490, 30, BLACK);
+				DrawText("The chemical formula for methane is CH4, representing one carbon atom bonded to four hydrogen atoms.", 255, 540, 23, BLACK);
+
+				DrawText("16. Halogen", 200, 620, 30, BLACK);
+				DrawText("Chlorine (Cl) is a halogen element, belonging to Group 17 (Group VIIA) of the periodic table.", 255, 670, 23, BLACK);
+
+				DrawText("4", 975, 900, 25, BLACK);
+				break;
+			case 5:
+				DrawText("17. Chemical Formula for Sulfuric Acid", 200, 240, 30, BLACK);
+				DrawText("The chemical formula for sulfuric acid is H2SO4, representing two hydrogen atoms, one sulfur atom, and four oxygen atoms.", 255, 290, 23, BLACK);
+
+				DrawText("18. Chemical Symbol for Lead", 200, 370, 30, BLACK);
+				DrawText("The chemical symbol for lead is Pb, derived from its Latin name Plumbum.", 255, 420, 23, BLACK);
+
+				DrawText("19. Particle with Neutral Charge", 200, 490, 30, BLACK);
+				DrawText("The neutron is a subatomic particle with a neutral charge. It is found in the nucleus of an atom alongside protons.", 255, 540, 23, BLACK);
+
+				DrawText("20.Chemical Formula for Hydrogen Peroxide", 200, 620, 30, BLACK);
+				DrawText("The chemical formula for hydrogen peroxide is H2O2, representing two hydrogen atoms bonded to two oxygen atoms.", 255, 670, 23, BLACK);
+
+				DrawText("5", 975, 900, 25, BLACK);
+				break;
+			default:
+				pageNumber = 1;
+				break;
+			}
+
+			elapsedTime += GetFrameTime();
+
+			if (elapsedTime >= updateInterval) {
+				// Decrement the timer
+				if (seconds == 0) {
+					if (minutes == 0)
+					{
+						timerIsZero = 1;
+					}
+					minutes--;
+					seconds = 59;
+
+				}
+				else {
+					seconds--;
+				}
+
+				elapsedTime = 0.0f; // Reset elapsed time
+			}
+
+			EndMode3D();
+			// Draw timer
+			DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+
+			if (timerIsZero == 1)
+			{
+				DisableCursor();
+				chemistryExaminationAlert();
+				break;
+			}
+			if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), previous))
+			{
+				pageNumber--;
+			}
+			if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), next))
+			{
+				pageNumber++;
+			}
+			EndDrawing();
+		}
+	}
+}
+
+void physicsTextBook(Camera camera, bool examination)
+{
+	unsigned int pageNumber = 1;
+	Vector3 cubePosition = { 0.0f, 1.5f, -7.5f };
+	float distance = distanceCalc(camera.position, cubePosition);
+
+	float elapsedTime = 0.0f;
+	float updateInterval = 1.0f;
+
+	int minutes = 1;
+	int seconds = 0;
+
+	Rectangle next = { 1800,900,100,50 };
+	Rectangle previous = { 50,900,100,50 };
+
+	bool timerIsZero = 0;
+
+	if (distance < 3.5f && IsKeyPressed(KEY_F))
+	{
+		EnableCursor();
+		EndMode3D();
+		while (!WindowShouldClose())
+		{
+			BeginDrawing();
+			ClearBackground(WHITE);
+
+			DrawRectangleRec(previous, BLUE);
+			DrawRectangleRec(next, BLUE);
+
+			DrawText("previous", 50, 915, 20, BLACK);
+			DrawText("next", 1800, 915, 20, BLACK);
+			switch (pageNumber)
+			{
+			case 1:
+				DrawText("Physics", 825, 100, 100, BLACK);
+				DrawText("Author: Stoyan Hristov", 590, 200, 70, BLACK);
+
+				DrawText("1. SI Unit of Force", 200, 320, 30, BLACK);
+				DrawText("The SI unit of force is the Newton (N). One Newton is defined as the force required to accelerate a mass of one kilogram by one meter per second squared.", 255, 370, 23, BLACK);
+
+				DrawText("2.Acceleration Due to Gravity on Earth", 200, 450, 30, BLACK);
+				DrawText("The acceleration due to gravity on Earth's surface is approximately 9.8 meters per second squared (m/s^2).", 255, 500, 23, BLACK);
+
+				DrawText("3. Newton's First Law of Motion", 200, 570, 30, BLACK);
+				DrawText("Newton's First Law of Motion states that an object at rest will remain at rest, and an object in motion will remain in motion with constant velocity unless acted upon by an external force.", 255, 620, 23, BLACK);
+
+				DrawText("4. Formula for Kinetic Energy", 200, 700, 30, BLACK);
+				DrawText("The formula for calculating kinetic energy (KE) is KE = 1/2mv^2, where m is the mass of the object and v is its velocity.", 255, 750, 23, BLACK);
+				break;
+			case 2:
+				DrawText("5. Unit of Power", 200, 240, 30, BLACK);
+				DrawText("The unit of power is the Watt (W), which is equivalent to one joule per second.", 255, 290, 23, BLACK);
+
+				DrawText("6. Newton's Second Law of Motion", 200, 370, 30, BLACK);
+				DrawText("Newton's Second Law of Motion states that the force acting on an object is equal to the mass of the object multiplied by its acceleration: F = ma.", 255, 420, 23, BLACK);
+
+				DrawText("7. Law of Conservation of Energy", 200, 490, 30, BLACK);
+				DrawText("The Law of Conservation of Energy states that the total energy of an isolated system remains constant over time, implying that energy can neither be created nor destroyed, only transformed from one form to another.", 255, 540, 23, BLACK);
+
+				DrawText("8. Formula for Gravitational Potential Energy", 200, 620, 30, BLACK);
+				DrawText("The formula for calculating gravitational potential energy (PE) near the Earth's surface is PE = mgh, where m is the mass, g is the acceleration due to gravity, and h is the height above the reference point.", 255, 670, 23, BLACK);
+
+				DrawText("2", 975, 900, 25, BLACK);
+				break;
+			case 3:
+				DrawText("9. Unit of Electric Charge", 200, 240, 30, BLACK);
+				DrawText("The unit of electric charge is the Coulomb (C). One Coulomb is equivalent to the charge transported by a constant current of one ampere in one second.", 255, 290, 23, BLACK);
+
+				DrawText("10. Speed of Light in Vacuum", 200, 370, 30, BLACK);
+				DrawText("The speed of light in a vacuum is approximately 3 × 10^8 meters per second (m/s).", 255, 420, 23, BLACK);
+
+				DrawText("11.First Law of Thermodynamics", 200, 490, 30, BLACK);
+				DrawText("The First Law of Thermodynamics, also known as the Law of Conservation of Energy, states that the total energy of an isolated system remains constant over time.", 255, 540, 23, BLACK);
+
+				DrawText("12. Formula for Work Done", 200, 620, 30, BLACK);
+				DrawText("The formula for calculating work done (W) by a constant force on an object is W = Fd, where F is the magnitude of the force and d is the displacement of the object in the direction of the force.", 255, 670, 23, BLACK);
+
+				DrawText("3", 975, 900, 25, BLACK);
+				break;
+			case 4:
+				DrawText("13. Unit of Electric Current", 200, 240, 30, BLACK);
+				DrawText("The SI unit of electric current is the Ampere (A). One Ampere is defined as the flow of one Coulomb of charge per second.", 255, 290, 23, BLACK);
+
+				DrawText("14. Newton's Third Law of Motion", 200, 370, 30, BLACK);
+				DrawText("Newton's Third Law of Motion states that for every action, there is an equal and opposite reaction.", 255, 420, 23, BLACK);
+
+				DrawText("15. Formula for Frequency of a Wave", 200, 490, 30, BLACK);
+				DrawText("The formula for calculating the frequency (f) of a wave is f = 1/λ, where λ (lambda) is the wavelength of the wave.", 255, 540, 23, BLACK);
+
+				DrawText("16. Law of Conservation of Charge", 200, 620, 30, BLACK);
+				DrawText("The Law of Conservation of Charge states that the total electric charge within a closed system remains constant over time.", 255, 670, 23, BLACK);
+
+				DrawText("4", 975, 900, 25, BLACK);
+				break;
+			case 5:
+				DrawText("17. Unit of Electric Potential Difference", 200, 240, 30, BLACK);
+				DrawText("The unit of electric potential difference is the Volt (V). One Volt is equivalent to one joule per Coulomb.", 255, 290, 23, BLACK);
+
+				DrawText("18. Formula for Period of a Wave", 200, 370, 30, BLACK);
+				DrawText("The period (T) of a wave is the time taken for one complete cycle of the wave. The formula for calculating the period is T = 1/f, where f is the frequency of the wave.", 255, 420, 23, BLACK);
+
+				DrawText("19. SI Unit of Pressure", 200, 490, 30, BLACK);
+				DrawText("The SI unit of pressure is the Pascal (Pa). One Pascal is equal to one Newton per square meter.", 255, 540, 23, BLACK);
+
+				DrawText("20. Boyle's Law", 200, 620, 30, BLACK);
+				DrawText("Boyle's Law states that the pressure of a given mass of gas is inversely proportional to its volume at constant temperature.", 255, 670, 23, BLACK);
+
+				DrawText("5", 975, 900, 25, BLACK);
+				break;
+			default:
+				pageNumber = 1;
+				break;
+			}
+
+			elapsedTime += GetFrameTime();
+
+			if (elapsedTime >= updateInterval) {
+				// Decrement the timer
+				if (seconds == 0) {
+					if (minutes == 0)
+					{
+						timerIsZero = 1;
+					}
+					minutes--;
+					seconds = 59;
+
+				}
+				else {
+					seconds--;
+				}
+
+				elapsedTime = 0.0f; // Reset elapsed time
+			}
+
+			EndMode3D();
+			// Draw timer
+			DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+
+			if (timerIsZero == 1)
+			{
+				DisableCursor();
+				physicsExaminationAlert();
 				break;
 			}
 			if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), previous))

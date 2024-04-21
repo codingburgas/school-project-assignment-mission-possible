@@ -22,11 +22,11 @@ void initMap(int character)
 	};
 
 	Texture2D map = LoadTexture("map.png");
-	Texture2D studentBack = LoadTexture("sprites/studentBack.png");
-	Texture2D studentLeft = LoadTexture("sprites/studentLeft.png");
-	Texture2D studentRight = LoadTexture("sprites/studentRight.png");
-	Texture2D studentFront = LoadTexture("sprites/studentFront.png");
-	Texture2D studentGirl = LoadTexture("sprites/girlSprite.png");
+	Texture2D studentBack = LoadTexture("Textures/studentBack.png");
+	Texture2D studentLeft = LoadTexture("Textures/studentLeft.png");
+	Texture2D studentRight = LoadTexture("Textures/studentRight.png");
+	Texture2D studentFront = LoadTexture("Textures/studentFront.png");
+	Texture2D studentGirl = LoadTexture("Textures/girlSprite.png");
 
 	Rectangle student = { studentX, studentY, 16, 50 };
 	Rectangle spriteGirl[14] =

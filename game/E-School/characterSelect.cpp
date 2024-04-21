@@ -2,11 +2,17 @@
 #include "map.h"
 void select()
 {
-	Texture2D girl = LoadTexture("sprites/girlMainMenu.png");
-	Texture2D boy = LoadTexture("sprites/studentFrontMenu.png");
+	Texture2D girl = LoadTexture("Textures/girlMainMenu.png");
+	Texture2D boy = LoadTexture("Textures/boyMainMenu.png");
 	int character = 1;
 
 	Rectangle girlPos[3] = {
+		{0,0,200,250},
+		{250,0,200,250},
+		{0,250,200,250}
+	};
+
+	Rectangle boyPos[3] = {
 		{0,0,200,250},
 		{250,0,200,250},
 		{0,250,200,250}
@@ -23,9 +29,9 @@ void select()
 		BeginDrawing();
 		ClearBackground(WHITE);
 		DrawText("Pick your character", 780, 300, 50, BLACK);
-		DrawTextureEx(boy, { 700, 400 },1.0f,5.0f,WHITE );
 		DrawTextureRec(girl, girlPos[int(i)], { 1000, 425 }, WHITE);
-		i+=0.1;
+		DrawTextureRec(boy, boyPos[int(i)], { 700, 425 }, WHITE);
+		i+=0.05;
 		if (i >= 3)
 		{
 			i = 0;
