@@ -275,9 +275,9 @@ void maths()
 
         DrawPlane({ 0.0f, 0.0f, 0.0f }, { 21.0f, 21.0f }, LIGHTGRAY);
         DrawCube({ -10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, BLUE);
-        DrawCube({ 10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, LIME);
-        DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
-        DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
+        DrawCube({ 10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, BLUE);
+        DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, RED);
+        DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, RED);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
 
         drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
@@ -393,10 +393,10 @@ void history()
         cameraBox.max = camera.position;
 
         DrawPlane({ 0.0f, 0.0f, 0.0f }, { 21.0f, 21.0f }, LIGHTGRAY);
-        DrawCube({ -10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, BLUE);
-        DrawCube({ 10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, LIME);
-        DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
-        DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
+        DrawCube({ -10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, BROWN);
+        DrawCube({ 10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, BROWN);
+        DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, YELLOW);
+        DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, YELLOW);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
 
         drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
@@ -516,8 +516,8 @@ void physics()
         cameraBox.max = camera.position;
 
         DrawPlane({ 0.0f, 0.0f, 0.0f }, { 19.0f, 19.0f }, LIGHTGRAY);
-        DrawCube({ -10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, BLUE);
-        DrawCube({ 10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, LIME);
+        DrawCube({ -10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, DARKPURPLE);
+        DrawCube({ 10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, DARKPURPLE);
         DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
@@ -634,9 +634,9 @@ void literature()
 
         DrawPlane({ 0.0f, 0.0f, 0.0f }, { 21.0f, 21.0f }, LIGHTGRAY);
         DrawCube({ -10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, BLUE);
-        DrawCube({ 10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, LIME);
-        DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
-        DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
+        DrawCube({ 10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, BLUE);
+        DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GRAY);
+        DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GRAY);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
 
         drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
@@ -751,8 +751,8 @@ void chemistry()
         cameraBox.max = camera.position;
 
         DrawPlane({ 0.0f, 0.0f, 0.0f }, { 21.0f, 21.0f }, LIGHTGRAY);
-        DrawCube({ -10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, BLUE);
-        DrawCube({ 10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, LIME);
+        DrawCube({ -10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, DARKBLUE);
+        DrawCube({ 10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f,DARKBLUE);
         DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
@@ -844,10 +844,10 @@ void english()
         cameraBox.max = camera.position;
 
         DrawPlane({ 0.0f, 0.0f, 0.0f }, { 21.0f, 21.0f }, LIGHTGRAY);
-        DrawCube({ -10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, BLUE);
+        DrawCube({ -10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, LIME);
         DrawCube({ 10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, LIME);
-        DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
-        DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
+        DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, PURPLE);
+        DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, PURPLE);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
 
         drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
@@ -958,8 +958,8 @@ void biology()
 
 
         DrawPlane({ 0.0f, 0.0f, 0.0f }, { 19.0f, 19.0f }, LIGHTGRAY);
-        DrawCube({ -10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, BROWN);
-        DrawCube({ 10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, BROWN);
+        DrawCube({ -10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, PINK);
+        DrawCube({ 10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, PINK);
         DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, BROWN);
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, BROWN);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
@@ -1076,10 +1076,10 @@ void geography()
         cameraBox.max = camera.position;
 
         DrawPlane({ 0.0f, 0.0f, 0.0f }, { 21.0f, 21.0f }, LIGHTGRAY);
-        DrawCube({ -10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, BLUE);
-        DrawCube({ 10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, LIME);
-        DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
-        DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
+        DrawCube({ -10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, DARKGREEN);
+        DrawCube({ 10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, DARKGREEN);
+        DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GREEN);
+        DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GREEN);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
 
         drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
@@ -1182,8 +1182,8 @@ void programming()
         cameraBox.max = camera.position;
 
         DrawPlane({ 7.5f, 0.0f, 0.0f }, { 28.5f, 20.0f }, LIGHTGRAY);
-        DrawCube({ -7.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, BLUE);
-        DrawCube({ 22.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, LIME);
+        DrawCube({ -7.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, ORANGE);
+        DrawCube({ 22.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, ORANGE);
         DrawCube({ 7.5f, 2.5f, 10.0f }, 28.5f, 8.3f, 1.0f, GOLD);
         DrawCube({ 7.5f, 2.5f, -10.0f }, 28.5f, 8.3f, 1.0f, GOLD);
         DrawCube({ 7.5f, 6.7f, 0.0f }, 28.5f, 0.2f, 21.0f, LIGHTGRAY);
@@ -1264,13 +1264,13 @@ void physyicaEducation()
 
         BeginMode3D(camera);
 
-        DrawSphere(ballPosition, 0.5f, BLUE);
+        DrawSphere(ballPosition, 0.5f, ORANGE);
 
         cameraBox.min = camera.position;
         cameraBox.max = camera.position;
         DrawPlane({ 7.5f, 0.0f, 0.0f }, { 60.5f, 30.0f }, LIGHTGRAY);
-        DrawCube({ 38.0f, 2.5f, 0.0f }, 1.0f, 25.0f, 48.0f, BLUE);
-        DrawCube({ -22.0f, 2.5f,0.0f }, 1.0f, 25.0f, 48.5f, BLUE);
+        DrawCube({ 38.0f, 2.5f, 0.0f }, 1.0f, 25.0f, 48.0f, RED);
+        DrawCube({ -22.0f, 2.5f,0.0f }, 1.0f, 25.0f, 48.5f, RED);
         DrawCube({ 7.5f, 2.5f, 15.0f }, 60.5f, 25.0f, 1.0f, BLUE);
         DrawCube({ 7.5f, 2.5f, -15.0f }, 60.5f, 25.0f, 1.0f, BLUE);
         DrawCube({ 7.5f, 15.0f, 0.0f }, 62.5f, 0.2f, 30.0f, LIGHTGRAY);
