@@ -214,7 +214,7 @@ void initMap(int character)
 			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
 			if (IsKeyDown(KEY_ENTER))
 			{
-				physyicaEducation();
+				programming();
 				studentX = 435;
 				studentY = 700;
 				student.x = studentX;
@@ -353,9 +353,15 @@ void initMap(int character)
 
 			cout << "Collision with subject 0: " << (CheckCollisionRecs(student, subjects[0]) ? "Yes" : "No") << endl;
 		}
-
+		
 	}
 	SetExitKey(KEY_APOSTROPHE);
-	
+	UnloadTexture(map);
+	UnloadTexture(studentBack);
+	UnloadTexture(studentLeft);
+	UnloadTexture(studentRight);
+	UnloadTexture(studentFront);
+	UnloadTexture(studentGirl);
+
 
 }

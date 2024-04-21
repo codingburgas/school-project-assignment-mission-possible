@@ -2,10 +2,10 @@
 #include "exams.h"
 
 float distanceCalc(Vector3 a, Vector3 b) {
-    float distanceX = b.x - a.x;
-    float distanceY = b.y - a.y;
-    float distanceZ = b.z - a.z;
-    return sqrt(distanceX * distanceX + distanceY * distanceY + distanceZ * distanceZ);
+	float distanceX = b.x - a.x;
+	float distanceY = b.y - a.y;
+	float distanceZ = b.z - a.z;
+	return sqrt(distanceX * distanceX + distanceY * distanceY + distanceZ * distanceZ);
 }
 
 
@@ -14,9 +14,10 @@ void prgTextBook(Camera camera, bool examination)
 	Vector3 cubePosition = { 19.5f,0.2f,7.0f };
 	unsigned int pageNumber = 1;
 	float distance = distanceCalc(camera.position, cubePosition);
-	
-	Rectangle gameButton = { 900,460,100,50 };
-	Rectangle textButton = { 1100,460,100,50 };
+	Texture2D bookPic = LoadTexture("textures/book.png");
+	Texture2D gamePic = LoadTexture("textures/game.png");
+	Rectangle gameButton = { 600,260,300,300 };
+	Rectangle textButton = { 1000,260,300,300 };
 
 	float elapsedTime = 0.0f;
 	float updateInterval = 1.0f;
@@ -46,10 +47,11 @@ void prgTextBook(Camera camera, bool examination)
 			}
 			if (menu == 1)
 			{
-              DrawRectangleRec(gameButton, RED);
-			  DrawRectangleRec(textButton, BLUE);
+
+				DrawTexture(bookPic, 1000, 260, WHITE);
+				DrawTexture(gamePic, 600, 300, WHITE);
 			}
-			
+
 			if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), gameButton))
 			{
 				menu = 0;
@@ -62,7 +64,7 @@ void prgTextBook(Camera camera, bool examination)
 			}
 			if (game == 1)
 			{
-				pong();
+				selectGame();
 			}
 			if (book == 1)
 			{
@@ -127,8 +129,8 @@ void prgTextBook(Camera camera, bool examination)
 				{
 					pageNumber++;
 				}
-				
-			
+
+
 			}
 			EndDrawing();
 			bool menu = 1;
@@ -223,7 +225,7 @@ void englishTextBook(Camera camera, bool examination)
 
 				DrawText("4", 975, 900, 25, BLACK);
 				break;
-			
+
 			default:
 				pageNumber = 1;
 				break;
@@ -760,7 +762,7 @@ void bioTextBook(Camera camera, bool examination)
 
 	bool timerIsZero = 0;
 
-	if ((distance < 3.5f && IsKeyPressed(KEY_F)) || examination==1)
+	if ((distance < 3.5f && IsKeyPressed(KEY_F)) || examination == 1)
 	{
 		EnableCursor();
 		EndMode3D();

@@ -311,7 +311,8 @@ void maths()
         }
         if (IsKeyPressed(KEY_M))
             initMap(1);
-
+        DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+        
         EndDrawing();
 
     }
@@ -436,7 +437,8 @@ void history()
         }
 
         EndMode3D();
-        
+        DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+
         EndDrawing(); 
         if (IsKeyPressed(KEY_M))
             initMap(1);
@@ -546,6 +548,8 @@ void physics()
 
             elapsedTime = 0.0f; // Reset elapsed time
         }
+        DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+        physicsTextBook(camera, 0);
         EndDrawing();
 
     }
@@ -679,6 +683,8 @@ void literature()
         EndMode3D();
         if (IsKeyPressed(KEY_M))
             initMap(1);
+
+        literatureTextBook(camera, 0);
         EndDrawing();
 
     }
@@ -730,6 +736,14 @@ void chemistry()
     cameraBox.max.y += 0.5f;
     cameraBox.max.z += 0.5f;
 
+    float elapsedTime = 0.0f;
+    float updateInterval = 1.0f;
+
+    int minutes = 1;
+    int seconds = 0;
+
+    bool timerIsZero = false;
+
     // Generates some random columns
     DisableCursor();                    // Limit cursor to relative movement inside the window
 
@@ -760,10 +774,34 @@ void chemistry()
         drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
         drawTubes(tubes);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
+        if (elapsedTime >= updateInterval) {
+            // Decrement the timer
+            if (seconds == 0) {
+                if (minutes == 0)
+                {
+                    timerIsZero = true;
+                }
+                minutes--;
+                seconds = 5;
 
+            }
+            else {
+                seconds--;
+            }
+
+            elapsedTime = 0.0f; // Reset elapsed time
+        }
+        if (timerIsZero)
+        {
+            EnableCursor();
+            chemistryExaminationAlert();
+        }
         EndMode3D();
         if (IsKeyPressed(KEY_M))
             initMap(1);
+
+        DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+        chemistryTextBook(camera, 0);
         EndDrawing();
 
     }
@@ -881,6 +919,9 @@ void english()
         }
         if (IsKeyPressed(KEY_M))
             initMap(1);
+
+        DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+
         EndDrawing();
 
     }
@@ -1107,17 +1148,20 @@ void geography()
 
 			elapsedTime = 0.0f; // Reset elapsed time
 		}
-		EndMode3D();
-		drawCoordinates(camera);
-		DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
-		if (timerIsZero)
+        if (timerIsZero)
 		{
 			EnableCursor();
 			geographyExaminationAlert();
 		}
+		EndMode3D();
+		drawCoordinates(camera);
+		DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+		
         if (IsKeyPressed(KEY_M))
             initMap(1);
         EndMode3D();
+
+        geographyTextBook(camera, 0);
         EndDrawing();
     }
     EnableCursor();
@@ -1164,6 +1208,14 @@ void programming()
     // Generates some random columns
     DisableCursor();                    // Limit cursor to relative movement inside the window
 
+    float elapsedTime = 0.0f;
+    float updateInterval = 1.0f;
+
+    int minutes = 1;
+    int seconds = 0;
+
+    bool timerIsZero = false;
+
     SetTargetFPS(60);                   // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
 
@@ -1194,7 +1246,33 @@ void programming()
         
         prgTextBook(camera, 0);
         EndMode3D();
+        elapsedTime += GetFrameTime();
+
+        if (elapsedTime >= updateInterval) {
+            // Decrement the timer
+            if (seconds == 0) {
+                if (minutes == 0)
+                {
+                    timerIsZero = true;
+                }
+                minutes--;
+                seconds = 5;
+
+            }
+            else {
+                seconds--;
+            }
+
+            elapsedTime = 0.0f; // Reset elapsed time
+        }
+        if (timerIsZero)
+        {
+            EnableCursor();
+            programmingExaminationAlert();
+        }
         drawCoordinates(camera);
+        DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+
         EndDrawing();
     }
     EnableCursor();
