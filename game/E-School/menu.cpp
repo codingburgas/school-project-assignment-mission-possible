@@ -4,6 +4,7 @@
 #include "characterSelect.h"
 void menu()
 {
+	SetMouseCursor(MOUSE_CURSOR_DEFAULT);
 	const int screenWidth = 1920;
 	const int screenHeight = 975;
 

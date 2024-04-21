@@ -52,23 +52,15 @@ void howToPlay() {
         BeginDrawing();
         ClearBackground({ 0, 1, 41, 255 });
         DrawText("press ESC to go back", 75, 915, 20, RAYWHITE);
-        DrawRectangleLines(820, 60, 850, 850, { 0, 91, 241, 255 });
+        DrawRectangleLines(GetScreenWidth() / 4 - 100, GetScreenHeight() / 4 - 100, GetScreenWidth() / 2 + 250, GetScreenHeight() / 2 + 150, { 0, 91, 241, 255 });
 
         // Draw text for story
-        DrawText("Hi, welcome to our game! In", 880, 80, 50, WHITE);
-        DrawText("it you're a student who has", 880, 140, 50, WHITE);
-        DrawText("a normal school day.When you", 900, 200, 50, WHITE);
-        DrawText("start, you are in the school", 900, 260, 50, WHITE);
-        DrawText("hall where you can choose which ", 900, 320, 50, WHITE);
-        DrawText("subject you want to study. Then", 880, 380, 50, WHITE);
-        DrawText("you read student books and finally ", 880, 440, 50, WHITE);
-        DrawText("you are being examined.Good luck!", 880, 500, 50, WHITE);
-        /*DrawText("ones and complete my expedition. ", 835, 560, 50, WHITE);
-        DrawText("However, I have a certain ", 880, 620, 50, WHITE);
-        DrawText("amount of time before I run ", 880, 680, 50, WHITE);
-        DrawText("out of oxygen, my clock is ", 880, 740, 50, WHITE);
-        DrawText("already tickingso be as fast ", 880, 800, 50, WHITE);
-        DrawText("as you can! ", 1080, 860, 50, WHITE);*/
+        DrawText("Hi, welcome to our game! In it you're a student", GetScreenWidth() / 4 + 40, GetScreenHeight() / 4 + 50, 40, WHITE);
+        DrawText("who has a normal school day. When you start,", GetScreenWidth() / 4 + 40, GetScreenHeight() / 4 + 100, 40, WHITE);
+        DrawText("you're in the school hall where you can choose", GetScreenWidth() / 4 + 40, GetScreenHeight() / 4 + 150, 40, WHITE);
+        DrawText("the subject you want to study. Then you read", GetScreenWidth() / 4 + 40, GetScreenHeight() / 4 + 200, 40, WHITE);
+        DrawText("the student books and finally get tested via", GetScreenWidth() / 4 + 40, GetScreenHeight() / 4 + 250, 40, WHITE);
+        DrawText("exams. We wish you the best of luck!", GetScreenWidth() / 4 + 125, GetScreenHeight() / 4 + 300, 40, WHITE);
 
         // Stop drawing
         EndDrawing();
