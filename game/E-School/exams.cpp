@@ -15,6 +15,8 @@ struct Question {
     int correctOption;
 };
 
+
+
 int CheckMouseClickOnOption(int optionIndex, int mouseY) {
     Rectangle answers[4] = {
         { 135, 535, 455, 125},
@@ -267,9 +269,9 @@ void mathsExam()
 void mathsExaminationAlert()
 {
     Camera camera = { 0 };
-
-    const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
-    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
+    Texture2D background = LoadTexture("../images/examAlertBackground.png");
+    const Rectangle reviseButton = { GetScreenWidth() / 2 - 150, GetScreenHeight() / 2 - 30, 140, 80 };
+    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 50, GetScreenHeight() / 2 - 30, 140, 80 };
     EnableCursor();
 
     int character = GetRandomValue(1, 2);
@@ -277,19 +279,19 @@ void mathsExaminationAlert()
     {
         Vector2 mousePosition = GetMousePosition();
         BeginDrawing();
-        ClearBackground(RAYWHITE);
+        DrawTexture(background, 0, 0, WHITE);
         bool isMouseOverButtonRevise = CheckCollisionPointRec(mousePosition, reviseButton);
         // Set new colors for hovering the button and draw text
-        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? SKYBLUE : BLUE));
-        DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("Revise", GetScreenWidth() / 2 - 143, GetScreenHeight() / 2 - 10, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             bioTextBook(camera, 1);
         }
         bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
         // Set new colors for hovering the button and draw text
-        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
-        DrawText("Start", GetScreenWidth() / 2 + 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("Start", GetScreenWidth() / 2 + 65, GetScreenHeight() / 2 - 10, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             mathsExam();
@@ -519,9 +521,9 @@ void englishExam()
 
 void englishExaminationAlert() {
     Camera camera = { 0 };
-
-    const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
-    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
+    Texture2D background = LoadTexture("../images/examAlertBackground.png");
+    const Rectangle reviseButton = { GetScreenWidth() / 2 - 150, GetScreenHeight() / 2 - 30, 140, 80 };
+    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 50, GetScreenHeight() / 2 - 30, 140, 80 };
     EnableCursor();
 
     int character = GetRandomValue(1, 2);
@@ -530,19 +532,19 @@ void englishExaminationAlert() {
 
         Vector2 mousePosition = GetMousePosition();
         BeginDrawing();
-        ClearBackground(RAYWHITE);
+        DrawTexture(background, 0, 0, WHITE);
         bool isMouseOverButtonRevise = CheckCollisionPointRec(mousePosition, reviseButton);
         // Set new colors for hovering the button and draw text
-        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? SKYBLUE : BLUE));
-        DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("Revise", GetScreenWidth() / 2 - 143, GetScreenHeight() / 2 - 10, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             englishTextBook(camera, 1);
         }
         bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
         // Set new colors for hovering the button and draw text
-        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
-        DrawText("Start", GetScreenWidth() / 2 + 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("Start", GetScreenWidth() / 2 + 65, GetScreenHeight() / 2 - 10, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
         {
@@ -770,9 +772,9 @@ void historyExam()
 
 void historyExaminationAlert() {
     Camera camera = { 0 };
-
-    const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
-    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
+    Texture2D background = LoadTexture("../images/examAlertBackground.png");
+    const Rectangle reviseButton = { GetScreenWidth() / 2 - 150, GetScreenHeight() / 2 - 30, 140, 80 };
+    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 50, GetScreenHeight() / 2 - 30, 140, 80 };
     EnableCursor();
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
@@ -780,19 +782,19 @@ void historyExaminationAlert() {
 
         Vector2 mousePosition = GetMousePosition();
         BeginDrawing();
-        ClearBackground(RAYWHITE);
+        DrawTexture(background, 0, 0, WHITE);
         bool isMouseOverButtonRevise = CheckCollisionPointRec(mousePosition, reviseButton);
         // Set new colors for hovering the button and draw text
-        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? SKYBLUE : BLUE));
-        DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("Revise", GetScreenWidth() / 2 - 143, GetScreenHeight() / 2 - 10, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             historyTextBook(camera, 1);
         }
         bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
         // Set new colors for hovering the button and draw text
-        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
-        DrawText("Start", GetScreenWidth() / 2 + 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("Start", GetScreenWidth() / 2 + 65, GetScreenHeight() / 2 - 10, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
         {
@@ -1017,29 +1019,30 @@ void literatureExam()
 
 void literatureExaminationAlert() {
     Camera camera = { 0 };
-
-    const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
-    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
+    Texture2D background = LoadTexture("../images/examAlertBackground.png");
+    const Rectangle reviseButton = { GetScreenWidth() / 2 - 150, GetScreenHeight() / 2 - 30, 140, 80 };
+    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 50, GetScreenHeight() / 2 - 30, 140, 80 };
     EnableCursor();
 
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
     {
+
         Vector2 mousePosition = GetMousePosition();
         BeginDrawing();
-        ClearBackground(RAYWHITE);
+        DrawTexture(background, 0, 0, WHITE);
         bool isMouseOverButtonRevise = CheckCollisionPointRec(mousePosition, reviseButton);
         // Set new colors for hovering the button and draw text
-        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? SKYBLUE : BLUE));
-        DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("Revise", GetScreenWidth() / 2 - 143, GetScreenHeight() / 2 - 10, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             literatureTextBook(camera, 1);
         }
         bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
         // Set new colors for hovering the button and draw text
-        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
-        DrawText("Start", GetScreenWidth() / 2 + 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("Start", GetScreenWidth() / 2 + 65, GetScreenHeight() / 2 - 10, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
         {
@@ -1262,9 +1265,9 @@ void biologyExam()
 
 void biologyExaminationAlert() {
     Camera camera = { 0 };
-
-    const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
-    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
+    Texture2D background = LoadTexture("../images/examAlertBackground.png");
+    const Rectangle reviseButton = { GetScreenWidth() / 2 - 150, GetScreenHeight() / 2 - 30, 140, 80 };
+    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 50, GetScreenHeight() / 2 - 30, 140, 80 };
     EnableCursor();
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
@@ -1272,19 +1275,19 @@ void biologyExaminationAlert() {
 
         Vector2 mousePosition = GetMousePosition();
         BeginDrawing();
-        ClearBackground(RAYWHITE);
+        DrawTexture(background, 0, 0, WHITE);
         bool isMouseOverButtonRevise = CheckCollisionPointRec(mousePosition, reviseButton);
         // Set new colors for hovering the button and draw text
-        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? SKYBLUE : BLUE));
-        DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("Revise", GetScreenWidth() / 2 - 143, GetScreenHeight() / 2 - 10, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             bioTextBook(camera, 1);
         }
         bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
         // Set new colors for hovering the button and draw text
-        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
-        DrawText("Start", GetScreenWidth() / 2 + 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("Start", GetScreenWidth() / 2 + 65, GetScreenHeight() / 2 - 10, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
         {
@@ -1510,29 +1513,30 @@ void geographyExam()
 
 void geographyExaminationAlert() {
     Camera camera = { 0 };
-
-    const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
-    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
+    Texture2D background = LoadTexture("../images/examAlertBackground.png");
+    const Rectangle reviseButton = { GetScreenWidth() / 2 - 150, GetScreenHeight() / 2 - 30, 140, 80 };
+    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 50, GetScreenHeight() / 2 - 30, 140, 80 };
     EnableCursor();
 
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
     {
+
         Vector2 mousePosition = GetMousePosition();
         BeginDrawing();
-        ClearBackground(RAYWHITE);
+        DrawTexture(background, 0, 0, WHITE);
         bool isMouseOverButtonRevise = CheckCollisionPointRec(mousePosition, reviseButton);
         // Set new colors for hovering the button and draw text
-        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? SKYBLUE : BLUE));
-        DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("Revise", GetScreenWidth() / 2 - 143, GetScreenHeight() / 2 - 10, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             geographyTextBook(camera, 1);
         }
         bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
         // Set new colors for hovering the button and draw text
-        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
-        DrawText("Start", GetScreenWidth() / 2 + 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("Start", GetScreenWidth() / 2 + 65, GetScreenHeight() / 2 - 10, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
         {
@@ -1756,29 +1760,30 @@ void programmingExam()
 
 void programmingExaminationAlert() {
     Camera camera = { 0 };
-
-    const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
-    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
+    Texture2D background = LoadTexture("../images/examAlertBackground.png");
+    const Rectangle reviseButton = { GetScreenWidth() / 2 - 150, GetScreenHeight() / 2 - 30, 140, 80 };
+    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 50, GetScreenHeight() / 2 - 30, 140, 80 };
     EnableCursor();
 
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
     {
+
         Vector2 mousePosition = GetMousePosition();
         BeginDrawing();
-        ClearBackground(RAYWHITE);
+        DrawTexture(background, 0, 0, WHITE);
         bool isMouseOverButtonRevise = CheckCollisionPointRec(mousePosition, reviseButton);
         // Set new colors for hovering the button and draw text
-        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? SKYBLUE : BLUE));
-        DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("Revise", GetScreenWidth() / 2 - 143, GetScreenHeight() / 2 - 10, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             prgTextBook(camera, 1);
         }
         bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
         // Set new colors for hovering the button and draw text
-        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
-        DrawText("Start", GetScreenWidth() / 2 + 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("Start", GetScreenWidth() / 2 + 65, GetScreenHeight() / 2 - 10, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
         {
@@ -2003,9 +2008,9 @@ void chemistryExam()
 
 void chemistryExaminationAlert() {
     Camera camera = { 0 };
-
-    const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
-    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
+    Texture2D background = LoadTexture("../images/examAlertBackground.png");
+    const Rectangle reviseButton = { GetScreenWidth() / 2 - 150, GetScreenHeight() / 2 - 30, 140, 80 };
+    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 50, GetScreenHeight() / 2 - 30, 140, 80 };
     EnableCursor();
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
@@ -2013,19 +2018,19 @@ void chemistryExaminationAlert() {
 
         Vector2 mousePosition = GetMousePosition();
         BeginDrawing();
-        ClearBackground(RAYWHITE);
+        DrawTexture(background, 0, 0, WHITE);
         bool isMouseOverButtonRevise = CheckCollisionPointRec(mousePosition, reviseButton);
         // Set new colors for hovering the button and draw text
-        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? SKYBLUE : BLUE));
-        DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("Revise", GetScreenWidth() / 2 - 143, GetScreenHeight() / 2 - 10, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             chemistryTextBook(camera, 1);
         }
         bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
         // Set new colors for hovering the button and draw text
-        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
-        DrawText("Start", GetScreenWidth() / 2 + 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("Start", GetScreenWidth() / 2 + 65, GetScreenHeight() / 2 - 10, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
         {
@@ -2249,29 +2254,28 @@ void physicsExam()
 
 void physicsExaminationAlert() {
     Camera camera = { 0 };
-
-    const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
-    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
+    Texture2D background = LoadTexture("../images/examAlertBackground.png");
+    const Rectangle reviseButton = { GetScreenWidth() / 2 - 150, GetScreenHeight() / 2 - 30, 140, 80 };
+    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 50, GetScreenHeight() / 2 - 30, 140, 80 };
     EnableCursor();
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
     {
-
         Vector2 mousePosition = GetMousePosition();
         BeginDrawing();
-        ClearBackground(RAYWHITE);
+        DrawTexture(background, 0, 0, WHITE);
         bool isMouseOverButtonRevise = CheckCollisionPointRec(mousePosition, reviseButton);
         // Set new colors for hovering the button and draw text
-        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? SKYBLUE : BLUE));
-        DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("Revise", GetScreenWidth() / 2 - 143, GetScreenHeight() / 2 - 10, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             physicsTextBook(camera, 1);
         }
         bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
         // Set new colors for hovering the button and draw text
-        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
-        DrawText("Start", GetScreenWidth() / 2 + 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? Color{ 250,122,255,255 } : Color{ 255, 109, 194, 255 }));
+        DrawText("Start", GetScreenWidth() / 2 + 65, GetScreenHeight() / 2 - 10, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
         {
