@@ -5,23 +5,24 @@ void initMap(int character)
 {
 	const int screenWidth = 1920;
 	const int screenHeight = 975;
-	float studentX = 435;
-	float studentY = 700;
-
-	Rectangle subjects[9] =
+	float studentX = 200;
+	float studentY = 475;
+	Rectangle subjects[10] =
 	{
-		{321, 428, 203, 173}, //prg
-		{559, 160, 188, 266}, //bio
-		{750, 160, 199, 266}, //physics
-		{952, 160, 189, 265}, //chemistry
-		{1144, 159, 186, 266}, //History
-		{644, 528, 187, 159}, //literature
-		{834, 528, 194, 159}, //english
-		{1031, 528, 198, 160}, //math
-		{1232, 528, 202, 159}, //Geography
-	};
+		{1620, 500, 300, 220}, //prg
+		{310, 0, 300, 270}, //bio
+		{670, 720, 300, 270}, //physics
+		{1400, 720, 270, 270}, //chemistry
+		{310, 720, 300, 270}, //History
+		{310, 720, 300, 270}, //literature
+		{670, 0, 300, 270}, //english
+		{1400, 0, 270, 270}, //math
+		{1050, 720, 250, 270}, //Geography
+		{1620, 260, 300, 220}, //pe
 
-	Texture2D map = LoadTexture("map.png");
+	};
+	
+	Texture2D map = LoadTexture("textures/map.png");
 	Texture2D studentBack = LoadTexture("Textures/studentBack.png");
 	Texture2D studentLeft = LoadTexture("Textures/studentLeft.png");
 	Texture2D studentRight = LoadTexture("Textures/studentRight.png");
@@ -86,38 +87,32 @@ void initMap(int character)
 
 		BeginDrawing();
 		ClearBackground(WHITE);
-		DrawTexture(map, 300, 100, WHITE);
+		DrawTexture(map, 0, 0, WHITE);
 
 		if (IsKeyPressed(KEY_G))
 		{
 			gradeBook();
 		}
-		DrawRectangleRec(subjects[0], CheckCollisionRecs(student, subjects[0]) ? SKYBLUE : BLUE);
-		DrawText("Programming", 330, 500, 30, BLACK);
+		DrawText("Programming", 1620, 580, 30, BLACK);
 
-		DrawRectangleRec(subjects[1], CheckCollisionRecs(student, subjects[1]) ? GREEN : LIME);
-		DrawText("Biology", 595, 250, 30, BLACK);
+		DrawText("Biology", 400, 120, 30, BLACK);
 
-		DrawRectangleRec(subjects[2], CheckCollisionRecs(student, subjects[2]) ? BLUE : DARKBLUE);
-		DrawText("Physics", 795, 250, 30, BLACK);
+		DrawText("Physics", 770, 800, 30, BLACK);
 
-		DrawRectangleRec(subjects[3], CheckCollisionRecs(student, subjects[3]) ? PURPLE : VIOLET);
-		DrawText("Chemistry", 975, 250, 30, BLACK);
+		DrawText("Chemistry", 1090, 140, 30, BLACK);
 
-		DrawRectangleRec(subjects[4], CheckCollisionRecs(student, subjects[4]) ? LIGHTGRAY : GRAY);
-		DrawText("History", 1175, 250, 30, BLACK);
+		DrawText("History", 1500, 840, 30, BLACK);
 
-		DrawRectangleRec(subjects[5], CheckCollisionRecs(student, subjects[5]) ? GOLD : ORANGE);
-		DrawText("Literature", 657, 585, 30, BLACK);
+		DrawText("Literature", 730, 120, 30, BLACK);
 
-		DrawRectangleRec(subjects[6], CheckCollisionRecs(student, subjects[6]) ? PINK : RED);
-		DrawText("English", 880, 587, 30, BLACK);
+		DrawText("English", 330, 720, 30, BLACK);
 
-		DrawRectangleRec(subjects[7], CheckCollisionRecs(student, subjects[7]) ? BEIGE : BROWN);
-		DrawText("Math", 1094, 592, 30, BLACK);
+		DrawText("Math", 1500, 90, 30, BLACK);
 
-		DrawRectangleRec(subjects[8], CheckCollisionRecs(student, subjects[8]) ? GREEN : DARKGREEN);
-		DrawText("Geography", 1255, 592, 30, BLACK);
+		DrawText("Geography", 1090, 840, 30, BLACK);
+
+		DrawText("P.E.", 1620, 300, 30, BLACK);
+
 
 		if (character == 1)
 		{
@@ -336,6 +331,20 @@ void initMap(int character)
 				student.x = studentX;
 				student.y = studentY;
 				
+			}
+		}
+
+		if (CheckCollisionRecs(student, subjects[9]))
+		{
+			DrawText("Press ENTER to enter.", 435, 500, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
+			{
+				physyicaEducation();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
+
 			}
 		}
 
