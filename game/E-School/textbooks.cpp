@@ -685,7 +685,7 @@ void literatureTextBook(Camera camera, bool examination)
 	bool timerIsZero = 0;
 
 
-	if (distance < 3.5f && IsKeyPressed(KEY_F))
+	if ((distance < 3.5f && IsKeyPressed(KEY_F)) || examination == 1)
 	{
 		EnableCursor();
 		EndMode3D();
