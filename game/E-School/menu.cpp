@@ -3,22 +3,28 @@
 #include "rules.h"
 #include "characterSelect.h"
 #include "gradeBook.h"
-void menu()
-{
+
+void menu() {
+	// Set mouse cursor
 	SetMouseCursor(MOUSE_CURSOR_DEFAULT);
+
+	// Define screen dimensions
 	const int screenWidth = 1920;
 	const int screenHeight = 975;
 
+	// Initialize variables
 	int character = 2;
 	Texture2D studentFront = LoadTexture("Textures/studentFrontMenu.png");
 	Texture2D studentGirl = LoadTexture("Textures/girlSprite.png");
 	const Rectangle girlPos = { 80,160,60,80 };
 
+	// Define button rectangles
 	const Rectangle startButton = { (screenWidth / 2) - 400, (screenHeight / 2) + 50, 200, 50 };
 	const Rectangle rulesButton = { (screenWidth / 2) - 170, (screenHeight / 2) + 50, 200, 50 };
 	const Rectangle exitButton = { (screenWidth / 2) + 60, (screenHeight / 2) + 50, 200, 50 };
 	const Rectangle gradesButton = { (screenWidth / 2) + 290, (screenHeight / 2) + 50, 200, 50 };
 
+	// Define positions and bounds
 	const  Vector2 screenPos[2] = {
 		{(screenWidth / 2) - 340, (screenHeight / 2) - 30 },
 		{(screenWidth / 2) - 680, (screenHeight / 2) - 30 }
@@ -28,8 +34,10 @@ void menu()
 		{(screenWidth / 2) - 720, (screenHeight / 2) - 30,150,325},
 		{ (screenWidth / 2) - 250, (screenHeight / 2) - 30,125,325}
 	};
-	bool animationShown = 0;
-	bool showParticle = 0;
+
+	// Initialize animation variables and textures
+	bool animationShown = false;
+	bool showParticle = false;
 	Texture2D tubes = LoadTexture("Textures/tubes.png");
 	Texture2D logo = LoadTexture("../images/logoResized.png");
 	Texture2D skeleton = LoadTexture("Textures/skeleton.png");
@@ -39,6 +47,7 @@ void menu()
 	Texture2D calculator = LoadTexture("Textures/calculator.png");
 	Texture2D bus = LoadTexture("Textures/bus.png");
 
+	// Initialize animation positions
 	int tubesX = 0;
 	int skeletonX = 0;
 	int tubesY = 0;

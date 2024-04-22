@@ -1,9 +1,11 @@
 #include "games.h"
 
-void pong()
-{
+void pong() {
+    // Initialize screen dimensions
     int screenHeight = 975;
     int screenWidth = 1920;
+
+    // Initialize paddles, ball, and scores
     Paddle paddle1(20, 975 / 2 - 40, 20.0f, 100.0f, WHITE, 10);
     Paddle paddle2(screenWidth - 40, screenHeight / 2 - 40, 20.0f, 100.0f, WHITE, 10);
     Ball ball(screenWidth / 2, screenHeight / 2, 15, { 10, 10 }, YELLOW);
@@ -13,9 +15,8 @@ void pong()
     while (true) {
         SetTargetFPS(60);
 
-        if (IsKeyPressed(KEY_B))
-        {
-            break;
+        // Check for exit key
+        if (IsKeyPressed(KEY_B)) {
             break;
         }
         BeginDrawing();
@@ -62,6 +63,7 @@ void pong()
 
 }
 
+// Function for playing the Golf game
 void golf()
 {
 
@@ -232,19 +234,23 @@ void snake()
 
 void selectGame()
 {
+    // Define game choice rectangles
     Rectangle choices[3] = {
         {300,425,200,200},
         {900,425,200,200},
         {1500,425,200,200},
     };
 
+    // Load game buttons
     Texture2D golfButton = LoadTexture("Textures/golf.png");
     Texture2D pongButton = LoadTexture("Textures/pong.png");
     Texture2D snakeButton = LoadTexture("Textures/snake.png");
-    while (!WindowShouldClose())
-    {
+
+    while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(GRAY);
+
+        // Draw game buttons
         DrawTexture(pongButton, 300, 425, WHITE);
         DrawTexture(golfButton, 900, 425, WHITE);
         DrawTexture(snakeButton, 1500, 425, WHITE);
