@@ -356,6 +356,22 @@ void initMap(int character)
 			menu();
 		}
 		EndDrawing();
+		if (studentX < 20)
+		{
+			studentX = 20;
+		}
+		if (studentX > 1880)
+		{
+			studentX = 1880;
+		}
+		if (studentY < 20)
+		{
+			studentY = 20;
+		}
+		if (studentY > 950)
+		{
+			studentY = 950;
+		}
 		currentFrameGirl = 8;
 		if (IsKeyPressed(KEY_F))
 		{
