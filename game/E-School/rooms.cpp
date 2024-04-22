@@ -196,14 +196,53 @@ void drawFurnituresProgramming(Model desk, Model deskChair, Model chair, Model c
     BoundingBox chairBox[2];
     chairBox[0].min = { -1.8f, 0.0f, -8.3f };
     chairBox[0].max = { 16.0f, 2.0f, -3.6f };
-    DrawBoundingBox(chairBox[0], RED);
     chairBox[1].min = { -3.7f, 0.0f, 3.3f };
     chairBox[1].max = { 16.7f, 2.0f, 7.7f };
-    DrawBoundingBox(chairBox[1], RED);
     collisionModels(camera, previousCameraPosition, cameraBox, chairBox[0]);
     collisionModels(camera, previousCameraPosition, cameraBox, chairBox[1]);
 
 }
+
+void shootBasketball(Camera camera, Vector3& ballPosition, float& potentialKickX, float& potentialKickY, int& footballPoints) {
+    Vector3 playerPosition = camera.position; // Assuming the player's position is the camera position
+
+    // Calculate distance between player and basketball hoop
+    Vector3 basketballHoopPosition = { -12.0f, 4.0f, 0.0f }; // Assuming basketball hoop position
+    float distanceToHoop = distanceCalc(playerPosition, basketballHoopPosition);
+
+    // Check if player is within a certain distance of the ball and within bounds
+    if (distanceToHoop <= 3.5f && playerPosition.x <= -12.0f && playerPosition.y >= 4.0f && IsMouseButtonDown(MOUSE_RIGHT_BUTTON)) {
+        // Increase potential kick power while right mouse button is held down
+        potentialKickX += 0.1f;
+        potentialKickY += 0.1f;
+    }
+    else if (IsMouseButtonReleased(MOUSE_RIGHT_BUTTON)) {
+        // Shoot the basketball when right mouse button is released
+        if (distanceToHoop <= 3.5f && playerPosition.x <= -12.0f && playerPosition.y >= 4.0f) { // Check if player is within shooting range and bounds
+            // Calculate shooting direction based on camera orientation
+            Vector3 direction = Vector3Normalize(Vector3Subtract(basketballHoopPosition, playerPosition));
+            direction.x *= potentialKickX;
+            direction.y *= potentialKickY;
+
+            // Update ball position
+            ballPosition = Vector3Add(playerPosition, direction);
+
+            // Reset potential kick power
+            potentialKickX = 0.0f;
+            potentialKickY = 0.0f;
+
+            // Increment points
+            footballPoints++;
+        }
+        else {
+            // Reset potential kick power if player is out of range or out of bounds
+            potentialKickX = 0.0f;
+            potentialKickY = 0.0f;
+        }
+    }
+}
+
+
 
 void maths()
 {
@@ -310,15 +349,18 @@ void maths()
             mathsExaminationAlert();
         }
         if (IsKeyPressed(KEY_M))
-            initMap(1);
+        {
+
+            initMap(2);
+        }
+
         DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
-        
+
         EndDrawing();
 
     }
     SetExitKey(KEY_EIGHT);
     EnableCursor();
-    UnloadTexture(wood);
 
 }
 
@@ -427,21 +469,21 @@ void history()
         EndMode3D();
 
         DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
-        historyTextBook(camera,0);
+        historyTextBook(camera, 0);
 
         if (timerIsZero)
         {
             EnableCursor();
             historyExaminationAlert();
-            timerIsZero = 0;    
+            timerIsZero = 0;
         }
 
         EndMode3D();
         DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
 
-        EndDrawing(); 
+        EndDrawing();
         if (IsKeyPressed(KEY_M))
-            initMap(1);
+            initMap(2);
     }
     SetExitKey(KEY_EIGHT);
     EnableCursor();
@@ -528,7 +570,7 @@ void physics()
 
         EndMode3D();
         if (IsKeyPressed(KEY_M))
-            initMap(1);
+            initMap(2);
         elapsedTime += GetFrameTime();
 
         if (elapsedTime >= updateInterval) {
@@ -551,13 +593,13 @@ void physics()
         DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
         physicsTextBook(camera, 0);
         EndDrawing();
+        if (timerIsZero)
+        {
+            physicsExaminationAlert();
+            EnableCursor();
+        }
+    }
 
-    }
-    if (timerIsZero)
-    {
-        physicsExaminationAlert();
-        EnableCursor();
-    }
 
     SetExitKey(KEY_EIGHT);
     EnableCursor();
@@ -672,7 +714,7 @@ void literature()
         EndMode3D();
 
         DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
-        literatureTextBook(camera,0);
+        literatureTextBook(camera, 0);
 
         if (timerIsZero)
         {
@@ -681,16 +723,22 @@ void literature()
         }
 
         EndMode3D();
-        if (IsKeyPressed(KEY_M))
-            initMap(1);
-
         literatureTextBook(camera, 0);
+
+        if (IsKeyPressed(KEY_M))
+        {
+
+            initMap(2);
+        }
+
+        DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+
         EndDrawing();
 
     }
     SetExitKey(KEY_EIGHT);
     EnableCursor();
-    UnloadTexture(wood);
+
 
 }
 void chemistry()
@@ -766,7 +814,7 @@ void chemistry()
 
         DrawPlane({ 0.0f, 0.0f, 0.0f }, { 21.0f, 21.0f }, LIGHTGRAY);
         DrawCube({ -10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, DARKBLUE);
-        DrawCube({ 10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f,DARKBLUE);
+        DrawCube({ 10.0f, 2.5f, 0.0f }, 1.0f, 8.3f, 21.0f, DARKBLUE);
         DrawCube({ 0.0f, 2.5f, 10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 2.5f, -10.0f }, 21.0f, 8.3f, 1.0f, GOLD);
         DrawCube({ 0.0f, 6.7f, 0.0f }, 21.0f, 0.2f, 21.0f, LIGHTGRAY);
@@ -774,6 +822,8 @@ void chemistry()
         drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
         drawTubes(tubes);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
+        elapsedTime += GetFrameTime();
+
         if (elapsedTime >= updateInterval) {
             // Decrement the timer
             if (seconds == 0) {
@@ -791,17 +841,24 @@ void chemistry()
 
             elapsedTime = 0.0f; // Reset elapsed time
         }
+
+        EndMode3D();
         if (timerIsZero)
         {
             EnableCursor();
             chemistryExaminationAlert();
         }
-        EndMode3D();
+
+        chemistryTextBook(camera, 0);
+        DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
         if (IsKeyPressed(KEY_M))
-            initMap(1);
+        {
+
+            initMap(2);
+        }
 
         DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
-        chemistryTextBook(camera, 0);
+
         EndDrawing();
 
     }
@@ -918,7 +975,7 @@ void english()
             englishExaminationAlert();
         }
         if (IsKeyPressed(KEY_M))
-            initMap(1);
+            initMap(2);
 
         DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
 
@@ -970,13 +1027,13 @@ void biology()
     cameraBox.max.y += 0.5f;
     cameraBox.max.z += 0.5f;
 
-	float elapsedTime = 0.0f;
-	float updateInterval = 1.0f;
+    float elapsedTime = 0.0f;
+    float updateInterval = 1.0f;
 
-	int minutes = 1;
-	int seconds = 0;
+    int minutes = 1;
+    int seconds = 0;
 
-	bool timerIsZero = false;
+    bool timerIsZero = false;
 
     // Generates some random columns
     DisableCursor();                    // Limit cursor to relative movement inside the window
@@ -1008,35 +1065,35 @@ void biology()
         drawFurnitures(chair, desk, deskChair, studentDesk, board, laptop, book, camera, previousCameraPosition);
         DrawModel(skeleton, { 5.0f, 2.2f, -9.0f }, 0.01, WHITE);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
-		elapsedTime += GetFrameTime();
+        elapsedTime += GetFrameTime();
 
-		if (elapsedTime >= updateInterval) {
-			// Decrement the timer
-			if (seconds == 0) {
-				if (minutes == 0)
-				{
-					timerIsZero = true;
-				}
-				minutes--;
-				seconds = 5;
+        if (elapsedTime >= updateInterval) {
+            // Decrement the timer
+            if (seconds == 0) {
+                if (minutes == 0)
+                {
+                    timerIsZero = true;
+                }
+                minutes--;
+                seconds = 5;
 
-			}
-			else {
-				seconds--;
-			}
+            }
+            else {
+                seconds--;
+            }
 
-			elapsedTime = 0.0f; // Reset elapsed time
-		}
-		EndMode3D();
-		drawCoordinates(camera);
-		DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
-		if (timerIsZero)
-		{
-			EnableCursor();
-			biologyExaminationAlert();
-		}
+            elapsedTime = 0.0f; // Reset elapsed time
+        }
+        EndMode3D();
+        drawCoordinates(camera);
+        DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+        if (timerIsZero)
+        {
+            EnableCursor();
+            biologyExaminationAlert();
+        }
         if (IsKeyPressed(KEY_M))
-            initMap(1);
+            initMap(2);
         EndDrawing();
         bioTextBook(camera, 0);
     }
@@ -1044,6 +1101,7 @@ void biology()
     UnloadTexture(wood);
     EnableCursor();
 }
+
 
 void geography()
 {
@@ -1088,13 +1146,13 @@ void geography()
     cameraBox.max.y += 0.5f;
     cameraBox.max.z += 0.5f;
 
-	float elapsedTime = 0.0f;
-	float updateInterval = 1.0f;
+    float elapsedTime = 0.0f;
+    float updateInterval = 1.0f;
 
-	int minutes = 1;
-	int seconds = 0;
+    int minutes = 1;
+    int seconds = 0;
 
-	bool timerIsZero = false;
+    bool timerIsZero = false;
 
     // Generates some random columns
     DisableCursor();                    // Limit cursor to relative movement inside the window
@@ -1129,44 +1187,54 @@ void geography()
 
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
 
-		elapsedTime += GetFrameTime();
+        elapsedTime += GetFrameTime();
 
-		if (elapsedTime >= updateInterval) {
-			// Decrement the timer
-			if (seconds == 0) {
-				if (minutes == 0)
-				{
-					timerIsZero = true;
-				}
-				minutes--;
-				seconds = 5;
+        if (elapsedTime >= updateInterval) {
+            // Decrement the timer
+            if (seconds == 0) {
+                if (minutes == 0)
+                {
+                    timerIsZero = true;
+                }
+                minutes--;
+                seconds = 5;
 
-			}
-			else {
-				seconds--;
-			}
+            }
+            else {
+                seconds--;
+            }
 
-			elapsedTime = 0.0f; // Reset elapsed time
-		}
+            elapsedTime = 0.0f; // Reset elapsed time
+        }
         if (timerIsZero)
-		{
-			EnableCursor();
-			geographyExaminationAlert();
-		}
-		EndMode3D();
-		drawCoordinates(camera);
-		DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
-		
-        if (IsKeyPressed(KEY_M))
-            initMap(1);
+        {
+            EnableCursor();
+            geographyExaminationAlert();
+        }
+
+        EndMode3D();
+        DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+
+
+
         EndMode3D();
 
         geographyTextBook(camera, 0);
+        if (IsKeyPressed(KEY_M))
+        {
+
+            initMap(2);
+        }
+
+        DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+
         EndDrawing();
+
     }
-    EnableCursor();
     SetExitKey(KEY_EIGHT);
+    EnableCursor();
     UnloadTexture(wood);
+
 }
 
 void programming()
@@ -1243,7 +1311,7 @@ void programming()
         drawFurnituresProgramming(desk, deskChair, chair, chairOther, workstation, computer, computerRotated, camera, previousCameraPosition);
         DrawBoundingBox(wallBox, RED);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
-        
+
         prgTextBook(camera, 0);
         EndMode3D();
         elapsedTime += GetFrameTime();
@@ -1270,11 +1338,20 @@ void programming()
             EnableCursor();
             programmingExaminationAlert();
         }
-        drawCoordinates(camera);
+
+        DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+        if (IsKeyPressed(KEY_M))
+        {
+
+            initMap(2);
+        }
+
         DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
 
         EndDrawing();
+
     }
+    SetExitKey(KEY_EIGHT);
     EnableCursor();
 
 }
@@ -1295,7 +1372,7 @@ void physyicaEducation()
 
     int cameraMode = CAMERA_FIRST_PERSON;
 
-    Vector3 ballPosition = { 10.0f, 0.5f, 0.0f };
+    Vector3 ballPosition = { -4.0f, 0.5f, 0.0f };
 
     BoundingBox wallBox;
     wallBox.min = { -21.5f, 0.0f, -14.5f };
@@ -1325,6 +1402,7 @@ void physyicaEducation()
     SetTargetFPS(60);                   // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
     float potentialKickX = 0.0f;
+    float potentialKickY = 0.0f;
     // Main game loop
     while (!WindowShouldClose())
     {
@@ -1332,6 +1410,7 @@ void physyicaEducation()
         ballBox.max = { ballPosition.x + 0.4f , ballPosition.y + 0.7f ,ballPosition.z + 0.4f };
         Vector3 previousCameraPosition = camera.position;
         kickBall(camera, ballPosition, potentialKickX);
+        shootBasketball(camera, ballPosition, potentialKickX, potentialKickY, footballPoints);
 
         UpdateCamera(&camera, cameraMode);
         BeginDrawing();
@@ -1356,7 +1435,8 @@ void physyicaEducation()
         DrawModel(goal, { 34.0f, 0.2f, 0.0f }, 1.0, WHITE);
         DrawModel(basketballHoop, { -12.0f, -2.0f, 0.0f }, 10.0, WHITE);
 
-        DrawBoundingBox(wallBox, RED);
+        if (IsKeyPressed(KEY_M))
+            initMap(2);
 
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
         if (!collisionsModelToModel(ballPosition, { 34.0f, 0.2f, 0.0f }, ballBox, goalBox))
@@ -1367,10 +1447,11 @@ void physyicaEducation()
         EndMode3D();
         drawCoordinates(camera);
         std::string pointsStr = "Points: " + std::to_string(footballPoints);
-        DrawText(pointsStr.c_str(), 10, 10, 10, BLACK);
+        DrawText(pointsStr.c_str(), 10, 100, 25, BLACK);
         EndDrawing();
 
     }
     EnableCursor();
     CloseWindow();
+    SetExitKey(KEY_APOSTROPHE);
 }

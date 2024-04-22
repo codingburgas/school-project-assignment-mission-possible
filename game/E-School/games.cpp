@@ -4,9 +4,12 @@ void pong()
 {
     int screenHeight = 975;
     int screenWidth = 1920;
-    Paddle paddle1(20, 975 / 2 - 40, 20.0f, 100.0f, BLUE, 10);
-    Paddle paddle2(screenWidth - 40, screenHeight / 2 - 40, 20.0f, 100.0f, RED, 10);
-    Ball ball(screenWidth / 2, screenHeight / 2, 15, { 10, 10 }, GREEN);
+    Paddle paddle1(20, 975 / 2 - 40, 20.0f, 100.0f, WHITE, 10);
+    Paddle paddle2(screenWidth - 40, screenHeight / 2 - 40, 20.0f, 100.0f, WHITE, 10);
+    Ball ball(screenWidth / 2, screenHeight / 2, 15, { 10, 10 }, YELLOW);
+    int pointsPlayer = 0;
+    int pointsBot = 0;
+
     while (true) {
         SetTargetFPS(60);
 
@@ -16,7 +19,7 @@ void pong()
             break;
         }
         BeginDrawing();
-        ClearBackground(RAYWHITE);
+        ClearBackground(BLACK);
 
         if (IsKeyDown(KEY_W) && paddle1.rect.y > 0) {
             paddle1.MoveUp();
@@ -29,11 +32,11 @@ void pong()
         {
             if (paddle2.rect.y > ball.position.y)
             {
-                paddle2.rect.y -= 6;
+                paddle2.rect.y -= 10;
             }
             if (paddle2.rect.y < ball.position.y)
             {
-                paddle2.rect.y += 6;
+                paddle2.rect.y += 10;
             }
         }
 
@@ -41,16 +44,20 @@ void pong()
         ball.CheckCollision(paddle1);
         ball.CheckCollision(paddle2);
 
+        ball.OutOfBounds(pointsBot, pointsPlayer);
 
-        if (ball.OutOfBounds()) {
-            ball.Reset();
-        }
 
         paddle1.Draw();
         paddle2.Draw();
         ball.Draw();
 
+        string pointsBotStr = to_string(pointsBot);
+        string pointsPlayerStr = to_string(pointsPlayer);
+
+        DrawText(pointsBotStr.c_str(), 1060, 50, 25, RED);
+        DrawText(pointsPlayerStr.c_str(), 960, 50, 25, RED);
         EndDrawing();
+
     }
 
 }
@@ -143,6 +150,7 @@ void golf()
         ball.draw();
 
         EndDrawing();
+
         if (IsKeyPressed(KEY_B))
         {
             break;

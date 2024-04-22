@@ -323,7 +323,7 @@ void startingScreen()
         DrawRectangleRounded(exitButton, 5, (int)2, (isMouseOverExitButton ? DARKGRAY : BLACK));
         DrawText("Exit", exitButtonPosition.x + 100, exitButtonPosition.y + 25, 50, WHITE);
         if (CheckCollisionPointRec(mousePosition, exitButton) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-            CloseWindow();
+            return;
         }
         EndDrawing();
     }

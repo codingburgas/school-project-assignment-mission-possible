@@ -52,14 +52,21 @@ public:
         }
     }
 
-    bool OutOfBounds() {
-        return (position.x - radius <= 0 || position.x + radius >= GetScreenWidth());
-    }
+
 
     void Reset() {
         position = { static_cast<float>(GetScreenWidth()) / 2, static_cast<float>(GetScreenHeight()) / 2 };
     }
-
+    void OutOfBounds(int& pointsBot, int& pointsPlayer) {
+        if (position.x - radius <= 0) {
+            pointsBot++; // Increment bot's points
+            Reset();
+        }
+        else if (position.x + radius >= GetScreenWidth()) {
+            pointsPlayer++; // Increment player's points
+            Reset();
+        }
+    }
     void Draw() {
         DrawCircleV(position, radius, color);
     }

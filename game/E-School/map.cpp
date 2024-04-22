@@ -3,6 +3,7 @@
 #include "menu.h"
 void initMap(int character)
 {
+	EndMode3D();
 	const int screenWidth = 1920;
 	const int screenHeight = 975;
 	float studentX = 200;
@@ -12,8 +13,8 @@ void initMap(int character)
 		{1620, 500, 300, 220}, //prg
 		{310, 0, 300, 270}, //bio
 		{670, 720, 300, 270}, //physics
-		{1400, 720, 270, 270}, //chemistry
-		{310, 720, 300, 270}, //History
+		{1050, 0, 270, 270}, //chemistry
+		{1400, 720, 300, 270}, //History
 		{310, 720, 300, 270}, //literature
 		{670, 0, 300, 270}, //english
 		{1400, 0, 270, 270}, //math
@@ -21,7 +22,7 @@ void initMap(int character)
 		{1620, 260, 300, 220}, //pe
 
 	};
-	
+
 	Texture2D map = LoadTexture("textures/map.png");
 	Texture2D studentBack = LoadTexture("Textures/studentBack.png");
 	Texture2D studentLeft = LoadTexture("Textures/studentLeft.png");
@@ -218,7 +219,7 @@ void initMap(int character)
 				studentY = 700;
 				student.x = studentX;
 				student.y = studentY;
-				
+
 			}
 		}
 
@@ -232,7 +233,7 @@ void initMap(int character)
 				studentY = 700;
 				student.x = studentX;
 				student.y = studentY;
-				
+
 			}
 		}
 
@@ -246,7 +247,7 @@ void initMap(int character)
 				studentY = 700;
 				student.x = studentX;
 				student.y = studentY;
-				
+
 			}
 		}
 
@@ -260,7 +261,7 @@ void initMap(int character)
 				studentY = 700;
 				student.x = studentX;
 				student.y = studentY;
-				
+
 			}
 		}
 
@@ -274,25 +275,11 @@ void initMap(int character)
 				studentY = 700;
 				student.x = studentX;
 				student.y = studentY;
-				
+
 			}
 		}
 
 		if (CheckCollisionRecs(student, subjects[5]))
-		{
-			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
-			if (IsKeyDown(KEY_ENTER))
-			{
-				literature();
-				studentX = 435;
-				studentY = 700;
-				student.x = studentX;
-				student.y = studentY;
-				
-			}
-		}
-
-		if (CheckCollisionRecs(student, subjects[6]))
 		{
 			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
 			if (IsKeyDown(KEY_ENTER))
@@ -302,7 +289,21 @@ void initMap(int character)
 				studentY = 700;
 				student.x = studentX;
 				student.y = studentY;
-				
+
+			}
+		}
+
+		if (CheckCollisionRecs(student, subjects[6]))
+		{
+			DrawText("Press ENTER to enter.", 435, 700, 30, BLACK);
+			if (IsKeyDown(KEY_ENTER))
+			{
+				literature();
+				studentX = 435;
+				studentY = 700;
+				student.x = studentX;
+				student.y = studentY;
+
 			}
 		}
 
@@ -316,7 +317,7 @@ void initMap(int character)
 				studentY = 700;
 				student.x = studentX;
 				student.y = studentY;
-				
+
 			}
 		}
 
@@ -330,7 +331,7 @@ void initMap(int character)
 				studentY = 700;
 				student.x = studentX;
 				student.y = studentY;
-				
+
 			}
 		}
 
@@ -348,7 +349,7 @@ void initMap(int character)
 			}
 		}
 
-		
+
 		if (IsKeyPressed(KEY_ESCAPE))
 		{
 			EnableCursor();
@@ -366,7 +367,7 @@ void initMap(int character)
 
 			cout << "Collision with subject 0: " << (CheckCollisionRecs(student, subjects[0]) ? "Yes" : "No") << endl;
 		}
-		
+
 	}
 	SetExitKey(KEY_APOSTROPHE);
 	UnloadTexture(map);
