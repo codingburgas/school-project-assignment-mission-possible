@@ -237,13 +237,17 @@ void selectGame()
         {900,425,200,200},
         {1500,425,200,200},
     };
+
+    Texture2D golfButton = LoadTexture("Textures/golf.png");
+    Texture2D pongButton = LoadTexture("Textures/pong.png");
+    Texture2D snakeButton = LoadTexture("Textures/snake.png");
     while (!WindowShouldClose())
     {
         BeginDrawing();
-        ClearBackground(WHITE);
-        DrawRectangleRec(choices[0], RED);
-        DrawRectangleRec(choices[1], RED);
-        DrawRectangleRec(choices[2], RED);
+        ClearBackground(GRAY);
+        DrawTexture(pongButton, 300, 425, WHITE);
+        DrawTexture(golfButton, 900, 425, WHITE);
+        DrawTexture(snakeButton, 1500, 425, WHITE);
         if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), choices[0]))
         {
             pong();
@@ -259,8 +263,7 @@ void selectGame()
         EndDrawing();
         if (IsKeyPressed(KEY_B))
         {
-            break;
-            break;
+            return;
         }
     }
 }

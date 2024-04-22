@@ -14,15 +14,13 @@ void prgTextBook(Camera camera, bool examination)
 	Vector3 cubePosition = { 19.5f,0.2f,7.0f };
 	unsigned int pageNumber = 1;
 	float distance = distanceCalc(camera.position, cubePosition);
-	Texture2D bookPic = LoadTexture("textures/book.png");
-	Texture2D gamePic = LoadTexture("textures/game.png");
+	
 	Rectangle gameButton = { 600,260,300,300 };
 	Rectangle textButton = { 1000,260,300,300 };
 
 	float elapsedTime = 0.0f;
 	float updateInterval = 1.0f;
 
-	Texture2D book = LoadTexture("../images/book.png");
 
 	int minutes = 1;
 	int seconds = 0;
@@ -33,11 +31,14 @@ void prgTextBook(Camera camera, bool examination)
 	Rectangle previous = { 50,900,100,50 };
 
 	bool timerIsZero = 0;
-
-	Font font = LoadFont("textures/font.ttf");
+	
 
 	if (distance < 3.5f && IsKeyPressed(KEY_F))
 	{
+		Texture2D bookPic = LoadTexture("textures/book.png");
+		Texture2D gamePic = LoadTexture("textures/game.png");
+		Texture2D book = LoadTexture("../images/book.png");
+	    Font font = LoadFont("textures/font.ttf");
 		EnableCursor();
 		EndMode3D();
 		while (!WindowShouldClose())
@@ -210,7 +211,6 @@ void englishTextBook(Camera camera, bool examination)
 	Vector3 cubePosition = { 0.0f, 1.5f, -7.5f };
 	float distance = distanceCalc(camera.position, cubePosition);
 
-	Texture2D book = LoadTexture("../images/book.png");
 
 	float elapsedTime = 0.0f;
 	float updateInterval = 1.0f;
@@ -222,14 +222,15 @@ void englishTextBook(Camera camera, bool examination)
 	Rectangle previous = { 50,900,100,50 };
 
 	bool timerIsZero = 0;
-
-	Font font = LoadFont("textures/font.ttf");
+	
 
 	if ((distance < 3.5f && IsKeyPressed(KEY_F)) || examination == 1)
 	{
 		EnableCursor();
 		EndMode3D();
+        Texture2D book = LoadTexture("../images/book.png");
 
+	    Font font = LoadFont("textures/font.ttf");
 		while (!WindowShouldClose())
 		{
 			BeginDrawing();
@@ -347,7 +348,6 @@ void geographyTextBook(Camera camera, bool examination)
 	Vector3 cubePosition = { 0.0f, 1.5f, -7.5f };
 	float distance = distanceCalc(camera.position, cubePosition);
 
-	Texture2D book = LoadTexture("../images/book.png");
 
 	float elapsedTime = 0.0f;
 	float updateInterval = 1.0f;
@@ -359,13 +359,14 @@ void geographyTextBook(Camera camera, bool examination)
 	Rectangle previous = { 50,900,100,50 };
 
 	bool timerIsZero = 0;
-
-	Font font = LoadFont("textures/font.ttf");
+	
 
 	if ((distance < 3.5f && IsKeyPressed(KEY_F)) || examination == 1)
 	{
 		EnableCursor();
 		EndMode3D();
+		Texture2D book = LoadTexture("../images/book.png");
+	    Font font = LoadFont("textures/font.ttf");
 		while (!WindowShouldClose())
 		{
 			BeginDrawing();
@@ -518,16 +519,16 @@ void historyTextBook(Camera camera, bool examination)
 	Rectangle next = { 1800,900,100,50 };
 	Rectangle previous = { 50,900,100,50 };
 
-	Texture2D book = LoadTexture("../images/book.png");
-
 	bool timerIsZero = 0;
-
-	Font font = LoadFont("textures/font.ttf");
+	
 
 	if ((distance < 3.5f && IsKeyPressed(KEY_F)) || examination == 1)
 	{
 		EnableCursor();
 		EndMode3D();
+		Texture2D book = LoadTexture("../images/book.png");
+
+		Font font = LoadFont("textures/font.ttf");
 		while (!WindowShouldClose())
 		{
 			BeginDrawing();
@@ -679,16 +680,17 @@ void literatureTextBook(Camera camera, bool examination)
 	Rectangle next = { 1800,900,100,50 };
 	Rectangle previous = { 50,900,100,50 };
 
-	Texture2D book = LoadTexture("../images/book.png");
+	
 
 	bool timerIsZero = 0;
 
-	Font font = LoadFont("textures/font.ttf");
 
 	if (distance < 3.5f && IsKeyPressed(KEY_F))
 	{
 		EnableCursor();
 		EndMode3D();
+		Texture2D book = LoadTexture("../images/book.png");
+		Font font = LoadFont("textures/font.ttf");
 		while (!WindowShouldClose())
 		{
 			BeginDrawing();
@@ -840,14 +842,15 @@ void bioTextBook(Camera camera, bool examination)
 	Rectangle next = { 1800,900,100,50 };
 	Rectangle previous = { 50,900,100,50 };
 
-	Texture2D book = LoadTexture("../images/book.png");
+	
 
 	bool timerIsZero = 0;
 
-	Font font = LoadFont("textures/font.ttf");
 
 	if ((distance < 3.5f && IsKeyPressed(KEY_F)) || examination == 1)
 	{
+		Texture2D book = LoadTexture("../images/book.png");
+		Font font = LoadFont("textures/font.ttf");
 		EnableCursor();
 		EndMode3D();
 		while (!WindowShouldClose())
@@ -1003,14 +1006,15 @@ void chemistryTextBook(Camera camera, bool examination)
 	Rectangle next = { 1800,900,100,50 };
 	Rectangle previous = { 50,900,100,50 };
 
-	Texture2D book = LoadTexture("../images/book.png");
+	
 
 	bool timerIsZero = 0;
 
-	Font font = LoadFont("textures/font.ttf");
 
 	if ((distance < 3.5f && IsKeyPressed(KEY_F)) || examination == 1)
 	{
+		Texture2D book = LoadTexture("../images/book.png");
+		Font font = LoadFont("textures/font.ttf");
 		EnableCursor();
 		EndMode3D();
 		while (!WindowShouldClose())
@@ -1164,14 +1168,15 @@ void physicsTextBook(Camera camera, bool examination)
 	Rectangle next = { 1800,900,100,50 };
 	Rectangle previous = { 50,900,100,50 };
 
-	Texture2D book = LoadTexture("../images/book.png");
+	
 
 	bool timerIsZero = 0;
 
-	Font font = LoadFont("textures/font.ttf");
 
 	if ((distance < 3.5f && IsKeyPressed(KEY_F)) || examination == 1)
 	{
+		Texture2D book = LoadTexture("../images/book.png");
+		Font font = LoadFont("textures/font.ttf");
 		EnableCursor();
 		EndMode3D();
 		while (!WindowShouldClose())
@@ -1324,16 +1329,17 @@ void mathsTextBook(Camera camera, bool examination)
 	Rectangle next = { 1800,900,100,50 };
 	Rectangle previous = { 50,900,100,50 };
 
-	Texture2D book = LoadTexture("../images/book.png");
+	
 
 	bool timerIsZero = 0;
 
-	Font font = LoadFont("textures/font.ttf");
 
 	if ((distance < 3.5f && IsKeyPressed(KEY_F)) || examination == 1)
 	{
 		EnableCursor();
 		EndMode3D();
+		Texture2D book = LoadTexture("../images/book.png");
+		Font font = LoadFont("textures/font.ttf");
 		while (!WindowShouldClose())
 		{
 			BeginDrawing();

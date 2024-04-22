@@ -331,7 +331,7 @@ void maths()
                     timerIsZero = true;
                 }
                 minutes--;
-                seconds = 5;
+                seconds = 30;
 
             }
             else {
@@ -456,7 +456,7 @@ void history()
                     timerIsZero = true;
                 }
                 minutes--;
-                seconds = 5;
+                seconds = 30;
 
             }
             else {
@@ -469,7 +469,6 @@ void history()
         EndMode3D();
 
         DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
-        historyTextBook(camera, 0);
 
         if (timerIsZero)
         {
@@ -581,7 +580,7 @@ void physics()
                     timerIsZero = true;
                 }
                 minutes--;
-                seconds = 5;
+                seconds = 30;
 
             }
             else {
@@ -591,7 +590,6 @@ void physics()
             elapsedTime = 0.0f; // Reset elapsed time
         }
         DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
-        physicsTextBook(camera, 0);
         EndDrawing();
         if (timerIsZero)
         {
@@ -701,7 +699,7 @@ void literature()
                     timerIsZero = true;
                 }
                 minutes--;
-                seconds = 5;
+                seconds = 30;
 
             }
             else {
@@ -714,7 +712,6 @@ void literature()
         EndMode3D();
 
         DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
-        literatureTextBook(camera, 0);
 
         if (timerIsZero)
         {
@@ -723,7 +720,6 @@ void literature()
         }
 
         EndMode3D();
-        literatureTextBook(camera, 0);
 
         if (IsKeyPressed(KEY_M))
         {
@@ -832,7 +828,7 @@ void chemistry()
                     timerIsZero = true;
                 }
                 minutes--;
-                seconds = 5;
+                seconds = 30;
 
             }
             else {
@@ -849,7 +845,6 @@ void chemistry()
             chemistryExaminationAlert();
         }
 
-        chemistryTextBook(camera, 0);
         DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
         if (IsKeyPressed(KEY_M))
         {
@@ -957,7 +952,7 @@ void english()
                     timerIsZero = true;
                 }
                 minutes--;
-                seconds = 5;
+                seconds = 30;
 
             }
             else {
@@ -1075,7 +1070,7 @@ void biology()
                     timerIsZero = true;
                 }
                 minutes--;
-                seconds = 5;
+                seconds = 30;
 
             }
             else {
@@ -1095,7 +1090,6 @@ void biology()
         if (IsKeyPressed(KEY_M))
             initMap(2);
         EndDrawing();
-        bioTextBook(camera, 0);
     }
     SetExitKey(KEY_EIGHT);
     UnloadTexture(wood);
@@ -1219,7 +1213,6 @@ void geography()
 
         EndMode3D();
 
-        geographyTextBook(camera, 0);
         if (IsKeyPressed(KEY_M))
         {
 
@@ -1312,8 +1305,8 @@ void programming()
         DrawBoundingBox(wallBox, RED);
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
 
-        prgTextBook(camera, 0);
         EndMode3D();
+        prgTextBook(camera, 1);
         elapsedTime += GetFrameTime();
 
         if (elapsedTime >= updateInterval) {
@@ -1324,7 +1317,7 @@ void programming()
                     timerIsZero = true;
                 }
                 minutes--;
-                seconds = 5;
+                seconds = 30;
 
             }
             else {
