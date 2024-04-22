@@ -20,3 +20,5 @@ void geographyTextBook(Camera camera, bool examination);
 void chemistryTextBook(Camera camera, bool examination);
 
 void physicsTextBook(Camera camera, bool examination);
+
+void mathsTextBook(Camera camera, bool examination);
