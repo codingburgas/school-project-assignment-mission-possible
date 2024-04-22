@@ -53,9 +53,11 @@
 
 <h1 align="left">📃 Documents</h1><br>
   <ul align="left" >
-<li><a href="https://codingburgas-my.sharepoint.com/:p:/g/personal/dhnoneva22_codingburgas_bg/EfA3q-Ddc4tNoLweKRmC1iQBECIOqJZStSbBoIR4jxY5xw?e=pR4QA9">Documentation</a></li>
-<li><a href="https://codingburgas-my.sharepoint.com/:w:/g/personal/dhnoneva22_codingburgas_bg/EUvaMjAEzQNNpp6s0eBfNgwBNvQN2pLQAWN4LXM173g93Q?e=7cyiLw">Presentation</a></li>
-<li><a href="https://codingburgas-my.sharepoint.com/:x:/g/personal/dhnoneva22_codingburgas_bg/Ec6U6SybOitLv1mW3YcCb2wBZZD2ZJBMyp0zv5M3apGuvw">QA Table</a></li>    
+   
+<li><a href=" https://codingburgas-my.sharepoint.com/:w:/g/personal/dhnoneva22_codingburgas_bg/EZJRnu26mZ5LoxX7GJjfS9YB1BK8uydH1JXD5eyg4VBo2A?e=8Eak2W">Documentation</a></li>
+<li><a href="https://codingburgas-my.sharepoint.com/:p:/g/personal/dhnoneva22_codingburgas_bg/EfA3q-Ddc4tNoLweKRmC1iQBECIOqJZStSbBoIR4jxY5xw?e=E0vgIQ">Presentation</a></li>
+<li><a href="https://codingburgas-my.sharepoint.com/:x:/g/personal/dhnoneva22_codingburgas_bg/Ea1qthjGaGhIpqQ1dznEQ6sB0v6BbABtLahBSBz2VEQiuA?e=zvd6yx">QA Table</a></li>    
+<li><a href="https://codingburgas-my.sharepoint.com/:w:/g/personal/dhnoneva22_codingburgas_bg/EYB9qNf9FXxBtVt5bBd8pp8BxT9OOprVfn3NchKvZPU3pw?e=MUFeZC">Test plan</a></li>  
   </ul>
 
 
