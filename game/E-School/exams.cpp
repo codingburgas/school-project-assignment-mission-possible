@@ -17,33 +17,33 @@ struct Question {
 
 int CheckMouseClickOnOption(int optionIndex, int mouseY) {
     Rectangle answers[4] = {
-          { 200, 550, 200,50},
-          { 1400, 550,200,50},
-          { 200, 750, 200,50},
-          { 1400, 750,200,50},
+        { 135, 535, 455, 125},
+        { 1335, 535, 455, 125},
+        { 135, 735, 455, 125},
+        { 1335, 735,455, 125},
     };
     int i = 0;
-        if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), answers[0]))
-        {
-                i= 2;         
-        }
-        if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), answers[1]))
-        {
-            i = 2;
-        }
-        if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), answers[2]))
-        {
-            i = 2;
-        }
-        if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), answers[3]))
-        {
-            i = 2;
-        }
-        if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), answers[optionIndex]))
-        {
-            i = 1;
-        }
-        return i;
+    if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), answers[0]))
+    {
+        i = 2;
+    }
+    if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), answers[1]))
+    {
+        i = 2;
+    }
+    if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), answers[2]))
+    {
+        i = 2;
+    }
+    if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), answers[3]))
+    {
+        i = 2;
+    }
+    if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), answers[optionIndex]))
+    {
+        i = 1;
+    }
+    return i;
 }
 
 int gradeSystem(int score)
@@ -187,14 +187,14 @@ void mathsExam()
     int selectedOption = -1;
     bool answered = false;
     int score = 0;
-        EnableCursor();
-        bool correctOption = false;
+    EnableCursor();
+    bool correctOption = false;
     // Main game loop
     while (!WindowShouldClose()) {
         // Update
-        if(answered == 0) 
+        if (answered == 0)
         {
-                // If the selected option is correct, increment the score
+            // If the selected option is correct, increment the score
             if (CheckMouseClickOnOption(questions[currentQuestion].correctOption, GetMouseY()) == 1) {
 
                 score++;
@@ -202,27 +202,27 @@ void mathsExam()
                 count++;
                 correctOption = true;
             }
-            else if(CheckMouseClickOnOption(questions[currentQuestion].correctOption, GetMouseY()) == 2)
+            else if (CheckMouseClickOnOption(questions[currentQuestion].correctOption, GetMouseY()) == 2)
             {
                 answered = true; // Mark the question as answered
                 count++;
             }
         }
-            
-        
+
+
 
         // Draw
         BeginDrawing();
         ClearBackground(RAYWHITE); // Clear the screen
         DrawTexture(background, 0, 0, WHITE);
-        
+
         // Display the current question
         DrawText(questions[currentQuestion].question.c_str(), 600, 200, 30, BLACK);
 
         // Display the options for the current question
         int questionNumer = 0;
         for (int i = 0; i < 2; i++) {
-            for(int j=0; j<2;j++)
+            for (int j = 0; j < 2; j++)
             {
                 DrawText(questions[currentQuestion].options[questionNumer].c_str(), 200 + (1200 * j), 600 + 200 * i, 30, BLACK);
                 questionNumer++;
@@ -270,7 +270,7 @@ void mathsExaminationAlert()
 
     const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
     const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
-        EnableCursor();
+    EnableCursor();
 
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
@@ -296,7 +296,7 @@ void mathsExaminationAlert()
             if (IsKeyPressed(KEY_M))
             {
                 initMap(character);
-                
+
             }
         }
 
@@ -310,33 +310,33 @@ void englishExam()
     Texture2D background = LoadTexture("textures/englishExam.png");
     Question questions[MAXQUESTIONS] = {
        {"Molly used to ... watching cartoons when she was young.",
-        {"a) loving", 
-        "b) loved", 
-        "c) love", 
+        {"a) loving",
+        "b) loved",
+        "c) love",
         "d) have love"},
         2},
        {"First, he had dinner, then he ... the newspaper",
-        {"a) read", 
+        {"a) read",
         "b) was reading",
-        "c) had read", 
+        "c) had read",
         "d) is reading"},
         0},
        {"The Rossens ... abroad for fiteen years before they moved back to England.",
-        {"a) lived", 
-        "b) have lived", 
-        "c) were living", 
+        {"a) lived",
+        "b) have lived",
+        "c) were living",
         "d) to live"},
         0},
        {"Peter was listening to his favourite CD when Paul ...",
         {"a) came in",
-        "b) was coming it", 
-        "c) had come in", 
+        "b) was coming it",
+        "c) had come in",
         "d) came out"},
         0},
        {"You ... chew gum in class.",
-        {"a)must ", 
+        {"a)must ",
         "b) mustn't ",
-        "c) needen't ", 
+        "c) needen't ",
         "d) need "},
         1},
        {"I think History is less interesting ... Geography.",
@@ -437,7 +437,7 @@ void englishExam()
     int selectedOption = -1;
     bool answered = false;
     int score = 0;
-        EnableCursor();
+    EnableCursor();
 
     // Main game loop
     while (!WindowShouldClose()) {
@@ -522,7 +522,7 @@ void englishExaminationAlert() {
 
     const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
     const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
-        EnableCursor();
+    EnableCursor();
 
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
@@ -544,7 +544,7 @@ void englishExaminationAlert() {
         DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
         DrawText("Start", GetScreenWidth() / 2 + 110, GetScreenHeight() / 2 + 5, 40, WHITE);
         // Handle click with the mouse over button
-        if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) 
+        if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
         {
             englishExam();
 
@@ -773,11 +773,11 @@ void historyExaminationAlert() {
 
     const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
     const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
-EnableCursor();
+    EnableCursor();
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
     {
-        
+
         Vector2 mousePosition = GetMousePosition();
         BeginDrawing();
         ClearBackground(RAYWHITE);
@@ -787,7 +787,7 @@ EnableCursor();
         DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-            historyTextBook(camera,1);
+            historyTextBook(camera, 1);
         }
         bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
         // Set new colors for hovering the button and draw text
@@ -1020,7 +1020,7 @@ void literatureExaminationAlert() {
 
     const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
     const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
-		EnableCursor();
+    EnableCursor();
 
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
@@ -1269,7 +1269,7 @@ void biologyExaminationAlert() {
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
     {
-		
+
         Vector2 mousePosition = GetMousePosition();
         BeginDrawing();
         ClearBackground(RAYWHITE);
@@ -1279,7 +1279,7 @@ void biologyExaminationAlert() {
         DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-            bioTextBook(camera,1);
+            bioTextBook(camera, 1);
         }
         bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
         // Set new colors for hovering the button and draw text
@@ -1513,7 +1513,7 @@ void geographyExaminationAlert() {
 
     const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
     const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
-		EnableCursor();
+    EnableCursor();
 
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
@@ -1527,7 +1527,7 @@ void geographyExaminationAlert() {
         DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-            geographyTextBook(camera,1);
+            geographyTextBook(camera, 1);
         }
         bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
         // Set new colors for hovering the button and draw text
@@ -1759,7 +1759,7 @@ void programmingExaminationAlert() {
 
     const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
     const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
-        EnableCursor();
+    EnableCursor();
 
     int character = GetRandomValue(1, 2);
     while (!WindowShouldClose())
@@ -1794,128 +1794,128 @@ void chemistryExam()
 {
     Texture2D background = LoadTexture("textures/chemistryExam.png");
 
-	Question questions[MAXQUESTIONS] = {
-	   {"What is the chemical symbol for water?",
-		{"a) Wa",
-		"b)  H2O",
-		"c) Hy",
-		"d) O2"},
-		1},
-	   {"Which element is essential for organic life and is the main component of organic molecules?",
-		{"a) Carbon",
-		"b) Oxygen",
-		"c) Hydrogen",
-		"d) Nitrogen"},
-		0},
-	   {"What is the smallest unit of an element that retains its chemical properties?",
-		{"a) Atom ",
-		"b) Molecule ",
-		"c) Compound ",
-		"d) Ion "},
-		0},
-	   {"What is the chemical symbol for iron?",
-		{"a) Ir ",
-		"b) Fe",
-		"c) Io ",
-		"d) In "},
-		1},
-	   {"What is the process by which a solid changes directly into a gas without passing through the liquid state?",
-		{"a) Condensation",
-		"b) Condensation",
-		"c) Evaporation",
-		"d) Melting"},
-		1},
-	   {"What is the chemical formula for carbon dioxide?",
-		{"a) CO2",
-		 "b) CO",
-		 "c) O2",
-		 "d) C2O"},
-		0},
-	   {"Which of the following is a noble gas?",
-		{"a) Helium",
-		 "b) Neon",
-		 "c) Argon",
-		 "d) All of the above "},
-		3},
-	   {"What is the pH value of pure water at room temperature?",
-		{"a) 0",
-		 "b) 7 ",
-		 "c) 14 ",
-		 "d) 10"},
-		1},
-	   {"Which subatomic particle has a positive charge?",
-		{"a) Proton ",
-		 "b) Neutron ",
-		 "c) Electron",
-		 "d) Ion"},
-		0},
-	   {"What is the process by which a liquid changes into a gas at temperatures below its boiling point?",
-		{"a) Evaporation",
-		 "b) Condensation",
-		 "c) Sublimation",
-		 "d) Vaporization"},
-		0},
-		{"What is the chemical symbol for gold?",
-		{"a) Go ",
-		 "b) Au",
-		 "c) Ag ",
-		 "d) Gd"},
-		1},
-		{"What is the chemical formula for table salt?",
-		{"a) NaCl ",
-		 "b) H2O ",
-		 "c) CO2",
-		 "d) CaCO3 "},
-		0},
-		{"Which of the following is a greenhouse gas?",
-		{"a) Oxygen",
-		 "b) Carbon dioxide ",
-		 "c) Nitrogen ",
-		 "d) Hydrogen"},
-		1},
-		{"What is the atomic number of oxygen?",
-		{"a) 8",
-		 "b) 1",
-		 "c) 16 ",
-		 "d) 32"},
-		0},
-		{"What is the chemical formula for methane? ",
-		{"a) CH4",
-		 "b) CO2",
-		 "c) H2O",
-		 "d) NH3"},
-		0},
-		{"Which of the following is a halogen?",
-		{"a)Chlorine",
-		 "b) Sodium",
-		 "c)Calcium ",
-		 "d)Potassium"},
-		0},
-		{"What is the chemical formula for sulfuric acid? ",
-		{"a) H2SO3 ",
-		 "b) H2SO4 ",
-		 "c) HCl ",
-		 "d) HNO3"},
-		1},
-		{"What is the chemical symbol for lead?",
-		{"a)Ld ",
-		 "b)Pb ",
-		 "c)Pd ",
-		 "d)Pt "},
-		1},
-		{"Which subatomic particle has a neutral charge?",
-		{"a)Neutron  ",
-		 "b)Proton ",
-		 "c)Electron ",
-		 "d)Ion"},
-		0},
-		{"What is the chemical formula for hydrogen peroxide? ",
-		{"a)H2O ",
-		 "b)HO ",
-		 "c)H2O2 ",
-		 "d)H3O+"},
-		1},
-	};
+    Question questions[MAXQUESTIONS] = {
+       {"What is the chemical symbol for water?",
+        {"a) Wa",
+        "b)  H2O",
+        "c) Hy",
+        "d) O2"},
+        1},
+       {"Which element is essential for organic life and is the main component of organic molecules?",
+        {"a) Carbon",
+        "b) Oxygen",
+        "c) Hydrogen",
+        "d) Nitrogen"},
+        0},
+       {"What is the smallest unit of an element that retains its chemical properties?",
+        {"a) Atom ",
+        "b) Molecule ",
+        "c) Compound ",
+        "d) Ion "},
+        0},
+       {"What is the chemical symbol for iron?",
+        {"a) Ir ",
+        "b) Fe",
+        "c) Io ",
+        "d) In "},
+        1},
+       {"What is the process by which a solid changes directly into a gas without passing through the liquid state?",
+        {"a) Condensation",
+        "b) Condensation",
+        "c) Evaporation",
+        "d) Melting"},
+        1},
+       {"What is the chemical formula for carbon dioxide?",
+        {"a) CO2",
+         "b) CO",
+         "c) O2",
+         "d) C2O"},
+        0},
+       {"Which of the following is a noble gas?",
+        {"a) Helium",
+         "b) Neon",
+         "c) Argon",
+         "d) All of the above "},
+        3},
+       {"What is the pH value of pure water at room temperature?",
+        {"a) 0",
+         "b) 7 ",
+         "c) 14 ",
+         "d) 10"},
+        1},
+       {"Which subatomic particle has a positive charge?",
+        {"a) Proton ",
+         "b) Neutron ",
+         "c) Electron",
+         "d) Ion"},
+        0},
+       {"What is the process by which a liquid changes into a gas at temperatures below its boiling point?",
+        {"a) Evaporation",
+         "b) Condensation",
+         "c) Sublimation",
+         "d) Vaporization"},
+        0},
+        {"What is the chemical symbol for gold?",
+        {"a) Go ",
+         "b) Au",
+         "c) Ag ",
+         "d) Gd"},
+        1},
+        {"What is the chemical formula for table salt?",
+        {"a) NaCl ",
+         "b) H2O ",
+         "c) CO2",
+         "d) CaCO3 "},
+        0},
+        {"Which of the following is a greenhouse gas?",
+        {"a) Oxygen",
+         "b) Carbon dioxide ",
+         "c) Nitrogen ",
+         "d) Hydrogen"},
+        1},
+        {"What is the atomic number of oxygen?",
+        {"a) 8",
+         "b) 1",
+         "c) 16 ",
+         "d) 32"},
+        0},
+        {"What is the chemical formula for methane? ",
+        {"a) CH4",
+         "b) CO2",
+         "c) H2O",
+         "d) NH3"},
+        0},
+        {"Which of the following is a halogen?",
+        {"a)Chlorine",
+         "b) Sodium",
+         "c)Calcium ",
+         "d)Potassium"},
+        0},
+        {"What is the chemical formula for sulfuric acid? ",
+        {"a) H2SO3 ",
+         "b) H2SO4 ",
+         "c) HCl ",
+         "d) HNO3"},
+        1},
+        {"What is the chemical symbol for lead?",
+        {"a)Ld ",
+         "b)Pb ",
+         "c)Pd ",
+         "d)Pt "},
+        1},
+        {"Which subatomic particle has a neutral charge?",
+        {"a)Neutron  ",
+         "b)Proton ",
+         "c)Electron ",
+         "d)Ion"},
+        0},
+        {"What is the chemical formula for hydrogen peroxide? ",
+        {"a)H2O ",
+         "b)HO ",
+         "c)H2O2 ",
+         "d)H3O+"},
+        1},
+    };
 
 
     int count = 1;
@@ -1987,53 +1987,53 @@ void chemistryExam()
             selectedOption = -1; // Reset selected option
             answered = false; // Reset answered flag
         }
-		if (count >= 10)
-		{
-			string subject = "chemistry";
-			DataAccess accessData;
-			int grade = gradeSystem(score);
-			accessData.addGrade(subject, to_string(grade));
-			geography();
-			break;
-		}
-		SetExitKey(KEY_APOSTROPHE);
-	}
+        if (count >= 10)
+        {
+            string subject = "chemistry";
+            DataAccess accessData;
+            int grade = gradeSystem(score);
+            accessData.addGrade(subject, to_string(grade));
+            geography();
+            break;
+        }
+        SetExitKey(KEY_APOSTROPHE);
+    }
 
 }
 
 void chemistryExaminationAlert() {
-	Camera camera = { 0 };
+    Camera camera = { 0 };
 
-	const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
-	const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
-EnableCursor();
-	int character = GetRandomValue(1, 2);
-	while (!WindowShouldClose())
-	{
-        
-		Vector2 mousePosition = GetMousePosition();
-		BeginDrawing();
-		ClearBackground(RAYWHITE);
-		bool isMouseOverButtonRevise = CheckCollisionPointRec(mousePosition, reviseButton);
-		// Set new colors for hovering the button and draw text
-		DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? SKYBLUE : BLUE));
-		DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
-		// Handle click with the mouse over button
-		if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-			chemistryTextBook(camera, 1);
-		}
-		bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
-		// Set new colors for hovering the button and draw text
-		DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
-		DrawText("Start", GetScreenWidth() / 2 + 110, GetScreenHeight() / 2 + 5, 40, WHITE);
-		// Handle click with the mouse over button
-		if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
-		{
-			chemistryExam();
-		}
+    const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
+    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
+    EnableCursor();
+    int character = GetRandomValue(1, 2);
+    while (!WindowShouldClose())
+    {
 
-		EndDrawing();
-	}
+        Vector2 mousePosition = GetMousePosition();
+        BeginDrawing();
+        ClearBackground(RAYWHITE);
+        bool isMouseOverButtonRevise = CheckCollisionPointRec(mousePosition, reviseButton);
+        // Set new colors for hovering the button and draw text
+        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? SKYBLUE : BLUE));
+        DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        // Handle click with the mouse over button
+        if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+            chemistryTextBook(camera, 1);
+        }
+        bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
+        // Set new colors for hovering the button and draw text
+        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
+        DrawText("Start", GetScreenWidth() / 2 + 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        // Handle click with the mouse over button
+        if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+        {
+            chemistryExam();
+        }
+
+        EndDrawing();
+    }
 
 }
 
@@ -2042,128 +2042,128 @@ void physicsExam()
 {
     Texture2D background = LoadTexture("textures/physicsExam.png");
 
-	Question questions[MAXQUESTIONS] = {
-	   {"What is the SI unit of force?",
-		{"a) Joule",
-		"b)  Newton",
-		"c) Watt",
-		"d) Kilogram"},
-		1},
-	   {"What is the acceleration due to gravity on Earth's surface (approximately)?",
-		{"a) 10 m/s^2",
-		"b) 9.8 m/s^2 ",
-		"c) 5 m/s^2",
-		"d) 20 m/s^2"},
-		1},
-	   {"Which law of motion states that an object at rest will remain at rest, and an object in motion will remain in motion unless acted upon by an external force?",
-		{"a) Newton's First Law of Motion ",
-		"b) Newton's Second Law of Motion ",
-		"c) Newton's Third Law of Motion ",
-		"d) Law of Universal Gravitation "},
-		0},
-	   {"What is the formula for calculating kinetic energy?",
-		{"a) KE = mv ",
-		"b) KE = 1/2mv^2 ",
-		"c) KE = mgh ",
-		"d) KE = Fd "},
-		1},
-	   {"Which of the following is a unit of power?",
-		{"a) Joule",
-		"b) Watt ",
-		"c) Newton",
-		"d) Kilogram-meter"},
-		1},
-	   {"What is the relationship between force, mass, and acceleration as described by Newton's Second Law of Motion?",
-		{"a) Force = mass × acceleration",
-		 "b) Force = mass ÷ acceleration",
-		 "c) Force = acceleration ÷ mass",
-		 "d) Force = mass + acceleration"},
-		0},
-	   {"What is the law that states that the total energy of an isolated system remains constant over time, even though energy within the system can change forms?",
-		{"a) Law of Conservation of Momentum",
-		 "b) Law of Conservation of Mass",
-		 "c) Law of Conservation of Energy",
-		 "d) Law of Universal Gravitation "},
-		2},
-	   {"What is the formula for calculating gravitational potential energy near the Earth's surface?",
-		{"a) PE = mgh ",
-		 "b) PE = 1/2mv^2 ",
-		 "c) PE = Fd ",
-		 "d) PE = KE × mg"},
-		0},
-	   {"Which of the following is a unit of electric charge?",
-		{"a) Coulomb ",
-		 "b) Volt ",
-		 "c) Ohm",
-		 "d) Ampere"},
-		0},
-	   {"What is the speed of light in a vacuum (approximately)?",
-		{"a) 300,000 m/s",
-		 "b) 100,000 m/s",
-		 "c) 3 × 10^8 m/s",
-		 "d) 30,000 m/s"},
-		2},
-		{"Which law of thermodynamics states that energy cannot be created or destroyed, only transformed from one form to another?",
-		{"a) First Law of Thermodynamics ",
-		 "b) Second Law of Thermodynamics",
-		 "c) Third Law of Thermodynamics ",
-		 "d) Zeroth Law of Thermodynamics"},
-		0},
-		{"What is the formula for calculating work done by a constant force on an object?",
-		{"a) Work = force × distance ",
-		 "b) Work = force ÷ distance ",
-		 "c) Work = mass × acceleration",
-		 "d) Work = energy × time "},
-		0},
-		{"What is the SI unit of electric current?",
-		{"a) Volt",
-		 "b) Ampere ",
-		 "c) Coulomb ",
-		 "d) Ohm"},
-		1},
-		{"What is the law that states that for every action, there is an equal and opposite reaction?",
-		{"a) Newton's First Law of Motion",
-		 "b) Newton's Second Law of Motion",
-		 "c) Newton's Third Law of Motion ",
-		 "d) Law of Universal Gravitation "},
-		2},
-		{"What is the formula for calculating the frequency of a wave? ",
-		{"a) f = v/λ",
-		 "b) f = λ/v ",
-		 "c) f = v × λ",
-		 "d) f = v - λ"},
-		1},
-		{"What is the principle that states that the total electric charge within a closed system is constant over time?",
-		{"a) Law of Conservation of Charge",
-		 "b) Coulomb's Law",
-		 "c) Ohm's Law",
-		 "d) Kirchhoff's Law"},
-		0},
-		{"Which of the following is a unit of electric potential difference? ",
-		{"a) Ampere ",
-		 "b) Volt ",
-		 "c) Ohm ",
-		 "d) Coulomb "},
-		1},
-		{"What is the formula for calculating the period of a wave?",
-		{"a) T = f × λ ",
-		 "b) T = 1/f ",
-		 "c) T = f/λ ",
-		 "d) T = λ/f "},
-		1},
-		{"What is the SI unit of pressure?",
-		{"a)Pascal  ",
-		 "b)Newton ",
-		 "c)Joule ",
-		 "d)Ohm "},
-		0},
-		{"What is the law that states that the pressure of a given mass of gas is inversely proportional to its volume at constant temperature? ",
-		{"a)Boyle's Law ",
-		 "b)Charles's Law ",
-		 "c)H2O2 ",
-		 "d)H3O+"},
-		1},
-	};
+    Question questions[MAXQUESTIONS] = {
+       {"What is the SI unit of force?",
+        {"a) Joule",
+        "b)  Newton",
+        "c) Watt",
+        "d) Kilogram"},
+        1},
+       {"What is the acceleration due to gravity on Earth's surface (approximately)?",
+        {"a) 10 m/s^2",
+        "b) 9.8 m/s^2 ",
+        "c) 5 m/s^2",
+        "d) 20 m/s^2"},
+        1},
+       {"Which law of motion states that an object at rest will remain at rest, and an object in motion will remain in motion unless acted upon by an external force?",
+        {"a) Newton's First Law of Motion ",
+        "b) Newton's Second Law of Motion ",
+        "c) Newton's Third Law of Motion ",
+        "d) Law of Universal Gravitation "},
+        0},
+       {"What is the formula for calculating kinetic energy?",
+        {"a) KE = mv ",
+        "b) KE = 1/2mv^2 ",
+        "c) KE = mgh ",
+        "d) KE = Fd "},
+        1},
+       {"Which of the following is a unit of power?",
+        {"a) Joule",
+        "b) Watt ",
+        "c) Newton",
+        "d) Kilogram-meter"},
+        1},
+       {"What is the relationship between force, mass, and acceleration as described by Newton's Second Law of Motion?",
+        {"a) Force = mass × acceleration",
+         "b) Force = mass ÷ acceleration",
+         "c) Force = acceleration ÷ mass",
+         "d) Force = mass + acceleration"},
+        0},
+       {"What is the law that states that the total energy of an isolated system remains constant over time, even though energy within the system can change forms?",
+        {"a) Law of Conservation of Momentum",
+         "b) Law of Conservation of Mass",
+         "c) Law of Conservation of Energy",
+         "d) Law of Universal Gravitation "},
+        2},
+       {"What is the formula for calculating gravitational potential energy near the Earth's surface?",
+        {"a) PE = mgh ",
+         "b) PE = 1/2mv^2 ",
+         "c) PE = Fd ",
+         "d) PE = KE × mg"},
+        0},
+       {"Which of the following is a unit of electric charge?",
+        {"a) Coulomb ",
+         "b) Volt ",
+         "c) Ohm",
+         "d) Ampere"},
+        0},
+       {"What is the speed of light in a vacuum (approximately)?",
+        {"a) 300,000 m/s",
+         "b) 100,000 m/s",
+         "c) 3 × 10^8 m/s",
+         "d) 30,000 m/s"},
+        2},
+        {"Which law of thermodynamics states that energy cannot be created or destroyed, only transformed from one form to another?",
+        {"a) First Law of Thermodynamics ",
+         "b) Second Law of Thermodynamics",
+         "c) Third Law of Thermodynamics ",
+         "d) Zeroth Law of Thermodynamics"},
+        0},
+        {"What is the formula for calculating work done by a constant force on an object?",
+        {"a) Work = force × distance ",
+         "b) Work = force ÷ distance ",
+         "c) Work = mass × acceleration",
+         "d) Work = energy × time "},
+        0},
+        {"What is the SI unit of electric current?",
+        {"a) Volt",
+         "b) Ampere ",
+         "c) Coulomb ",
+         "d) Ohm"},
+        1},
+        {"What is the law that states that for every action, there is an equal and opposite reaction?",
+        {"a) Newton's First Law of Motion",
+         "b) Newton's Second Law of Motion",
+         "c) Newton's Third Law of Motion ",
+         "d) Law of Universal Gravitation "},
+        2},
+        {"What is the formula for calculating the frequency of a wave? ",
+        {"a) f = v/λ",
+         "b) f = λ/v ",
+         "c) f = v × λ",
+         "d) f = v - λ"},
+        1},
+        {"What is the principle that states that the total electric charge within a closed system is constant over time?",
+        {"a) Law of Conservation of Charge",
+         "b) Coulomb's Law",
+         "c) Ohm's Law",
+         "d) Kirchhoff's Law"},
+        0},
+        {"Which of the following is a unit of electric potential difference? ",
+        {"a) Ampere ",
+         "b) Volt ",
+         "c) Ohm ",
+         "d) Coulomb "},
+        1},
+        {"What is the formula for calculating the period of a wave?",
+        {"a) T = f × λ ",
+         "b) T = 1/f ",
+         "c) T = f/λ ",
+         "d) T = λ/f "},
+        1},
+        {"What is the SI unit of pressure?",
+        {"a)Pascal  ",
+         "b)Newton ",
+         "c)Joule ",
+         "d)Ohm "},
+        0},
+        {"What is the law that states that the pressure of a given mass of gas is inversely proportional to its volume at constant temperature? ",
+        {"a)Boyle's Law ",
+         "b)Charles's Law ",
+         "c)H2O2 ",
+         "d)H3O+"},
+        1},
+    };
 
     int count = 1;
     int currentQuestion = GetRandomValue(0, 9);
@@ -2233,52 +2233,52 @@ void physicsExam()
             selectedOption = -1; // Reset selected option
             answered = false; // Reset answered flag
         }
-		if (count >= 10)
-		{
-			string subject = "physics";
-			DataAccess accessData;
-			int grade = gradeSystem(score);
-			accessData.addGrade(subject, to_string(grade));
-			geography();
-			break;
-		}
-		SetExitKey(KEY_APOSTROPHE);
-	}
+        if (count >= 10)
+        {
+            string subject = "physics";
+            DataAccess accessData;
+            int grade = gradeSystem(score);
+            accessData.addGrade(subject, to_string(grade));
+            geography();
+            break;
+        }
+        SetExitKey(KEY_APOSTROPHE);
+    }
 
 }
 
 void physicsExaminationAlert() {
-	Camera camera = { 0 };
+    Camera camera = { 0 };
 
-	const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
-	const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
-	EnableCursor();
-	int character = GetRandomValue(1, 2);
-	while (!WindowShouldClose())
-	{
+    const Rectangle reviseButton = { GetScreenWidth() / 2 - 100, GetScreenHeight() / 2, 140, 80 };
+    const Rectangle goToExamButton = { GetScreenWidth() / 2 + 100, GetScreenHeight() / 2, 140, 80 };
+    EnableCursor();
+    int character = GetRandomValue(1, 2);
+    while (!WindowShouldClose())
+    {
 
-		Vector2 mousePosition = GetMousePosition();
-		BeginDrawing();
-		ClearBackground(RAYWHITE);
-		bool isMouseOverButtonRevise = CheckCollisionPointRec(mousePosition, reviseButton);
-		// Set new colors for hovering the button and draw text
-		DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? SKYBLUE : BLUE));
-		DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
-		// Handle click with the mouse over button
-		if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-			physicsTextBook(camera, 1);
-		}
-		bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
-		// Set new colors for hovering the button and draw text
-		DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
-		DrawText("Start", GetScreenWidth() / 2 + 110, GetScreenHeight() / 2 + 5, 40, WHITE);
-		// Handle click with the mouse over button
-		if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
-		{
-			physicsExam();
-		}
+        Vector2 mousePosition = GetMousePosition();
+        BeginDrawing();
+        ClearBackground(RAYWHITE);
+        bool isMouseOverButtonRevise = CheckCollisionPointRec(mousePosition, reviseButton);
+        // Set new colors for hovering the button and draw text
+        DrawRectangleRec(reviseButton, (isMouseOverButtonRevise ? SKYBLUE : BLUE));
+        DrawText("Revise", GetScreenWidth() / 2 - 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        // Handle click with the mouse over button
+        if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+            physicsTextBook(camera, 1);
+        }
+        bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
+        // Set new colors for hovering the button and draw text
+        DrawRectangleRec(goToExamButton, (isMouseOverButtonStart ? SKYBLUE : BLUE));
+        DrawText("Start", GetScreenWidth() / 2 + 110, GetScreenHeight() / 2 + 5, 40, WHITE);
+        // Handle click with the mouse over button
+        if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+        {
+            physicsExam();
+        }
 
-		EndDrawing();
-	}
+        EndDrawing();
+    }
 
 }

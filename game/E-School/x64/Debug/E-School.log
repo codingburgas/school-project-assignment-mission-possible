@@ -1,8 +1,1 @@
-﻿  map.cpp
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\games.h(50,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\games.h(64,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\games.h(104,1): warning C4305: '*=': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\E-School\games.h(110,1): warning C4305: '*=': truncation from 'double' to 'float'
-  E-School.vcxproj -> C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\x64\Debug\E-School.exe
-  'pwsh.exe' is not recognized as an internal or external command,
-  operable program or batch file.
+﻿  E-School.vcxproj -> C:\Users\HP\Desktop\finalna\school-project-assignment-mission-possible\game\x64\Debug\E-School.exe

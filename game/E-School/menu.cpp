@@ -2,20 +2,22 @@
 #include "map.h"
 #include "rules.h"
 #include "characterSelect.h"
+#include "gradeBook.h"
 void menu()
 {
 	SetMouseCursor(MOUSE_CURSOR_DEFAULT);
 	const int screenWidth = 1920;
 	const int screenHeight = 975;
 
-	int character = 1;
+	int character = 2;
 	Texture2D studentFront = LoadTexture("Textures/studentFrontMenu.png");
 	Texture2D studentGirl = LoadTexture("Textures/girlSprite.png");
 	const Rectangle girlPos = { 80,160,60,80 };
 
-	const Rectangle startButton = { (screenWidth / 2) - 330, (screenHeight / 2) + 50, 200, 50 };
-	const Rectangle rulesButton = { (screenWidth / 2) - 60, (screenHeight / 2) + 50, 200, 50 };
-	const Rectangle exitButton = { (screenWidth / 2) + 230, (screenHeight / 2) + 50, 200, 50 };
+	const Rectangle startButton = { (screenWidth / 2) - 400, (screenHeight / 2) + 50, 200, 50 };
+	const Rectangle rulesButton = { (screenWidth / 2) - 170, (screenHeight / 2) + 50, 200, 50 };
+	const Rectangle exitButton = { (screenWidth / 2) + 60, (screenHeight / 2) + 50, 200, 50 };
+	const Rectangle gradesButton = { (screenWidth / 2) + 290, (screenHeight / 2) + 50, 200, 50 };
 
 	const  Vector2 screenPos[2] = {
 		{(screenWidth / 2) - 340, (screenHeight / 2) - 30 },
@@ -174,7 +176,7 @@ void menu()
 			// Set new colors for hovering the button and draw text
 
 			DrawRectangleRounded(startButton, 10, 10, (isMouseOverButtonStart ? PINK : LIGHTGRAY));
-			DrawText("Start", (screenWidth / 2) - 260, (screenHeight / 2) + 62, 25, WHITE);
+			DrawText("Start", (screenWidth / 2) - 335, (screenHeight / 2) + 62, 25, WHITE);
 			if (isMouseOverButtonStart && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
 				showParticle = 1;
 			}
@@ -183,7 +185,7 @@ void menu()
 			bool isMouseOverButtonRules = CheckCollisionPointRec(mousePosition, rulesButton);
 			// Set new colors for hovering the button and draw 
 			DrawRectangleRounded(rulesButton, 10, 10, (isMouseOverButtonRules ? PINK : LIGHTGRAY));
-			DrawText("Rules", screenWidth / 2 + 5, screenHeight / 2 + 62, 25, WHITE);
+			DrawText("Rules", screenWidth / 2 - 100, screenHeight / 2 + 62, 25, WHITE);
 			// Handle click with the mouse over button
 			if (isMouseOverButtonRules && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
 				rules();
@@ -193,9 +195,18 @@ void menu()
 			bool isMouseOverButtonExit = CheckCollisionPointRec(mousePosition, exitButton);
 			// Set new colors for hovering the button and draw text
 			DrawRectangleRounded(exitButton, 10, 10, (isMouseOverButtonExit ? PINK : LIGHTGRAY));
-			DrawText("Exit", screenWidth / 2 + 310, screenHeight / 2 + 62, 25, WHITE);
+			DrawText("Grades", screenWidth / 2 + 120, screenHeight / 2 + 62, 25, WHITE);
 			// Handle click with the mouse over button
 			if (isMouseOverButtonExit && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+				gradeBook();
+			}
+			// Check if mouse is hovering the specific button
+			bool isMouseOverButtonGrades = CheckCollisionPointRec(mousePosition, gradesButton);
+			// Set new colors for hovering the button and draw text
+			DrawRectangleRounded(gradesButton, 10, 10, (isMouseOverButtonGrades ? PINK : LIGHTGRAY));
+			DrawText("Exit", screenWidth / 2 + 365, screenHeight / 2 + 62, 25, WHITE);
+			// Handle click with the mouse over button
+			if (isMouseOverButtonGrades && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
 				CloseWindow();
 			}
 		}
@@ -270,7 +281,7 @@ void menu()
 			select();
 		}
 		EndDrawing();
-		
+
 	}
 	SetExitKey(KEY_APOSTROPHE);
 	EnableCursor();
