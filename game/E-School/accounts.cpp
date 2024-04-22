@@ -124,7 +124,7 @@ void signup()
                     validator.containsDigit(password) && validator.containsSpecial(password)) {
                     account.addAccount(username, password);
                     account.addAccountInGradeBook(username, password);
-                    strcpy_s(currentUser,username);
+                    strcpy_s(currentUser, username);
                     menu();
                 }
                 else {
@@ -328,4 +328,3 @@ void startingScreen()
         EndDrawing();
     }
 }
-
