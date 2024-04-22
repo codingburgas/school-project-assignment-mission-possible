@@ -2,7 +2,6 @@
 <p align = "center">
 <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/codingburgas/school-project-assignment-mission-possible?style=flat-square">
   <img alt="GitHub contributors" src="https://img.shields.io/github/repo-size/codingburgas/school-project-assignment-mission-possible?style=flat-square">
-  <img alt="GitHub contributors" src="https://img.shields.io/github/last-commit/codingburgas/school-project-assignment-mission-possible?style=flat-square">
 <img src="https://img.shields.io/github/languages/count/codingburgas/school-project-assignment-mission-possible?style=flat-square">
 </p><br>
 
