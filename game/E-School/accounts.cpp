@@ -124,6 +124,7 @@ void signup()
                     validator.containsDigit(password) && validator.containsSpecial(password)) {
                     account.addAccount(username, password);
                     account.addAccountInGradeBook(username, password);
+                    strcpy_s(currentUser,username);
                     menu();
                 }
                 else {
@@ -238,6 +239,7 @@ void login() {
         if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && CheckCollisionPointRec(mousePosition, loginButton) || IsKeyPressed(KEY_ENTER)) {
             Validate validator;
             if (validator.doesAccountExist(username) && validator.isPasswordCorrect(username, password)) {
+                strcpy_s(currentUser, username);
                 menu();
             }
             else

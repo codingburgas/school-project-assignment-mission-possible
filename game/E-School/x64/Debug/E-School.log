@@ -1,46 +1,4 @@
-﻿  games.cpp
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.h(50,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.h(64,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.h(104,1): warning C4305: '*=': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.h(110,1): warning C4305: '*=': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.cpp(8,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.cpp(8,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.cpp(9,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.cpp(9,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.cpp(133,107): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.cpp(133,68): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.cpp(133,48): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.cpp(133,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.cpp(167,40): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.cpp(167,40): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.cpp(167,77): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.cpp(167,77): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.cpp(198,38): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.cpp(199,38): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  rooms.cpp
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.h(50,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.h(64,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.h(104,1): warning C4305: '*=': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\games.h(110,1): warning C4305: '*=': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\rooms.cpp(92,59): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\rooms.cpp(93,66): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\rooms.cpp(94,58): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\rooms.cpp(98,42): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\rooms.cpp(100,47): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\rooms.cpp(152,60): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\rooms.cpp(169,47): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\rooms.cpp(170,42): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\rooms.cpp(172,37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\rooms.cpp(174,51): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\rooms.cpp(179,37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\rooms.cpp(181,52): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\rooms.cpp(185,37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\rooms.cpp(187,56): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\rooms.cpp(191,37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\rooms.cpp(193,57): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\rooms.cpp(997,52): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\E-School\rooms.cpp(1116,49): warning C4305: 'argument': truncation from 'double' to 'float'
-  Generating Code...
-  E-School.vcxproj -> C:\Users\Kaloyan\Desktop\test\school-project-assignment-mission-possible\game\x64\Debug\E-School.exe
+﻿  gradeBook.cpp
+  E-School.vcxproj -> C:\Users\Kaloyan\Desktop\fh\school-project-assignment-mission-possible\game\x64\Debug\E-School.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

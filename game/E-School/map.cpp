@@ -88,6 +88,10 @@ void initMap(int character)
 		ClearBackground(WHITE);
 		DrawTexture(map, 300, 100, WHITE);
 
+		if (IsKeyPressed(KEY_G))
+		{
+			gradeBook();
+		}
 		DrawRectangleRec(subjects[0], CheckCollisionRecs(student, subjects[0]) ? SKYBLUE : BLUE);
 		DrawText("Programming", 330, 500, 30, BLACK);
 

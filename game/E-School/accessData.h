@@ -2,6 +2,8 @@
 
 #include "pch.h"
 
+extern char currentUser[25];
+
 // This class contains the methods which are used for accessing the database.
 class DataAccess {
 public:

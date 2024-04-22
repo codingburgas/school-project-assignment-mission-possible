@@ -10,4 +10,6 @@
 #include <sstream>
 #include <vector>
 #include <chrono>
+#include <cstring>
+
 using namespace std;
