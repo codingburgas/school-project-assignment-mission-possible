@@ -40,7 +40,7 @@ void select()
 	};
 
 	// Randomly select background scene
-	backgroundScene = (rand() % 3) + 1;
+	backgroundScene = (rand() % 1) + 1;
 	float i = 0;
 
 	while (!WindowShouldClose())
