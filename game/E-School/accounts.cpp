@@ -123,7 +123,6 @@ void signup()
                 if (validator.containsUppercase(password) && validator.containsLowercase(password) &&
                     validator.containsDigit(password) && validator.containsSpecial(password)) {
                     account.addAccount(username, password);
-                    account.addAccountInGradeBook(username, password);
                     strcpy_s(currentUser, username);
                     menu();
                 }

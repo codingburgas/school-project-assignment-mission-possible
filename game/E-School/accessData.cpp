@@ -11,15 +11,6 @@ void DataAccess::addAccount(const string& username, const string& password)const
     file.close();
 }
 
-void DataAccess::addAccountInGradeBook(const string& username, const string& password) const {
-    // Open the gradeBook.csv file
-    ofstream file("../data/gradeBook.csv", ios_base::app);
-    // Write username and password
-    file << username << ',' << password;
-    // Close the file
-    file.close();
-}
-
 void DataAccess::addGrade(const string& subject, const string& grade) const {
     // Open the gradeBook.csv file
     ofstream file("../data/gradeBook.csv", ios_base::app);

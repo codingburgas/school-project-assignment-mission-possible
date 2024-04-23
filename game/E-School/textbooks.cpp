@@ -14,7 +14,7 @@ void prgTextBook(Camera camera, bool examination)
 	Vector3 cubePosition = { 19.5f,0.2f,7.0f };
 	unsigned int pageNumber = 1;
 	float distance = distanceCalc(camera.position, cubePosition);
-	
+
 	Rectangle gameButton = { 600,260,300,300 };
 	Rectangle textButton = { 1000,260,300,300 };
 
@@ -31,14 +31,14 @@ void prgTextBook(Camera camera, bool examination)
 	Rectangle previous = { 50,900,100,50 };
 
 	bool timerIsZero = 0;
-	
 
-	if (distance < 3.5f && IsKeyPressed(KEY_F))
+
+	if ((distance < 3.5f && IsKeyPressed(KEY_F)) || examination == 1)
 	{
 		Texture2D bookPic = LoadTexture("textures/book.png");
 		Texture2D gamePic = LoadTexture("textures/game.png");
 		Texture2D book = LoadTexture("../images/book.png");
-	    Font font = LoadFont("textures/font.ttf");
+		Font font = LoadFont("textures/font.ttf");
 		EnableCursor();
 		EndMode3D();
 		while (!WindowShouldClose())
@@ -222,15 +222,15 @@ void englishTextBook(Camera camera, bool examination)
 	Rectangle previous = { 50,900,100,50 };
 
 	bool timerIsZero = 0;
-	
+
 
 	if ((distance < 3.5f && IsKeyPressed(KEY_F)) || examination == 1)
 	{
 		EnableCursor();
 		EndMode3D();
-        Texture2D book = LoadTexture("../images/book.png");
+		Texture2D book = LoadTexture("../images/book.png");
 
-	    Font font = LoadFont("textures/font.ttf");
+		Font font = LoadFont("textures/font.ttf");
 		while (!WindowShouldClose())
 		{
 			BeginDrawing();
@@ -322,7 +322,7 @@ void englishTextBook(Camera camera, bool examination)
 			}
 			EndMode3D();
 			// Draw timer
-			DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+			DrawText(TextFormat("%02d:%02d", minutes, seconds), 920, 40, 50, RED);
 			if (timerIsZero == 1)
 			{
 				DisableCursor();
@@ -359,14 +359,14 @@ void geographyTextBook(Camera camera, bool examination)
 	Rectangle previous = { 50,900,100,50 };
 
 	bool timerIsZero = 0;
-	
+
 
 	if ((distance < 3.5f && IsKeyPressed(KEY_F)) || examination == 1)
 	{
 		EnableCursor();
 		EndMode3D();
 		Texture2D book = LoadTexture("../images/book.png");
-	    Font font = LoadFont("textures/font.ttf");
+		Font font = LoadFont("textures/font.ttf");
 		while (!WindowShouldClose())
 		{
 			BeginDrawing();
@@ -520,7 +520,7 @@ void historyTextBook(Camera camera, bool examination)
 	Rectangle previous = { 50,900,100,50 };
 
 	bool timerIsZero = 0;
-	
+
 
 	if ((distance < 3.5f && IsKeyPressed(KEY_F)) || examination == 1)
 	{
@@ -680,7 +680,7 @@ void literatureTextBook(Camera camera, bool examination)
 	Rectangle next = { 1800,900,100,50 };
 	Rectangle previous = { 50,900,100,50 };
 
-	
+
 
 	bool timerIsZero = 0;
 
@@ -842,7 +842,7 @@ void bioTextBook(Camera camera, bool examination)
 	Rectangle next = { 1800,900,100,50 };
 	Rectangle previous = { 50,900,100,50 };
 
-	
+
 
 	bool timerIsZero = 0;
 
@@ -868,7 +868,7 @@ void bioTextBook(Camera camera, bool examination)
 			switch (pageNumber)
 			{
 			case 1:
-				DrawTextEx(font, "Biology", { 745, 100 }, 100, 1.5f, BLACK);
+				DrawTextEx(font, "Biology", { 805, 100 }, 100, 1.5f, BLACK);
 
 				DrawTextEx(font, "1. Function of Carbohydrates", { 200, 320 }, 30, 1.5f, BLACK);
 				DrawTextEx(font, "Carbohydrates primarily serve as a source of \n energy for living organisms. They are broken down \n into glucose, which is used as fuel for cellular processes.", { 255, 370 }, 23, 1.5f, BLACK);
@@ -970,11 +970,11 @@ void bioTextBook(Camera camera, bool examination)
 
 			EndMode3D();
 			// Draw timer
-			DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+			DrawText(TextFormat("%02d:%02d", minutes, seconds), 910, 40, 50, RED);
 			if (timerIsZero == 1)
 			{
 				DisableCursor();
-				literatureExaminationAlert();
+				biologyExaminationAlert();
 				break;
 			}
 			if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), previous))
@@ -1006,7 +1006,7 @@ void chemistryTextBook(Camera camera, bool examination)
 	Rectangle next = { 1800,900,100,50 };
 	Rectangle previous = { 50,900,100,50 };
 
-	
+
 
 	bool timerIsZero = 0;
 
@@ -1032,7 +1032,7 @@ void chemistryTextBook(Camera camera, bool examination)
 			switch (pageNumber)
 			{
 			case 1:
-				DrawTextEx(font, "Chemistry", { 825, 100 }, 100, 1.5f, BLACK);
+				DrawTextEx(font, "Chemistry", { 805, 100 }, 100, 1.5f, BLACK);
 
 				DrawTextEx(font, "1. Chemical Symbol for Water", { 200, 320 }, 30, 1.5f, BLACK);
 				DrawTextEx(font, "The chemical symbol for water is H2O, \n representing two hydrogen atoms bonded \n to one oxygen atom.", { 255, 370 }, 23, 1.5f, BLACK);
@@ -1133,7 +1133,7 @@ void chemistryTextBook(Camera camera, bool examination)
 			}
 			EndMode3D();
 			// Draw timer
-			DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+			DrawText(TextFormat("%02d:%02d", minutes, seconds), 910, 40, 50, RED);
 			if (timerIsZero == 1)
 			{
 				DisableCursor();
@@ -1168,7 +1168,7 @@ void physicsTextBook(Camera camera, bool examination)
 	Rectangle next = { 1800,900,100,50 };
 	Rectangle previous = { 50,900,100,50 };
 
-	
+
 
 	bool timerIsZero = 0;
 
@@ -1329,7 +1329,7 @@ void mathsTextBook(Camera camera, bool examination)
 	Rectangle next = { 1800,900,100,50 };
 	Rectangle previous = { 50,900,100,50 };
 
-	
+
 
 	bool timerIsZero = 0;
 
@@ -1350,12 +1350,12 @@ void mathsTextBook(Camera camera, bool examination)
 			DrawRectangleRec(previous, BLUE);
 			DrawRectangleRec(next, BLUE);
 
-			DrawTextEx(font, "previous", { 50, 915 }, 20, 1.5f, BLACK);
-			DrawTextEx(font, "next", { 1800, 915 }, 20, 1.5f, BLACK);
+			DrawTextEx(font, "previous", { 55, 915 }, 20, 1.5f, BLACK);
+			DrawTextEx(font, "next", { 1810, 915 }, 20, 1.5f, BLACK);
 			switch (pageNumber)
 			{
 			case 1:
-				DrawTextEx(font, "Maths", { 825, 100 }, 100, 1.5f, BLACK);
+				DrawTextEx(font, "Maths", { 805, 100 }, 100, 1.5f, BLACK);
 
 				DrawTextEx(font, "1. Operations:", { 200, 320 }, 30, 1.5f, BLACK);
 				DrawTextEx(font, "This involves basic arithmetic operations like addition, \n subtraction, multiplication, and division. Understanding \n the order of operations (PEMDAS/BODMAS) is essential \n for solving complex expressions.", { 255, 370 }, 23, 1.5f, BLACK);
@@ -1427,11 +1427,11 @@ void mathsTextBook(Camera camera, bool examination)
 
 			EndMode3D();
 			// Draw timer
-			DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+			DrawText(TextFormat("%02d:%02d", minutes, seconds), 910, 40, 50, RED);
 			if (timerIsZero == 1)
 			{
 				DisableCursor();
-				physicsExaminationAlert();
+				mathsExaminationAlert();
 				break;
 			}
 			if ((IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) && CheckCollisionPointRec(GetMousePosition(), previous))

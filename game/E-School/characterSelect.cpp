@@ -114,7 +114,6 @@ void select()
 		}
 
 		// Draw text and character images
-		DrawText("Pick your character", 780, 300, 50, BLACK);
 		DrawTextureRec(girl, girlPos[int(i)], { 1000, 425 }, WHITE);
 		DrawTextureRec(boy, boyPos[int(i)], { 700, 425 }, WHITE);
 

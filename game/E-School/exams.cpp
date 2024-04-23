@@ -286,7 +286,7 @@ void mathsExaminationAlert()
         DrawText("Revise", GetScreenWidth() / 2 - 143, GetScreenHeight() / 2 - 10, 40, WHITE);
         // Handle click with the mouse over button
         if (isMouseOverButtonRevise && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-            bioTextBook(camera, 1);
+            mathsTextBook(camera, 1);
         }
         bool isMouseOverButtonStart = CheckCollisionPointRec(mousePosition, goToExamButton);
         // Set new colors for hovering the button and draw text
@@ -298,7 +298,6 @@ void mathsExaminationAlert()
             if (IsKeyPressed(KEY_M))
             {
                 initMap(character);
-
             }
         }
 
@@ -311,7 +310,7 @@ void englishExam()
 {
     Texture2D background = LoadTexture("textures/englishExam.png");
     Question questions[MAXQUESTIONS] = {
-       {"Molly used to ... watching \ncartoons when she was young.",
+       {"Molly used to ... watching \n cartoons when she was young.",
         {"a) loving",
         "b) loved",
         "c) love",
@@ -329,7 +328,7 @@ void englishExam()
         "c) were living",
         "d) to live"},
         0},
-       {"Peter was listening to his favourite CD when Paul ...",
+       {"Peter was listening to his favourite \n CD when Paul ...",
         {"a) came in",
         "b) was coming it",
         "c) had come in",
@@ -719,8 +718,6 @@ void historyExam()
         BeginDrawing();
         ClearBackground(RAYWHITE); // Clear the screen
         DrawTexture(background, 0, 0, WHITE);
-        // Display the current question
-        DrawText(questions[currentQuestion].question.c_str(), 100, 100, 20, BLACK);
 
         // Display the options for the current question
         DrawText(questions[currentQuestion].question.c_str(), 600, 200, 30, BLACK);
@@ -1132,10 +1129,10 @@ void biologyExam()
          "d)Vitamin "},
         2},
         {"What is the role of RNA \n in protein synthesis?",
-        {"a)RNA serves as a \nstructural component\n of ribosomes.",
+        {"a)RNA serves as \n a structural \n component of \n ribosomes.",
          "b)RNA carries genetic\n information from \nDNA to the ribosome. ",
          "c)RNA acts as a messenger\n between DNA and \nthe ribosome, \nfacilitating protein synthesis ",
-         "d)RNA stores genetic information in the nucleus."},
+         "d)RNA stores genetic information \n in the nucleus."},
         2},
         {"Which nutrient is essential for \n building and repairing tissues, and \n serves as enzymes and hormones?",
         {"a)Carbohydrate",
@@ -1750,7 +1747,7 @@ void programmingExam()
             DataAccess accessData;
             int grade = gradeSystem(score);
             accessData.addGrade(subject, to_string(grade));
-            geography();
+            programming();
             break;
         }
         SetExitKey(KEY_APOSTROPHE);
@@ -1998,7 +1995,7 @@ void chemistryExam()
             DataAccess accessData;
             int grade = gradeSystem(score);
             accessData.addGrade(subject, to_string(grade));
-            geography();
+            chemistry();
             break;
         }
         SetExitKey(KEY_APOSTROPHE);
@@ -2163,7 +2160,7 @@ void physicsExam()
          "d)Ohm "},
         0},
         {"What is the law that states that the pressure \n of a given mass of gas is inversely proportional \n to its volume at constant temperature? ",
-        {"a)Boyle's \nLaw ", 
+        {"a)Boyle's \nLaw ",
          "b)Charles's \nLaw ",
          "c)H2O2 ",
          "d)H3O+"},
@@ -2244,7 +2241,7 @@ void physicsExam()
             DataAccess accessData;
             int grade = gradeSystem(score);
             accessData.addGrade(subject, to_string(grade));
-            geography();
+            physics();
             break;
         }
         SetExitKey(KEY_APOSTROPHE);
@@ -2286,3 +2283,5 @@ void physicsExaminationAlert() {
     }
 
 }
+
+

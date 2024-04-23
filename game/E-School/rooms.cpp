@@ -1191,7 +1191,7 @@ void geography()
                     timerIsZero = true;
                 }
                 minutes--;
-                seconds = 5;
+                seconds = 30;
 
             }
             else {
@@ -1200,22 +1200,21 @@ void geography()
 
             elapsedTime = 0.0f; // Reset elapsed time
         }
+
+
+        EndMode3D();
+        DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
+
+        EndMode3D();
+
         if (timerIsZero)
         {
             EnableCursor();
             geographyExaminationAlert();
         }
 
-        EndMode3D();
-        DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
-
-
-
-        EndMode3D();
-
         if (IsKeyPressed(KEY_M))
         {
-
             initMap(2);
         }
 
@@ -1306,7 +1305,7 @@ void programming()
         collisions(camera, previousCameraPosition, cameraBox, wallBox);
 
         EndMode3D();
-        prgTextBook(camera, 1);
+        prgTextBook(camera, 0);
         elapsedTime += GetFrameTime();
 
         if (elapsedTime >= updateInterval) {
@@ -1335,7 +1334,6 @@ void programming()
         DrawText(TextFormat("%02d:%02d", minutes, seconds), 930, 40, 50, RED);
         if (IsKeyPressed(KEY_M))
         {
-
             initMap(2);
         }
 
